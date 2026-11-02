@@ -1,0 +1,169 @@
+{
+  "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/",
+  "title": "זמן תרגול",
+  "learningUnitId": "methodica-math-percent-04",
+  "componentPurpose": "practice",
+  "isAssessment": false,
+  "recommendedAfterFail": [],
+  "isRequired": true,
+  "relativeDifficulty": 3,
+  "masteryLevel": null,
+  "order": 2,
+  "depthLevel": "core-curriculum-basic",
+  "cognitiveLevels": [
+    "process-thinking"
+  ],
+  "languages": [
+    "Hebrew"
+  ],
+  "skills": [],
+  "estimatedTimeInMinutes": 16,
+  "createdAt": "2026-09-30T00:00:00.000Z",
+  "updatedAt": "2026-09-30T00:00:00.000Z",
+  "subContent": [
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-001/",
+      "title": "גילוי כוכבי לכת חדשים — מציאת הכמות המקורית",
+      "informationToBot": "מטרת הפריט: תרגול סטנדרטי ראשון: מציאת השלם (הכמות המקורית) כשידועה הכמות לאחר הגדלה. מה התלמיד אמור להבין/לתרגל: שהכמות לאחר הגדלה ב-25% היא 125% מהכמות המקורית, וש-1,250 מתאים ל-125% והשלם הוא ה-100%. כיווני חשיבה ואסטרטגיות: בניית טבלת פרופורציה (מספר כוכבי לכת מול אחוז) ופתרון המשוואה 125/100 = 1,250/x. טעויות נפוצות: חישוב 25% מ-1,250 והפחתתו (1,250 - 312.5), במקום מציאת ה-100%; בחירה ב-750 או 500 מתוך ניחוש. מידע נוסף: מסך פתיחה לסט של 5 שאלות (צריך לענות נכון על 4 לפחות), מסך סיפור על שדרוג הטלסקופ ואחריו שאלת בחירה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-001/q1",
+          "questionType": "choice",
+          "questionText": "השדרוג הגדיל ב-25% את מספר כוכבי הלכת החדשים. לאחר השדרוג הגיע מספר הכוכבים החדשים שהתגלו ל-1,250. מה היה מספר כוכבי הלכת שהתגלו בשנה שלפני השדרוג הטכנולוגי?",
+          "answers": [
+            "500 כוכבי לכת",
+            "750 כוכבי לכת",
+            "1,000 כוכבי לכת",
+            "לא ניתן לדעת את המספר המקורי ללא נתונים נוספים"
+          ],
+          "correctAnswers": [
+            "1,000 כוכבי לכת"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-002/",
+      "title": "מבצע שמן זית — 50% הנחה על המוצר השני",
+      "informationToBot": "מטרת הפריט: תרגול של מבצע הנחה על חלק מהקנייה ושלושה מבטים על אותו מבצע: סכום לתשלום, סכום ההנחה ואחוז ההנחה הכולל. מה התלמיד אמור להבין/לתרגל: להבחין בין מחיר סופי, הנחה בשקלים והנחה באחוזים מכלל הקנייה. כיווני חשיבה ואסטרטגיות: חישוב 54 + 27; חישוב ההנחה כהפרש מהמחיר המלא (108 - 81); ובניית טבלת פרופורציה עם 108 ₪ כ-100% לחישוב אחוז ההנחה הכולל. טעויות נפוצות: חישוב אחוז ההנחה הכולל כ-50% (כי ההנחה היא רק על בקבוק אחד); בלבול בין סכום ההנחה לבין אחוז ההנחה. מידע נוסף: שלושה סעיפים (א: הקלדה, ב: בחירה, ג: בחירה). לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-002/q1",
+          "questionType": "numeric",
+          "questionText": "מבצע בסופרמרקט על שמן זית מתוצרת גלילית: \"50% הנחה על המוצר השני!\". מחיר כל בקבוק הוא 54 ₪. א. כמה ישלם קונה עבור שני בקבוקי שמן זית? (ש\"ח)",
+          "answers": [],
+          "correctAnswers": [
+            81
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-002/q2",
+          "questionType": "choice",
+          "questionText": "ב. כמה הנחה (בשקלים) יקבל הקונה על קנייה של 2 בקבוקי שמן זית מתוצרת גלילית?",
+          "answers": [
+            "20 ש\"ח",
+            "25 ש\"ח",
+            "27 ש\"ח",
+            "30 ש\"ח"
+          ],
+          "correctAnswers": [
+            "27 ש\"ח"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-002/q3",
+          "questionType": "choice",
+          "questionText": "ג. מהו אחוז ההנחה על כל הקנייה?",
+          "answers": [
+            "20%",
+            "25%",
+            "27%",
+            "30%"
+          ],
+          "correctAnswers": [
+            "25%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-003/",
+      "title": "מסכות לתיאטרון — הגדלה ב-20%",
+      "informationToBot": "מטרת הפריט: תרגול הגדלה באחוזים לחישוב הכמות החדשה. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-20% פירושה 120% מהכמות המקורית (70 מסכות). כיווני חשיבה ואסטרטגיות: חישוב 120% מ-70 בכפל ב-1.2 או בטבלת פרופורציה. טעויות נפוצות: חישוב 20% מ-70 בלבד (14) והצגתו ככמות החדשה. מידע נוסף: שדה הקלדה יחיד. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-003/q1",
+          "questionType": "numeric",
+          "questionText": "התלמידים הכינו 70 מסכות תיאטרון. הבמאי הודיע כי העלילה תדרוש 20% מסכות יותר ממה שהכינו. מהו מספר מסכות התיאטרון החדש שצריך להכין?",
+          "answers": [],
+          "correctAnswers": [
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-004/",
+      "title": "הקטנת תמונת רקע לדיסקורד",
+      "informationToBot": "מטרת הפריט: תרגול הקטנה באחוזים: מעבר מהאחוז שנותר לכמות. מה התלמיד אמור להבין/לתרגל: שהקטנה ב-15% משאירה 85% מהגודל המקורי, ושאת האחוז יש להפוך לכמות (85% מ-200). כיווני חשיבה ואסטרטגיות: קביעת האחוז שנותר (100% - 15%) ואז חישוב 85% מ-200 פיקסלים. טעויות נפוצות: מענה של 15% בסעיף א; חישוב 15% מ-200 (30) ככמות הסופית בסעיף ב. מידע נוסף: שני סעיפים בהקלדה (א: אחוז מהגודל שנותר, ב: הגודל החדש בפיקסלים). לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-004/q1",
+          "questionType": "numeric",
+          "questionText": "הגודל המקורי של תמונה הוא 200 פיקסלים. האפליקציה הודיעה שיש להקטין אותה ב-15%. א. איזה אחוז מהגודל המקורי נשאר לתמונה לאחר ההקטנה ב-15%? (%)",
+          "answers": [],
+          "correctAnswers": [
+            85
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-004/q2",
+          "questionType": "numeric",
+          "questionText": "ב. מהו גודל התמונה לאחר ההקטנה? (פיקסלים)",
+          "answers": [],
+          "correctAnswers": [
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-005/",
+      "title": "עוגת שוקולד — הגדלת כמות ב-60%",
+      "informationToBot": "מטרת הפריט: תרגול הגדלה באחוזים בבחירה מרשימה נפתחת. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-60% של 200 גרם מניבה 160% מהכמות המקורית. כיווני חשיבה ואסטרטגיות: חישוב 160% מ-200 או חישוב 60% מ-200 (120) והוספה ל-200. טעויות נפוצות: בחירה ב-260 (הוספת 60 גרם) או ב-300. מידע נוסף: בחירה מרשימה נפתחת של שלושה ערכים. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/methodica-math-percent-04-02-005/q1",
+          "questionType": "matching",
+          "questionText": "עמית רוצה לאפות עוגת שוקולד. המתכון המקורי דורש 200 גרם שוקולד מריר, ועליו להגדיל את הכמות ב-60%. כמה גרם שוקולד מריר יש בעוגה המוגדלת?",
+          "answers": {
+            "source": [
+              "כמות השוקולד המריר בעוגה המוגדלת (בגרם)"
+            ],
+            "target": [
+              "260",
+              "300",
+              "320"
+            ]
+          },
+          "correctAnswers": [
+            {
+              "source": "כמות השוקולד המריר בעוגה המוגדלת (בגרם)",
+              "target": "320"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

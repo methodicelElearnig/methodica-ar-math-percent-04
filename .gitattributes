@@ -1,0 +1,27 @@
+# Line endings, pinned so every clone agrees (pattern from methodica-math-ratio-02).
+#
+# Every text blob committed here is already LF (`git ls-files --eol`: 74 text files,
+# zero i/crlf) — so this renormalises nothing in the index. `eol=lf` additionally pins
+# the WORKING TREE to LF on Windows, where core.autocrlf=true would otherwise check out
+# CRLF; packages are assembled from the working tree, so this keeps them byte-identical
+# no matter whose machine built them.
+
+* text=auto eol=lf
+
+# Explicit binary, so auto-detection is never the only thing between a media file and
+# corruption.
+*.ttf   binary
+*.woff  binary
+*.woff2 binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.mp4   binary
+*.pptx  binary
+*.docx  binary
+*.pdf   binary
+
+# SVG is XML — text, not binary. "*.svg binary" would kill diffs on the illustrations.
+*.svg   text eol=lf

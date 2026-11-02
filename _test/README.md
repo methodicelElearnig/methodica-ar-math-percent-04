@@ -1,0 +1,52 @@
+# `_test/` — methodica-math-percent-04
+
+**Never deployed.** `docs-and-tools/package-allowlist.ps1` excludes this folder, including the
+library stub. The stub shares its basename with the real CDN library on purpose.
+
+## One-time setup
+
+jsdom has to live **outside OneDrive**. A sync client inside `node_modules` corrupts installs.
+
+```bat
+mkdir %TEMP%\lomda-test && cd /d %TEMP%\lomda-test && npm install jsdom
+```
+
+## Run (from the repo root)
+
+```bat
+set NODE_PATH=%TEMP%\lomda-test\node_modules
+node _test\verify-report.js          &rem structure  — ~600 assertions, includes the asset contract
+node _test\statement-flow.js         &rem behaviour  — ~110 assertions
+node _test\flow-mutations.js         &rem 13 planted defects, every one must be CAUGHT
+node _test\asset-contract.js         &rem assets only, no jsdom needed
+node _test\asset-contract-mutations.js
+```
+
+All of them exit 0 on success.
+
+## What each file guards
+
+| File | Guards |
+|---|---|
+| `verify-report.js` | Ids are byte-equal to `metadata/`. Each `SCREEN_TO_SUBCONTENT` covers exactly its component's screens. Every catalogue item has a screen, and every declared question is reported or **waived** (01-004 q3/q6/q8, decision 08.10). No question is reported twice. Script-tag order is correct, the library letter is inside the gate regex, and no identifier is declared in two layers. Storage keys agree (`UI_CHARACTER_KEY` = `CHARACTER_STORAGE_KEY`, `RESULT_KEYS` = `UNIT_SCORE_KEYS`). The flush follows the last commitment in every check function (D-13). The off-platform regression gate holds. Flags appear on every screen. The asset contract passes. |
+| `statement-flow.js` | Fresh load. The component-03 gate: fail flow, exact sequence, result, stays put, idempotent, dead button after reload (rule 12); pass flow, with 005/006 outside the denominator. Stations need all parts correct. s33/s41 report per field. The DQ retry gate (D-14). Guided steps report exactly q1/q2/q4/q5/q7. The task sends success with no score. Assessments use the declared denominator. Hints are sent once. Resume: no configuration in the document, the pending attempt is restored, no re-report, no duplicate `completed`. Repaint parity, live vs reloaded, screen by screen. Painters never throw (3 states × 7 components × every screen). |
+| `asset-contract.js` | Unit-level asset layout. Paths are case-exact; Windows hides wrong case, the CDN does not. `?v=` is on every code reference and identical across components. |
+| `xapi-720-k.js` | Local stand-in for the CDN library, loaded only with `?xapiLib=../_test/xapi-720-k.js` on localhost. It mirrors the real library's drop gate and its fire-time serialisation. Console helpers: `__stmts() __state() __dupes() __reset() __failWrites(status) __setState(doc)`. |
+| `harness.js` | Shared jsdom boot. The page's scripts run in tag order from disk, then the stub, then the loader's phase B, replayed by `finishBoot()`. |
+
+## What jsdom cannot see — check in a real browser
+
+jsdom does no layout, so every scroll-to-end latch reads as reached. It also never fetches CSS
+or media. For those, serve the **parent** folder so the unit loads from a subpath. Then walk:
+
+```
+http://localhost:<port>/methodica-math-percent-04/methodica-math-percent-04-0N/index.html?xapiLib=../_test/xapi-720-k.js
+```
+
+Check with `__stmts()`, `__state()` and `__dupes()` in the console. Reload mid-question; it must
+come back on the same screen with the same marks. Use `__reset()` between runs.
+
+## Live Kata run
+
+Only with the unit owner's go-ahead and a test learner's launch link. Follow guide §12. Never
+print the launch URL or the token.

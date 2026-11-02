@@ -1,0 +1,192 @@
+{
+  "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/",
+  "title": "זמן תרגול 2",
+  "learningUnitId": "methodica-math-percent-04",
+  "componentPurpose": "practice",
+  "isAssessment": false,
+  "recommendedAfterFail": [
+    "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-02/"
+  ],
+  "isRequired": true,
+  "relativeDifficulty": 2,
+  "masteryLevel": null,
+  "order": 3,
+  "depthLevel": "core-curriculum-basic",
+  "cognitiveLevels": [
+    "algorithmic-thinking"
+  ],
+  "languages": [
+    "Hebrew"
+  ],
+  "skills": [],
+  "estimatedTimeInMinutes": 18,
+  "createdAt": "2026-09-30T00:00:00.000Z",
+  "updatedAt": "2026-09-30T00:00:00.000Z",
+  "subContent": [
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-001/",
+      "title": "פלייליסט לשמיעה בהפסקות",
+      "informationToBot": "מטרת הפריט: תרגול בסיסי של הגדלה באחוזים מול שלם נתון. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-30% משמעה 130% מהכמות המקורית (60 דקות). כיווני חשיבה ואסטרטגיות: הוספת 30% ל-100% (\"בשפת האחוזים\") וחישוב 130% מ-60. טעויות נפוצות: בחירה ב-18 דקות (חישוב 30% בלבד) או ב-90 דקות (הוספת 30 דקות). מידע נוסף: מסך פתיחה לסט של תרגול, ואחריו שאלת בחירה עם ארבע תשובות. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-001/q1",
+          "questionType": "choice",
+          "questionText": "ליאור בנתה פלייליסט באורך כולל של 60 דקות (השלם) והחליטה להגדיל את משך הפלייליסט ב-30%. כמה דקות נמשך הפלייליסט החדש?",
+          "answers": [
+            "18 דקות",
+            "72 דקות",
+            "78 דקות",
+            "90 דקות"
+          ],
+          "correctAnswers": [
+            "78 דקות"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-002/",
+      "title": "מבצע בחנות בגדים — הנחה של 25%",
+      "informationToBot": "מטרת הפריט: תרגול בסיסי של חישוב מחיר לאחר הנחה בשלושה מחירים. מה התלמיד אמור להבין/לתרגל: שהנחה של 25% משאירה 75% מהמחיר המקורי, ושאפשר להשתמש באותה פעולה על כמה מחירים. כיווני חשיבה ואסטרטגיות: קביעת האחוז שנותר (75%) וחישוב 75% מכל מחיר. טעויות נפוצות: חישוב המחיר כמחיר פחות 25 (לא 25%); חישוב ההנחה במקום המחיר החדש. מידע נוסף: השלמת שלוש תוויות מחיר (ערכים מקוריים: 300, 120 ו-60 ש\"ח) בשלוש תיבות הקלדה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-002/q1",
+          "questionType": "fill-in",
+          "questionText": "חנות הבגדים \"סטייל\" מוכרת את כל הפריטים בהנחה של 25%. השלימו על התוויות את המחיר החדש לאחר ההנחה (בש\"ח).",
+          "answers": [],
+          "correctAnswers": [
+            "תווית 300 ש\"ח: 225, תווית 120 ש\"ח: 90, תווית 60 ש\"ח: 45"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-003/",
+      "title": "הנחה על נעלי ספורט במועדון חברים",
+      "informationToBot": "מטרת הפריט: תרגול בסיסי: מעבר מאחוז הנחה לאחוז התשלום והערכת סביר. מה התלמיד אמור להבין/לתרגל: שהנחה של 12% פירושה תשלום של 88% מהמחיר, ושאפשר להעריך אם התשלום קטן מסכום נתון. כיווני חשיבה ואסטרטגיות: 100% - 12% = 88%, ואז 88% מ-500 (440) והשוואה ל-400. טעויות נפוצות: מענה של 12% כאחוז התשלום; הנחה ישירה של 12 ש\"ח; הערכה שגויה ש-88% מ-500 קטן מ-400. מידע נוסף: שני סעיפים, שניהם בחירה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-003/q1",
+          "questionType": "choice",
+          "questionText": "דניאל רצה לקנות נעלי ספורט שעלו 500 ש\"ח. בזכות הרשמה למועדון החברים הוא זכאי להנחה של 12%. א. איזה אחוז ממחיר הנעליים המקורי דניאל צריך לשלם בקופה?",
+          "answers": [
+            "12%",
+            "50%",
+            "88%"
+          ],
+          "correctAnswers": [
+            "88%"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-003/q2",
+          "questionType": "choice",
+          "questionText": "ב. דניאל טען שלאחר ההנחה הוא ישלם על הנעליים פחות מ-400 ₪. האם דניאל צודק?",
+          "answers": [
+            "כן",
+            "לא",
+            "אי אפשר לקבוע"
+          ],
+          "correctAnswers": [
+            "לא"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-004/",
+      "title": "הרחבת נבחרת הכדורסל",
+      "informationToBot": "מטרת הפריט: תרגול בסיסי של הגדלה באחוזים: מאחוז, לכמות חדשה, לגודל התוספת. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-40% מביאה ל-140% מהקבוצה המקורית (15 שחקנים), ושהתוספת היא ההפרש בין הכמות החדשה למקורית. כיווני חשיבה ואסטרטגיות: קביעת האחוז החדש (140%), חישוב 140% מ-15 (21), וחישוב ההפרש 21 - 15 (6), או חישוב 40% מ-15. טעויות נפוצות: בחירה ב-40% כאחוז הנבחרת החדשה; בלבול בין הכמות החדשה לגודל התוספת. מידע נוסף: שלושה סעיפים: א בחירה, ב ו-ג הקלדה (מוצגים יחד במסך אחד). לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-004/q1",
+          "questionType": "choice",
+          "questionText": "לנבחרת הכדורסל של בית הספר הצטרפו שחקנים נוספים: מספר השחקנים הוגדל ב-40%. בקבוצה המקורית היו 15 שחקנים. א. איזה אחוז מייצג את גודל הנבחרת החדשה?",
+          "answers": [
+            "100%",
+            "140%",
+            "40%",
+            "60%"
+          ],
+          "correctAnswers": [
+            "140%"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-004/q2",
+          "questionType": "numeric",
+          "questionText": "ב. כמה תלמידים משחקים בנבחרת הכדורסל המורחבת?",
+          "answers": [],
+          "correctAnswers": [
+            21
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-004/q3",
+          "questionType": "numeric",
+          "questionText": "ג. בכמה שחקנים גדלה הקבוצה?",
+          "answers": [],
+          "correctAnswers": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-005/",
+      "title": "שיפוץ מגרש הקטרגל",
+      "informationToBot": "מטרת הפריט: תרגיל ברמת קושי גבוהה יותר: שינוי אחוזי בממד אחד של מלבן והשפעתו על השטח. מה התלמיד אמור להבין/לתרגל: שהגדלת אורך ב-20% (ורוחב קבוע) מגדילה את השטח באותו אחוז, בכך שהשטח החדש הוא 120% מהשטח המקורי. כיווני חשיבה ואסטרטגיות: חישוב שטח מקורי (1,000 מ\"ר) ושטח חדש (1,200 מ\"ר), ואז טבלת פרופורציה לחישוב אחוז ההגדלה. טעויות נפוצות: הנחה שהשטח גדל ב-50% (לפי יחס האורכים 50:20) או בלבול בין הגדלה להקטנה. מידע נוסף: מסך מעבר אחרי סט התרגול (\"עוד 2 תרגילים ברמת קושי גבוהה יותר\"), אחריו שאלת בחירה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-005/q1",
+          "questionType": "choice",
+          "questionText": "המגרש הנוכחי הוא מלבן שאורכו 50 מטרים ורוחבו 20 מטרים. הוחלט להגדיל את אורך המגרש ב-20% ולא לשנות את הרוחב. בכמה אחוזים גדל שטח המגרש לאחר השינוי?",
+          "answers": [
+            "גדל ב – 20%",
+            "קטן ב – 20%",
+            "גדל ב – 50%",
+            "קטן ב – 50%"
+          ],
+          "correctAnswers": [
+            "גדל ב – 20%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-006/",
+      "title": "האמירה על תוספת של 50%",
+      "informationToBot": "מטרת הפריט: תרגיל ברמת קושי גבוהה יותר: הערכת טענה על הבדל בין אחוז לכמות. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-50% היא תוספת של מחצית מהמספר, ולא תוספת של 50 יחידות. כיווני חשיבה ואסטרטגיות: בדיקה בדוגמה מספרית (80 או 60) והשוואה בין 50% מהמספר לבין 50. טעויות נפוצות: הנחה שהגדלה ב-50% שווה להוספת 50; בלבול בין אחוז לכמות. מידע נוסף: שאלת בחירה מרובה - יש לסמן את כל המשפטים הנכונים (שלושה מתוך ארבעה). לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-03/methodica-math-percent-04-03-006/q1",
+          "questionType": "choice",
+          "questionText": "אמירה טוענת: \"אם הגדלתי מספר ב-50%, אני פשוט מוסיפה לו 50\". האם אמירה צודקת? סמנו את כל המשפטים הנכונים.",
+          "answers": [
+            "אמירה טועה כי אם למשל המספר הוא 80 אז 50% ממנו זה 40 ולכן יש להוסיף 40 ולא 50.",
+            "אמירה טועה, אחוז וכמות הם ערכים שונים.",
+            "אמירה צודקת, אם מגדילים מספר ב- 50% פירושו תוספת של 50 למספר.",
+            "אמירה טועה, תוספת של 50% למספר היא תוספת של מחצית ממנו ותוספת זו היא לא תמיד 50."
+          ],
+          "correctAnswers": [
+            "אמירה טועה כי אם למשל המספר הוא 80 אז 50% ממנו זה 40 ולכן יש להוסיף 40 ולא 50.",
+            "אמירה טועה, אחוז וכמות הם ערכים שונים.",
+            "אמירה טועה, תוספת של 50% למספר היא תוספת של מחצית ממנו ותוספת זו היא לא תמיד 50."
+          ]
+        }
+      ]
+    }
+  ]
+}

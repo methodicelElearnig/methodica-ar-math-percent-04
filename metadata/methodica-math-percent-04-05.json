@@ -1,0 +1,170 @@
+{
+  "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/",
+  "title": "בואו נאתגר את עצמנו",
+  "learningUnitId": "methodica-math-percent-04",
+  "componentPurpose": "practice",
+  "isAssessment": false,
+  "recommendedAfterFail": [],
+  "isRequired": false,
+  "relativeDifficulty": 5,
+  "masteryLevel": null,
+  "order": 5,
+  "depthLevel": "core-curriculum-basic",
+  "cognitiveLevels": [
+    "interpretation-and-reasoning"
+  ],
+  "languages": [
+    "Hebrew"
+  ],
+  "skills": [],
+  "estimatedTimeInMinutes": 18,
+  "createdAt": "2026-09-30T00:00:00.000Z",
+  "updatedAt": "2026-09-30T00:00:00.000Z",
+  "subContent": [
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-001/",
+      "title": "שיפוץ גינה ציבורית",
+      "informationToBot": "מטרת הפריט: תרגול מתקדם: שינויים אחוזיים מנוגדים בשני ממדים ובדיקת טענה. מה התלמיד אמור להבין/לתרגל: שהגדלה ב-25% והקטנה ב-25% אינן מבטלות זו את זו: השטח משתנה. כיווני חשיבה ואסטרטגיות: חישוב שטח לפני (40·20=800) ולאחר (50·15=750), וחישוב אחוז ההקטנה מתוך השלם המקורי (50/800). טעויות נפוצות: חישוב ההפרש מתוך השטח החדש (750) במקום מהמקורי (800); הנחה ששינויים אחוזיים מנוגדים מבטלים זה את זה. מידע נוסף: שלושה סעיפים (א: הקלדה, ב: הקלדה, ג: בחירה) בתוך סט של 5 שאלות מתקדמות. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-001/q1",
+          "questionType": "numeric",
+          "questionText": "גינה ציבורית מלבנית: אורכה היה 40 מ' ורוחבה 20 מ'. במסגרת השיפוץ הגדילו את האורך ב-25% והקטינו את הרוחב ב-25%. העירייה פרסמה: \"שטח הגינה לא השתנה\". א. חשבו את שטח הגינה לפני השיפוץ (מ\"ר).",
+          "answers": [],
+          "correctAnswers": [
+            800
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-001/q2",
+          "questionType": "numeric",
+          "questionText": "ב. חשבו את שטח הגינה לאחר השיפוץ (מ\"ר).",
+          "answers": [],
+          "correctAnswers": [
+            750
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-001/q3",
+          "questionType": "choice",
+          "questionText": "ג. מצאנו ששטח הגינה קטן (מ-800 מ\"ר ל-750 מ\"ר), ולכן הפרסום של העירייה היה מטעה. בכמה אחוזים קטן השטח?",
+          "answers": [
+            "12%",
+            "15%",
+            "6.25%"
+          ],
+          "correctAnswers": [
+            "6.25%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-002/",
+      "title": "שטיח מרבד הקסמים",
+      "informationToBot": "מטרת הפריט: תרגול מתקדם: הגדלה אחוזית בשני ממדים בו זמנית ואחוז השינוי בשטח. מה התלמיד אמור להבין/לתרגל: שהגדלת שני הממדים ב-10% מגדילה את השטח ב-21% ולא ב-20%. כיווני חשיבה ואסטרטגיות: חישוב שטח לפני (2·1.5=3 מ\"ר) ואחרי (2.2·1.65=3.63 מ\"ר) ואחוז השינוי בעזרת טבלת פרופורציה. טעויות נפוצות: חיבור האחוזים (10%+10%=20%); חישוב שגוי של אחוז השינוי מתוך השטח החדש. מידע נוסף: שדה הקלדה יחיד באחוזים. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-002/q1",
+          "questionType": "numeric",
+          "questionText": "חברת \"מרבד הקסמים\" הכריזה: \"הגדלנו את אורך השטיח ב-10% ואת רוחבו ב-10%!\". השטיח מלבני, אורכו 2 מטרים ורוחבו 1.5 מטרים. בכמה אחוזים גדל שטח השטיח לאחר הגדלת האורך והרוחב? (%)",
+          "answers": [],
+          "correctAnswers": [
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-003/",
+      "title": "מחשבון מדעי ויומן שנתי",
+      "informationToBot": "מטרת הפריט: תרגול מתקדם: הנחות באחוזים שונים יכולות להניב סכום הנחה זהה, ומציאת המחיר המקורי ממחיר לאחר הנחה. מה התלמיד אמור להבין/לתרגל: שאחוז הנחה תלוי בשלם (המחיר המקורי), ושממחיר לאחר הנחה מוצאים את המחיר המקורי לפי האחוז שנותר. כיווני חשיבה ואסטרטגיות: הנחה של 66% משאירה 34%, הנחה של 15% משאירה 85%; 170 ₪ הם 34% ו-85% בהתאמה, ולכן המחיר המקורי הוא 500 ו-200 ש\"ח. טעויות נפוצות: חישוב 66% או 15% מ-170 (התייחסות ל-170 כאל המחיר המקורי); סימון משפטים לא נכונים בשאלת הרב-ברירה. מידע נוסף: סעיף א: בחירה מרובה (שתי תשובות נכונות מתוך שלוש). סעיף ב: שתי תיבות הקלדה (מחשבון ויומן) שמהוות יחד תשובה אחת. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-003/q1",
+          "questionType": "choice",
+          "questionText": "גל קנה מחשבון מדעי ויומן שנתי. המחשבון נמכר בהנחה של 66% והיומן בהנחה של 15%. בקופה גילה שעבור כל אחד מהמוצרים קיבל הנחה של אותו סכום (בשקלים). א. האם זה יתכן? סמנו את כל המשפטים הנכונים.",
+          "answers": [
+            "זה יתכן כי אחוזי הנחה שונים של מחירים שונים יכולים לתת סכומי הנחה זהים בשקלים.",
+            "זה יתכן כי אם המחיר המקורי של שני המוצרים היה שווה אז סכום ההנחה יהיה שווה.",
+            "זה יתכן כי כנראה אם המחיר המקורי של המחשבון היה גבוה ממחיר היומן והייתה עליו הנחה גבוהה יותר אז גודל ההנחה יכול להיות שווה בשניהם."
+          ],
+          "correctAnswers": [
+            "זה יתכן כי אחוזי הנחה שונים של מחירים שונים יכולים לתת סכומי הנחה זהים בשקלים.",
+            "זה יתכן כי כנראה אם המחיר המקורי של המחשבון היה גבוה ממחיר היומן והייתה עליו הנחה גבוהה יותר אז גודל ההנחה יכול להיות שווה בשניהם."
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-003/q2",
+          "questionType": "fill-in",
+          "questionText": "ב. אם המחיר ששילם גל על כל אחד מהמוצרים היה 170 ₪, כמה עלה כל מוצר לפני ההנחה? (בש\"ח)",
+          "answers": [],
+          "correctAnswers": [
+            "המחשבון עלה: 500, היומן עלה: 200"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-004/",
+      "title": "כוח הכבידה על מאדים",
+      "informationToBot": "מטרת הפריט: תרגול מתקדם: שימוש באחוז הקטנה בהקשר מדעי, בשני כיוונים - מהשלם לכמות לאחר הקטנה, ומהכמות לאחר הקטנה חזרה לשלם. מה התלמיד אמור להבין/לתרגל: שכוח כבידה חלש ב-62% משאיר 38% מהמשקל, ושכדי לחזור לשלם מחלקים ב-38% ולא מוסיפים 62%. כיווני חשיבה ואסטרטגיות: חישוב 38% מ-450 (171 ק\"ג); ובסעיף ב טבלת פרופורציה שבה 76 ק\"ג מתאים ל-38% ומחפשים את ה-100%. טעויות נפוצות: חישוב 62% מ-450 כמשקל על מאדים (279); בסעיף ב חישוב 62% מ-76 והוספתו. מידע נוסף: שני סעיפים: א בחירה, ב הקלדה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-004/q1",
+          "questionType": "choice",
+          "questionText": "כוח הכבידה על פני מאדים חלש ב-62% בהשוואה לכדור הארץ. א. גשושית מחקר של נאס\"א שוקלת 450 קילוגרם על כדור הארץ. מה יהיה משקלה על פני מאדים?",
+          "answers": [
+            "171 ק\"ג",
+            "243 ק\"ג",
+            "279 ק\"ג",
+            "388 ק\"ג"
+          ],
+          "correctAnswers": [
+            "171 ק\"ג"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-004/q2",
+          "questionType": "numeric",
+          "questionText": "אסטרונאוט הלובש חליפת חלל כבדה נשקל על פני מאדים ומד המשקל הראה 76 קילוגרם (כוח הכבידה על מאדים חלש ב-62% בהשוואה לכדור הארץ). ב. משקלו הכולל של האסטרונאוט (יחד עם החליפה) על פני כדור הארץ הוא: (ק\"ג)",
+          "answers": [],
+          "correctAnswers": [
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-005/",
+      "title": "גבינה מלוחה — אחוז השומן",
+      "informationToBot": "מטרת הפריט: תרגול מתקדם: שינוי בכמות (גרמים) ולא באחוזים, וחישוב האחוז החדש. מה התלמיד אמור להבין/לתרגל: שהאחוז החדש מחושב מתוך השלם (250 גרם) על הכמות החדשה של השומן (44 גרם). כיווני חשיבה ואסטרטגיות: חישוב 12% מ-250 (30 גרם), הוספת 14 גרם (44), וחישוב אחוז השומן 44/250. טעויות נפוצות: הוספת 14% ל-12% (26%), או ל-30% במקום 17.6%. מידע נוסף: מסך סיפור ואחריו שאלת בחירה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-05/methodica-math-percent-04-05-005/q1",
+          "questionType": "choice",
+          "questionText": "מחלבה מייצרת גוש גבינה מלוחה קלאסית במשקל 250 גרם, המכילה 12% שומן. לקראת חג השבועות פיתחו גרסה מיוחדת, גם היא בגוש של 250 גרם, שבה כמות השומן גדולה ב-14 גרם מזו שבגבינה הקלאסית. מהו אחוז השומן בגבינה המיוחדת?",
+          "answers": [
+            "17.6%",
+            "20%",
+            "20.6%",
+            "30%"
+          ],
+          "correctAnswers": [
+            "17.6%"
+          ]
+        }
+      ]
+    }
+  ]
+}

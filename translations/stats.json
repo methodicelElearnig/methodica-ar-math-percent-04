@@ -1,0 +1,17 @@
+{
+  "module": "methodica-math-percent-04",
+  "target": "04",
+  "parts": [
+    "(single-folder)"
+  ],
+  "units": 909,
+  "screens": 67,
+  "excluded": 0,
+  "sweep1_literal": 855,
+  "sweep1_normalised": 47,
+  "sweep1_miss": 7,
+  "sweep2_uncovered_total": 28,
+  "sweep2_comments": 26,
+  "sweep2_to_classify": 0,
+  "overflow_ids": []
+}

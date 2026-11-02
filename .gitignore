@@ -1,0 +1,3 @@
+# Never commit a live key or a run log (guide §4.6, §11.1)
+docs-and-tools/kata-api-key.txt
+*.log
