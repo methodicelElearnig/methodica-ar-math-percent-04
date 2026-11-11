@@ -388,7 +388,7 @@ function toggleInlineHint(qid) {
   const open = box.classList.toggle("hidden") === false;
   /* a TOGGLE — report only on the opening branch, never on the close */
   if (open) xapiHint(qid);
-  if (btn) setNavLabel(btn, open ? "إغلاق التلميح" : "هل يمكنني الحصول على تلميح؟");
+  if (btn) setNavLabel(btn, open ? "إغلاق التلميح" : "أريد تلميحًا");
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -427,8 +427,8 @@ const SCQ = {
     lastWrong: null,
     correctTitle: "كلّ الاحترام!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
-    body: ["عندما تزيد كمية بنسبة 20%، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% + 20% = 120%</span>'],
-    hint: "ابدأوا من 100% (الكمية الأصلية)، وأضيفوا زيادة الـ 20%. ما هي النسبة المئوية التي تحصلون عليها؟",
+    body: ["عندما تزيد كمية بنسبة <span dir='ltr'>20%</span>، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% + 20% = 120%</span>'],
+    hint: "ابدأوا من <span dir='ltr'>100%</span> (الكمية الأصلية)، وأضيفوا زيادة الـ <span dir='ltr'>20%</span>. ما هي النسبة المئوية التي تحصلون عليها؟",
   },
   s4: {
     correctId: "b",
@@ -442,7 +442,7 @@ const SCQ = {
       "النسب المئوية تُحسب دائماً من الكمية الأصلية.",
       "لذلك، حتى لو كانت نسبة الزيادة متطابقة، عندما تكون الكمية الأولية أكبر، فإن الإضافة ستكون أكبر أيضاً.",
     ],
-    hint: "احسبوا كم تمثل 10% من كل كمية. نسبة الزيادة متساوية (10%)، لكن هل كمية الزيادة متساوية أيضاً؟",
+    hint: "احسبوا كم تمثل <span dir='ltr'>10%</span> من كل كمية. نسبة الزيادة متساوية (<span dir='ltr'>10%</span>)، لكن هل كمية الزيادة متساوية أيضاً؟",
   },
   s8: {
     correctId: "a",
@@ -455,11 +455,11 @@ const SCQ = {
     body: [
       "النسبة المئوية تُحسب دائماً من السعر الأصلي.",
       "لذلك، حتى لو كانت نسبة الخصم متساوية، عندما يكون السعر الأصلي أعلى، فإن الخصم بالشواقل سيكون أكبر أيضاً.",
-      "في المتجر أ ستكون الخصم 20₪ (10% من 200) وبالتالي، ستبلغ تكلفة الحقيبة 180₪.",
-      "في المتجر ب، الخصم سيكون 15₪ (10% من 150) وبالتالي، ستكون تكلفة الحقيبة 135₪.",
+      "في المتجر أ ستكون الخصم ⁦₪20⁩ (<span dir='ltr'>10%</span> من 200) وبالتالي، ستبلغ تكلفة الحقيبة ⁦₪180⁩.",
+      "في المتجر ب، الخصم سيكون ⁦₪15⁩ (<span dir='ltr'>10%</span> من 150) وبالتالي، ستكون تكلفة الحقيبة ⁦₪135⁩.",
       "الخلاصة: سعر الحقيبة في المتجر ب أقل.",
     ],
-    hint: "احسبوا كم يساوي 10% من كل واحدة من الكميات. نسبة الخصم واحدة (10%)، لكن هل مبلغ الخصم (بالشواقل) واحد أيضًا؟",
+    hint: "احسبوا كم يساوي <span dir='ltr'>10%</span> من كل واحدة من الكميات. نسبة الخصم واحدة (<span dir='ltr'>10%</span>)، لكن هل مبلغ الخصم (بالشواقل) واحد أيضًا؟",
   },
   s7: {
     correctId: "a",
@@ -469,8 +469,8 @@ const SCQ = {
     lastWrong: null,
     correctTitle: "كلّ الاحترام!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
-    body: ["عندما تنخفض كمية بنسبة 20%، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% - 20% = 80%</span>'],
-    hint: "ابدأوا من 100% (الكمية الأصلية)، وطرحوا انخفاض نسبته 20%. أي نسبة مئوية تحصلون عليها؟",
+    body: ["عندما تنخفض كمية بنسبة <span dir='ltr'>20%</span>، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% - 20% = 80%</span>'],
+    hint: "ابدأوا من <span dir='ltr'>100%</span> (الكمية الأصلية)، وطرحوا انخفاض نسبته <span dir='ltr'>20%</span>. أي نسبة مئوية تحصلون عليها؟",
   },
 };
 function s3Select(id) {
@@ -887,26 +887,26 @@ const ACQ_STEPS = {
   1: {
     img: "../unit-assets/img/acq-step-1.jpg",
     alt: "سامر ودنة يبنيان نموذج ليجو لمدينة المستقبل",
-    body: `في أسبوع العلوم والهندسة، بنى سامر ولينا نموذجًا عملاقًا لـ "مدينة المستقبل".<br><br>احتوت مجموعة اللِيغو الخاصة بهما على 10,000 قطعة.`,
+    body: `في أسبوع العلوم والهندسة، بنى سامر ولينا نموذجًا عملاقًا لـ "مدينة المستقبل".<br>احتوت مجموعة اللِيغو الخاصة بهما على 10,000 قطعة.`,
   },
   2: {
     img: "../unit-assets/img/acq-step-2.jpg",
-    alt: "منظم الحدث يضيف 10% من المكعبات إلى المجموعة",
+    alt: "منظم الحدث يضيف <span dir='ltr'>10%</span> من المكعبات إلى المجموعة",
     /* producer 14.09.26: the manager's line re-worded, and the parenthetical
        never splits across lines — .nb keeps "(100% + 10%)," whole. */
-    body: `بعد عدة ساعات فاجأهم مدير الفعالية: "قررت أن أضيف إلى مجموعتكم 10% من كمية المكعبات الموجودة".<br><br><br>يقول سامر:<br><br>يا! عندما نزيد كمية بـ 10%، الكمية الجديدة هي 110% من الكمية الأصلية<br><span class="nb">(<span dir="ltr">100% + 10%</span>), </span><br><br>لكن كيف نحسب كم مكعب لدينا الآن؟`,
+    body: `بعد عدة ساعات فاجأهم مدير الفعالية: "قررت أن أضيف إلى مجموعتكم <span dir="ltr">10%</span> من كمية المكعبات الموجودة".<br><br>يقول سامر:<br>يا! عندما نزيد كمية بـ <span dir="ltr">10%</span>، الكمية الجديدة هي <span dir="ltr">110%</span> من الكمية الأصلية <span class="nb">(<span dir="ltr">100% + 10%</span>),</span><br>لكن كيف نحسب كم مكعب لدينا الآن؟`,
   },
   3: {
     img: "../unit-assets/img/acq-step-3.png",
-    alt: "شريط النسب المئوية: 100% وإضافة 10%",
+    alt: "شريط النسب المئوية: <span dir='ltr'>100%</span> وإضافة <span dir='ltr'>10%</span>",
     body: `شرحت لينا:<br>
-              لإيجاد العدد الجديد من المكعبات، يمكن حساب 110% مباشرةً من الكمية الأصلية:<br>
+              لإيجاد العدد الجديد من المكعبات، يمكن حساب <span dir="ltr">110%</span> مباشرةً من الكمية الأصلية:<br>
               <span dir="ltr">110% × 10,000 = 11,000</span> مكعب.`,
   },
   4: {
     img: "../unit-assets/img/acq-step-4.jpg",
     alt: "النموذج المكبّر مع 11,000 مكعب",
-    body: `على الرغم من أن 10% يبدو قليلاً، إلا أنه يُحسب من 10,000 مكعب.<br><br>لذلك تمّ إضافة 1,000 مكعب، وهي إضافة كبيرة تجلبنا إلى 11,000 مكعب.`,
+    body: `على الرغم من أن <span dir="ltr">10%</span> يبدو قليلاً، إلا أنه يُحسب من 10,000 مكعب.<br>لذلك تمّ إضافة 1,000 مكعب، وهي إضافة كبيرة تجلبنا إلى 11,000 مكعب.`,
   },
 };
 const s1Opened = new Set();
@@ -979,8 +979,8 @@ const DQ = {
     done: false,
     correctTitle: "أحسنت!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
-    body: ["عندما تزداد كمية بنسبة 15%، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% + 15% = 115%</span>'],
-    hint: "ابدأوا من 100% (الكمية الأصلية)، وأضيفوا 15% من الزيادة. كم نسبة مئوية تحصلون عليها؟",
+    body: ["عندما تزداد كمية بنسبة <span dir='ltr'>15%</span>، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% + 15% = 115%</span>'],
+    hint: "ابدأوا من <span dir='ltr'>100%</span> (الكمية الأصلية)، وأضيفوا <span dir='ltr'>15%</span> من الزيادة. كم نسبة مئوية تحصلون عليها؟",
   },
   s6: {
     correctId: "b",
@@ -988,8 +988,8 @@ const DQ = {
     done: false,
     correctTitle: "أحسنت!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
-    body: ["عندما تنخفض كمية بنسبة 35%، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% - 35% = 65%</span>'],
-    hint: "ابدأوا من 100% (الكمية الأصلية)، واطرحوا 35% من التناقص. أي نسبة مئوية تحصلون عليها؟",
+    body: ["عندما تنخفض كمية بنسبة <span dir='ltr'>35%</span>، حجمها بالنسبة المئوية هو:", '<span dir="ltr">100% - 35% = 65%</span>'],
+    hint: "ابدأوا من <span dir='ltr'>100%</span> (الكمية الأصلية)، واطرحوا <span dir='ltr'>35%</span> من التناقص. أي نسبة مئوية تحصلون عليها؟",
   },
 };
 
@@ -1087,7 +1087,7 @@ function dqAddAnswerToggle(sid) {
   btn.type = "button";
   btn.className = "fb-answer-toggle";
   btn.dataset.mode = "correct";          // the select currently shows the key
-  btn.textContent = "إجابتي";
+  btn.textContent = "الانتقال إلى إجابتي";
   btn.onclick = () => {
     const sel = document.getElementById(sid + "-sel");
     const showMine = btn.dataset.mode === "correct";
@@ -1095,7 +1095,7 @@ function dqAddAnswerToggle(sid) {
     sel.classList.toggle("dq-correct", !showMine);
     sel.classList.toggle("dq-wrong", showMine);
     btn.dataset.mode = showMine ? "mine" : "correct";
-    btn.textContent = showMine ? "الإجابة الصحيحة" : "إجابتي";
+    btn.textContent = showMine ? "الانتقال إلى الإجابة الصحيحة" : "الانتقال إلى إجابتي";
   };
   body.appendChild(btn);
 }
@@ -1121,7 +1121,7 @@ const ACQ2_STEPS = {
   1: {
     img: "../unit-assets/img/acq-step-2.jpg",
     alt: "منظم الحدث يحدّث سامر ولينا",
-    body: `بعد أن أخبر المنظم لينا وسامر بأن 20% من 11,000 مكعب مكسورة،<br> بمساعدة جدول النسبة، قاما بالحساب والعثور على:<br> <strong>20% من 11,000 يساوي 2,200 مكعب.</strong>`,
+    body: `بعد أن أخبر المنظم لينا وسامر بأن <span dir="ltr">20%</span> من 11,000 مكعب مكسورة،<br> بمساعدة جدول النسبة، قاما بالحساب والعثور على:<br> <strong><span dir="ltr">20%</span> من 11,000 يساوي 2,200 مكعب.</strong>`,
   },
   2: {
     img: "../unit-assets/img/acq-step-1.jpg",
@@ -1133,7 +1133,7 @@ const ACQ2_STEPS = {
   3: {
     img: "",
     alt: "",
-    body: `توجد <strong>طريقة إضافية</strong> لحساب الكمية بعد انخفاض النسبة المئوية!<br>إذا كانت 20% من المكعبات مكسورة، فقد بقي للينا وسامر 80% من المكعبات السليمة.<br>باستخدام جدول التناسب، سنحسب كم تساوي 80% من 11,000:<br><table class="acq-table"><thead><tr><th>النسبة المئوية</th><th>الكمية</th></tr></thead><br><tbody><tr><td>80%</td><td>X</td></tr><tr><td>100%</td><td>11,000</td></tr></tbody></table><br>المعادلة هي:<br><span class="acq-eq" dir="ltr"><span class="frac"><span class="frac-num">80%</span><span class="frac-den">100%</span></span> = <span class="frac"><span class="frac-num">x</span><span class="frac-den">11,000</span></span></span><br>النتيجة هي: <span dir="ltr">x = 8,800</span><br>أي أنه بقي للينا وسامر 8,800 مكعب سليم.`,
+    body: `توجد <strong>طريقة إضافية</strong> لحساب الكمية بعد انخفاض النسبة المئوية!<br>إذا كانت <span dir="ltr">20%</span> من المكعبات مكسورة، فقد بقي للينا وسامر <span dir="ltr">80%</span> من المكعبات السليمة.<br>باستخدام جدول التناسب، سنحسب كم تساوي <span dir="ltr">80%</span> من 11,000:<br><table class="acq-table"><thead><tr><th>النسبة المئوية</th><th>الكمية</th></tr></thead><tbody><tr><td><span dir="ltr">80%</span></td><td>X</td></tr><tr><td><span dir="ltr">100%</span></td><td>11,000</td></tr></tbody></table>المعادلة هي: <span class="acq-eq" dir="ltr"><span class="frac"><span class="frac-num">80%</span><span class="frac-den">100%</span></span> = <span class="frac"><span class="frac-num">x</span><span class="frac-den">11,000</span></span></span><br>النتيجة هي: <span dir="ltr">x = 8,800</span><br>أي أنه بقي للينا وسامر 8,800 مكعب سليم.`,
   },
 };
 const s5Opened = new Set();
@@ -1247,11 +1247,11 @@ window.addEventListener("pointercancel", () => {
    ═══════════════════════════════════════════════════════════ */
 const GC_BULB = `<svg class="gc-bulb" viewBox="0 0 20.997 27.9988" fill="none" aria-hidden="true"><path d="M17.4818 2.65764C15.2512 0.668476 12.2563 -0.275357 9.25683 0.0699765C4.59833 0.60431 0.748334 4.35748 0.103168 8.99148C-0.387999 12.5078 0.894168 16.0031 3.532 18.34C4.99267 19.6338 5.83033 21.5191 5.83033 23.5095V23.9155C5.83033 26.1671 7.662 27.9988 9.91367 27.9988H11.0803C13.332 27.9988 15.1637 26.1671 15.1637 23.9155V23.5036C15.1637 21.5366 16.041 19.6431 17.6347 18.1708C19.7708 16.1945 20.997 13.398 20.997 10.4988C20.997 7.50864 19.716 4.65031 17.4818 2.65764ZM13.997 23.9143C13.997 25.522 12.6892 26.831 11.0803 26.831H9.91367C8.30483 26.831 6.997 25.522 6.997 23.9143V23.5083C6.997 23.0545 6.9585 22.6041 6.88617 22.1643H14.1137C14.0367 22.6041 13.997 23.051 13.997 23.5025V23.9143ZM16.8425 17.3133C15.691 18.3773 14.865 19.6385 14.4077 20.9976H11.0792V12.1986C12.7323 11.9198 13.9958 10.479 13.9958 8.74764C13.9958 8.42564 13.7345 8.16431 13.4125 8.16431C13.0905 8.16431 12.8292 8.42564 12.8292 8.74764C12.8292 10.0345 11.7827 11.081 10.4958 11.081C9.209 11.081 8.1625 10.0345 8.1625 8.74764C8.1625 8.42564 7.90117 8.16431 7.57917 8.16431C7.25717 8.16431 6.99583 8.42564 6.99583 8.74764C6.99583 10.479 8.25933 11.9198 9.9125 12.1986V20.9976H6.60267C6.16633 19.6431 5.38 18.4193 4.3055 17.4661C1.9605 15.3895 0.821834 12.2815 1.25817 9.15248C1.831 5.03648 5.2505 1.70448 9.38867 1.22848C9.7655 1.18531 10.14 1.16431 10.511 1.16431C12.807 1.16431 14.9735 1.98448 16.7072 3.52914C18.6917 5.30014 19.8315 7.83998 19.8315 10.4976C19.8315 13.111 18.771 15.5318 16.8437 17.3133H16.8425Z" fill="currentColor"/></svg>`;
 
-const G_EXERCISE_AB = `في السوبرماركت يباع زجاجة عصير بـ 20 ₪.<br><br>في إطار عرض نهاية الأسبوع يُمنح خصم بنسبة 15% على جميع الزجاجات.`;
+const G_EXERCISE_AB = `في السوبرماركت، تُباع زجاجة عصير ب⁦₪20⁩.<br>في إطار عرض نهاية الأسبوع يُمنح خصم بنسبة <span dir="ltr">15%</span> على جميع الزجاجات.`;
 
-const PROP_TABLE = `<table class="acq-table"><thead><tr><th>نسبة مئوية</th><th>السعر</th></tr></thead> <tbody><tr><td>100%</td><td>20 ₪</td></tr><tr><td>15%</td><td>X</td></tr></tbody></table>`;
+const PROP_TABLE = `<table class="acq-table"><thead><tr><th>نسبة مئوية</th><th>السعر</th></tr></thead> <tbody><tr><td><span dir="ltr">100%</span></td><td>⁦₪20⁩</td></tr><tr><td><span dir="ltr">15%</span></td><td>X</td></tr></tbody></table>`;
 
-const TEN_TABLE = `<table class="acq-table"><thead><tr><th>النسبة المئوية المراد دفعها</th><th>السعر لـ 10 زجاجات</th><th>السعر للزجاجة</th></tr></thead> <tbody><tr><td>100%</td><td>200 ₪</td><td>20 ₪</td></tr><tr><td>85%</td><td>170 ₪</td><td>17 ₪</td></tr></tbody></table>`;
+const TEN_TABLE = `<table class="acq-table"><thead><tr><th>النسبة المئوية المراد دفعها</th><th>السعر لـ 10 زجاجات</th><th>السعر للزجاجة</th></tr></thead> <tbody><tr><td><span dir="ltr">100%</span></td><td>⁦₪200⁩</td><td>⁦₪20⁩</td></tr><tr><td><span dir="ltr">85%</span></td><td>⁦₪170⁩</td><td>⁦₪17⁩</td></tr></tbody></table>`;
 
 /* strip icons — declared before GUIDED because buildGuidedScreens() runs at
    parse time (TDZ: a const below it is not yet initialised) */
@@ -1264,7 +1264,7 @@ const GUIDED = [
   {
     screen: 10,
     title: "دعونا نحل التمرين الأول معاً",
-    lead: "تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.",
+    lead: "<strong>تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.</strong>",
     body: G_EXERCISE_AB + "<br><strong>أ. بكم شاقلاً ستقلل الخصم من سعر الزجاجة؟</strong>",
     bubble: "سنشرح الحل فورًا،<br>خطوة بخطوة",
     callout: "أولاً، دعونا نفهم:<br>هل نتحدث عن زيادة أم انخفاض في النسب المئوية؟",
@@ -1275,10 +1275,10 @@ const GUIDED = [
   {
     screen: 11,
     title: "دعونا نحل التمرين الأول معاً",
-    lead: "تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.",
+    lead: "<strong>تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.</strong>",
     body: G_EXERCISE_AB + "<br><strong>أ. بكم شاقل ستخفض الخصم من سعر الزجاجة؟</strong>",
     callout:
-      "بالفعل، هذا تمرين على انخفاض النسبة المئوية.<br>دعنا نضع البيانات في جدول النسبة لحساب كم تساوي خصومات 15%:" +
+      "بالفعل، هذا تمرين على انخفاض النسبة المئوية.<br>دعنا نضع البيانات في جدول النسبة لحساب كم تساوي خصومات <span dir='ltr'>15%</span>:" +
       PROP_TABLE +
       "انظروا جيدًا إلى الجدول - هل الجدول صحيح؟",
     opts: ["لا", "نعم"],
@@ -1288,7 +1288,7 @@ const GUIDED = [
   {
     screen: 12,
     title: "دعونا نحل التمرين الأول معاً",
-    lead: "تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.",
+    lead: "<strong>تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.</strong>",
     body: G_EXERCISE_AB + "<br><strong>أ. بكم شاقل ستقلل الخصم من سعر الزجاجة؟</strong>",
     callout: `الآن سنكوّن معادلة التناسب ونحسب منها قيمة x:
       <span class="g-eq" dir="ltr"><span class="frac"><span class="frac-num">15</span><span class="frac-den">100</span></span> = <span class="frac"><span class="frac-num">x</span><span class="frac-den">20</span></span></span>
@@ -1296,7 +1296,7 @@ const GUIDED = [
       <span class="g-eq" dir="ltr">5x = 15</span>
       وبعد القسمة على 5 نحصل على:
       <span class="g-eq" dir="ltr">x = 3</span>
-      الخلاصة: قيمة الخصم هي 3 ش.ج.`,
+      الخلاصة: قيمة الخصم هي 3 ش.ج.`,
   },
 
   {
@@ -1310,9 +1310,11 @@ const GUIDED = [
   {
     screen: 14,
     title: "دعونا نحل التمرين الأول معاً",
-    lead: "تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.",
+    lead: "<strong>تأملوا في التمرين التالي. لا تحلوه، فقط انظروا إلى المعطيات وفكروا إذا كان لديكم اتجاه للحل.</strong>",
     body: G_EXERCISE_AB + "<br><strong>ب. ما سيكون السعر الجديد لزجاجة العصير بعد الخصم؟</strong>",
-    callout: `وجدنا أن الخصم بنسبة 15% يساوي 3 ₪.<br><br>الآن سنحسب السعر الجديد للزجاجة بطرح مبلغ الخصم من السعر الكامل:<br><span class="g-eq" dir="ltr">20 - 3 = 17</span><br>السعر بعد الخصم هو <span class="g-eq" dir="ltr">17 ₪</span>.`,
+    callout: `وجدنا أن الخصم بنسبة <span dir="ltr">15%</span> يساوي ⁦₪3⁩.<br>الآن سنحسب السعر الجديد للزجاجة بطرح مبلغ الخصم من السعر الكامل:
+      <span class="g-eq" dir="ltr">20 - 3 = 17</span>
+      السعر بعد الخصم هو <strong>⁦₪17⁩.</strong>`,
   },
 
   {
@@ -1322,16 +1324,16 @@ const GUIDED = [
     bubble: "ما رأيكم - هل يمكن حل التمرين بطريقة أخرى؟",
     opts: ["نعم", "لا"],
     correct: 0,
-    afterCorrect: "هيا بنا نتعلم ما هي",
-    afterWrong: "<strong>دقيقاً هناك طريقة أخرى</strong><br>هيا بنا نتعلم ما هي",
+    afterCorrect: "<strong>صحيح!</strong><br>هيا بنا نتعلم ما هي",
+    afterWrong: "<strong>في الواقع، توجد طريقة أخرى</strong><br>هيا بنا نتعلم ما هي",
   },
 
   {
     screen: 16,
     title: "هيا نحل بطريقة إضافية",
     lead: "<strong>هذه المرة ايضاً، تأملوا في التمرين. لا تحلوه، فقط انظروا إلى البيانات وتفكروا إن كان لديكم اتجاه للحل.</strong>",
-    body: G_EXERCISE_AB + "ب. ما سيكون السعر الجديد لزجاجة العصير بعد الخصم؟",
-    callout: "لأن الخصم بنسبة 15%، فإن السعر بعد الخصم هو 75% من سعر المنتج.",
+    body: G_EXERCISE_AB + "<br><strong>ب. ما سيكون السعر الجديد لزجاجة العصير بعد الخصم؟</strong>",
+    callout: "لأن الخصم بنسبة <span dir='ltr'>15%</span>، فإن السعر بعد الخصم هو <span dir='ltr'>75%</span> من سعر المنتج.",
     opts: ["صحيح", "غير صحيح"],
     correct: 1,
   },
@@ -1341,18 +1343,18 @@ const GUIDED = [
     title: "هيّا لنحل بطريقة إضافية",
     lead: "<strong>غم الحفظ، تأملوا في التمرين. لا تحلوه، فقط انظروا إلى البيانات وتفكروا إن كان لديكم اتجاه للحل.</strong>",
     body: G_EXERCISE_AB + "<br><strong>ب. ما سيكون السعر الجديد لزجاجة العصير بعد الخصم؟</strong>",
-    callout: `قيمة الخصم 15%، لذلك فإن السعر بعد الخصم هو:
+    callout: `قيمة الخصم <span dir="ltr">15%</span>، لذلك فإن السعر بعد الخصم هو:
       <span class="g-eq" dir="ltr">100% - 15% = 85%</span>
-      نحسب كم تساوي 85% من 20 ش.ج:
+      نحسب كم تساوي <span dir="ltr">85%</span> من 20 ش.ج:
       <span class="g-eq" dir="ltr">20 × 0.85 = 17</span>
-      سعر زجاجة العصير بعد الخصم هو 17 ش.ج.`,
+      سعر زجاجة العصير بعد الخصم هو 17 ش.ج.`,
   },
 
   {
     screen: 18,
     title: "وإذا اشترينا 10 زجاجات؟",
     lead: "<strong>غم الحفظ، تأملوا في التمرين. لا تحلوه، فقط انظروا إلى البيانات وتفكروا إن كان لديكم اتجاه للحل.</strong>",
-    body: G_EXERCISE_AB + "<br>اشترى عميل 10 زجاجات.<br>كم دفع مقابلها بعد الخصم؟",
+    body: G_EXERCISE_AB + "<br><strong>اشترى عميل 10 زجاجات.<br>كم دفع مقابلها بعد الخصم؟</strong>",
     callout: "هل سيكون مجموع الخصم الكلي على 10 زجاجات أكبر من مجموع الخصم على زجاجة واحدة؟",
     opts: ["نعم", "لا"],
     correct: 0,
@@ -1362,21 +1364,21 @@ const GUIDED = [
     screen: 19,
     title: "وإذا اشترينا 10 زجاجات؟",
     lead: "<strong>غم الحفظ، تأملوا في التمرين. لا تحلوه، فقط انظروا إلى البيانات وتفكروا إن كان لديكم اتجاه للحل.</strong>",
-    body: G_EXERCISE_AB + "<br>اشترى عميل 10 زجاجات.<br>كم دفع مقابلها بعد الخصم؟" + TEN_TABLE,
+    body: G_EXERCISE_AB + "<br><strong>اشترى عميل 10 زجاجات.<br>كم دفع مقابلها بعد الخصم؟</strong>" + TEN_TABLE,
     callout: `دعونا نوضّح:<br>
       إذا اشترى الزبون 10 زجاجات<br>
       فإنه <strong>بعد</strong> الخصم سيدفع:
-      <span class="g-eq" dir="ltr">10 · 17 = <strong>170 ₪</strong></span>
+      <span class="g-eq" dir="ltr">10 · 17 = <strong><span dir="rtl">⁦₪170⁩</span></strong></span>
       بدلًا من أن يدفع <strong>قبل</strong> الخصم:
-      <span class="g-eq" dir="ltr">10 · 20 = <strong>200 ₪</strong></span>
-      <br>أي أن مجموع الخصم هو 30 ₪.`,
+      <span class="g-eq" dir="ltr">10 · 20 = <strong><span dir="rtl">⁦₪200⁩</span></strong></span>
+      <br>أي أن مجموع الخصم هو ⁦₪30⁩.`,
   },
 
   {
     screen: 20,
     title: "وإذا اشترينا 10 زجاجات؟",
     lead: "<strong>غم الحفظ، تأملوا في التمرين. لا تحلوه، فقط انظروا إلى البيانات وتفكروا إن كان لديكم اتجاه للحل.</strong>",
-    body: G_EXERCISE_AB + "<br>اشترى العميل 10 زجاجات.<br>كم دفع عليها بعد الخصم؟",
+    body: G_EXERCISE_AB + "<br><strong>اشترى العميل 10 زجاجات.<br>كم دفع عليها بعد الخصم؟</strong>",
     callout: "كلما زدنا <strong>عدد الزجاجات التي عليها خصم،</strong><br>سيزداد مبلغ الخصم.",
   },
 ];
@@ -1546,7 +1548,6 @@ function gShowPopup(sid, type) {
   const raw = type === "correct" ? cfg.afterCorrect : cfg.afterWrong;
   const [first, ...rest] = raw.split("<br>");
   popup.style.background = type === "correct" ? "#edf8ed" : "#ffdbdc";
-  popup.classList.add("scq-popup--centered");
   resetPopupPosition(popup);
   document.getElementById(sid + "-popup-title").innerHTML = first.replace(/<\/?strong>/g, "");
   document.getElementById(sid + "-popup-body").innerHTML = rest.map((x) => "<p>" + x + "</p>").join("");
@@ -1731,7 +1732,7 @@ function viqAddAnswerToggle(sid) {
   btn.type = "button";
   btn.className = "fb-answer-toggle";
   btn.dataset.mode = "correct";
-  btn.textContent = "إجابتي";
+  btn.textContent = "الانتقال إلى إجابتي";
   btn.onclick = () => {
     const els = viqInputs(sid);
     const showMine = btn.dataset.mode === "correct";
@@ -1743,7 +1744,7 @@ function viqAddAnswerToggle(sid) {
       el.classList.toggle("correct", right || !showMine);
     });
     btn.dataset.mode = showMine ? "mine" : "correct";
-    btn.textContent = showMine ? "الإجابة الصحيحة" : "إجابتي";
+    btn.textContent = showMine ? "الانتقال إلى الإجابة الصحيحة" : "الانتقال إلى إجابتي";
   };
   body.appendChild(btn);
 }
@@ -2081,47 +2082,47 @@ function mcqAnswered(n) {
 
 /* ─── screen configs, slides 37-52 ─── */
 const EX_FRIDGE =
-  'سعر الثلاجة هو 4,900 ₪.<br>يقول البائع:<br>"من المفيد أن تشتري اليوم لأن هناك تخفيضاً بنسبة 10%، لذا ستوفّر حوالي 1,000 ₪".';
+  'سعر الثلاجة هو ⁦₪4,900⁩.<br>يقول البائع:<br>"من المفيد أن تشتري اليوم لأن هناك تخفيضاً بنسبة <span dir="ltr">10%</span>، لذا ستوفّر حوالي ⁦₪1,000⁩".';
 const EX_GREENHOUSE =
   "2. في دروس العلوم في مرحلة الإعدادية، توجد دفيئة تكنولوجية ذكية لزراعة الهيدروبونكس (زراعة النباتات على وسط مائي).<br><br>" +
   "نظام الري الآلي في الدفيئة استهلك في بداية التجربة كمية من المياه تبلغ 2,300 لتر في الأسبوع.<br><br>" +
-  "لكي يحسّنوا معدّل نمو الخضروات، قررت الطلاب تغيير إعدادات الحاسوب وزيادة كمية المياه الأسبوعية بنسبة 14%.";
+  "لكي يحسّنوا معدّل نمو الخضروات، قررت الطلاب تغيير إعدادات الحاسوب وزيادة كمية المياه الأسبوعية بنسبة <span dir='ltr'>14%</span>.";
 const EX_OIL =
-  '2. في السوبرماركت يوجد عرض على زيت الزيتون من إنتاج جليلي:<br>"خصم 50% على المنتج الثاني!"<br>سعر كل زجاجة زيت زيتون هو 54 ₪.';
+  '2. في السوبرماركت يوجد عرض على زيت الزيتون من إنتاج جليلي:<br>"خصم <span dir="ltr">50%</span> على المنتج الثاني!"<br>سعر كل زجاجة زيت زيتون هو ⁦₪54⁩.';
 /* VERBATIM from the deck (slide 37, methodica-math-percent-04-new.pptx).
    Client copy — numbers unseparated (4900 / 1000) exactly as written, the
    first line is "בהנחה של 10%", and the 10/100 step stays in the equation. */
 const FRIDGE_BODY = [
-  'ادعاء البائع غير صحيح - لا يتعلق الأمر بخصم بنسبة 10%.<br>سعر الثلاجة هو 4900 ₪.',
-  "10% من 4900 هي:",
-  EQ('10% · 4900 = <span class="frac"><span class="frac-num">10</span><span class="frac-den">100</span></span> · 4900 = <span class="eq-unit" dir="rtl">490 ش.ج</span>'),
-  "لذلك، يتعلق الأمر بخصم قدره 490 ₪ وليس 1000 ₪.",
+  'ادعاء البائع غير صحيح - لا يتعلق الأمر بخصم بنسبة <span dir="ltr">10%</span>.<br>سعر الثلاجة هو ⁦₪4900⁩.',
+  "<span dir='ltr'>10%</span> من 4900 هي:",
+  EQ('<span dir="ltr">10%</span> · 4900 = <span class="frac"><span class="frac-num">10</span><span class="frac-den">100</span></span> · 4900 = <span class="eq-unit" dir="rtl">490 ش.ج</span>'),
+  "لذلك، يتعلق الأمر بخصم قدره ⁦₪490⁩ وليس ⁦₪1000⁩.",
 ];
 /* VERBATIM, deck slide 39: 14%∙2,300 = 14/100∙2,300 = لترات 322.
    The built line had collapsed to "2,300 · 14% = 322" — fraction step gone,
    terms reordered, unit dropped. */
 const GH_A_BODY = [
   "كمية المياه الأسبوعية التي تستهلكها نظام الري هي 2,300 ليتر.",
-  "لحساب الزيادة في كمية المياه، علينا حساب كم تمثل 14% من الكمية الأسبوعية:",
-  EQ('14% · 2,300 = <span class="frac"><span class="frac-num">14</span><span class="frac-den">100</span></span> · 2,300 = <span class="eq-unit" dir="rtl">322 لتراً</span>'),
+  "لحساب الزيادة في كمية المياه، علينا حساب كم تمثل <span dir='ltr'>14%</span> من الكمية الأسبوعية:",
+  EQ('<span dir="ltr">14%</span> · 2,300 = <span class="frac"><span class="frac-num">14</span><span class="frac-den">100</span></span> · 2,300 = <span class="eq-unit" dir="rtl">322 لتراً</span>'),
   "الخلاصة: كمية الري الأسبوعية زادت بمقدار 322 لتر.",
 ];
 const GH_B_BODY = [
   "<strong>دعنا نرى طريقتين للحساب:</strong>",
   "<strong>الطريقة أ:</strong>",
-  "بعد زيادة الكمية الأسبوعية من المياه بنسبة 14% وهي 322 لتر، فإن الكمية الأسبوعية من المياه هي:",
+  "بعد زيادة الكمية الأسبوعية من المياه بنسبة <span dir='ltr'>14%</span> وهي 322 لتر، فإن الكمية الأسبوعية من المياه هي:",
   '<span dir="ltr">2,300 + 322 = <span class="eq-unit" dir="rtl">2,622 لترات</span></span>',
   "<strong>الطريقة ب:</strong>",
-  "نحسب كم يساوي 114% من 2,300:",
+  "نحسب كم يساوي <span dir='ltr'>114%</span> من 2,300:",
   '<span dir="ltr">2,300 · 114% = 2,622</span>',
-  "الخلاصة: كمية المياه الأسبوعية بعد الزيادة بنسبة 14% هي 2,622 لتر.",
+  "الخلاصة: كمية المياه الأسبوعية بعد الزيادة بنسبة <span dir='ltr'>14%</span> هي 2,622 لتر.",
 ];
-const PLANETS_TABLE = `<table class="acq-table planets-table"> <thead><tr><th>عدد الكواكب</th><th>النسبة المئوية</th></tr></thead> <tbody><tr><td>1250</td><td>125%</td></tr><tr><td>x</td><td>100%</td></tr></tbody></table>`;
+const PLANETS_TABLE = `<table class="acq-table planets-table"> <thead><tr><th>عدد الكواكب</th><th>النسبة المئوية</th></tr></thead> <tbody><tr><td>1250</td><td><span dir="ltr">125%</span></td></tr><tr><td>x</td><td><span dir="ltr">100%</span></td></tr></tbody></table>`;
 const PLANETS_BODY = [
   "سنحل باستخدام جدول النسبة:",
-  "نحن نعلم أنه بعد الترقية، زاد عدد الكواكب بنسبة 25%، لذلك فهو الآن 125%.",
+  "نحن نعلم أنه بعد الترقية، زاد عدد الكواكب بنسبة <span dir='ltr'>25%</span>، لذلك فهو الآن <span dir='ltr'>125%</span>.",
   "من الناحية الكمية، عدد الكواكب بعد الزيادة هو 1,250.",
-  "لذلك 125% يتوافق في الجدول مع 1,250 ونريد إيجاد الكمية الأصلية (قبل الزيادة)، أي: ال- 100%.",
+  "لذلك <span dir='ltr'>125%</span> يتوافق في الجدول مع 1,250 ونريد إيجاد الكمية الأصلية (قبل الزيادة)، أي: ال- <span dir='ltr'>100%</span>.",
   PLANETS_TABLE,
   "سنبني معادلة التناسب:",
   '<span class="g-eq" dir="ltr"><span class="frac"><span class="frac-num">125</span><span class="frac-den">100</span></span> = <span class="frac"><span class="frac-num">1250</span><span class="frac-den">x</span></span></span>',
@@ -2131,24 +2132,24 @@ const PLANETS_BODY = [
   "<strong>الخلاصة:</strong> في السنة السابقة للتحديث التكنولوجي، كان هناك 1,000 كوكب.",
 ];
 const OIL_A_BODY = [
-  "سعر زجاجة زيت الزيتون هو 54 ₪.",
-  "إذا اشترى المشتري زجاجة إضافية، فسيدفع عليها 50% من السعر، أي: نصف السعر وهو 27 ريال شاقل.",
+  "سعر زجاجة زيت الزيتون هو ⁦₪54⁩.",
+  "إذا اشترى المشتري زجاجة إضافية، فسيدفع عليها <span dir='ltr'>50%</span> من السعر، أي: نصف السعر وهو 27 ريال شاقل.",
   "لذلك، على زجاجتي زيت زيتون من إنتاج جليلي سيدفع المشتري:",
-  EQ('54 + 27 = <span class="eq-unit" dir="rtl">81 ش.ج</span>'),
+  EQ('54 + 27 = <span class="eq-unit" dir="rtl">81 ش.ج</span>'),
 ];
 const OIL_B_BODY = [
   "بدلاً من الدفع مقابل 2 زجاجة:",
-  EQ('54 + 54 = <span class="eq-unit" dir="rtl">108 ش.ج</span>'),
+  EQ('54 + 54 = <span class="eq-unit" dir="rtl">108 ش.ج</span>'),
   "المشتري سيدفع:",
-  EQ('54 + 27 = <span class="eq-unit" dir="rtl">81 ش.ج</span>'),
+  EQ('54 + 27 = <span class="eq-unit" dir="rtl">81 ش.ج</span>'),
   "لذا سيحصل على خصم بقيمة:",
-  EQ('108 - 81 = <span class="eq-unit" dir="rtl">27 ش.ج</span>'),
+  EQ('108 - 81 = <span class="eq-unit" dir="rtl">27 ش.ج</span>'),
 ];
 const OIL_C_BODY = [
   "علينا حساب نسبة الخصم على كل عملية شراء.",
   "نستخدم جدول التناسب:",
-  "السعر الكامل لـ 2 من الزجاجات (قبل الخصم)<br>هو 108 ₪.",
-  "نريد حساب نسبة الخصم التي تتطابق مع السعر<br>الخصم الذي يبلغ 27 ₪:",
+  "السعر الكامل لـ 2 من الزجاجات (قبل الخصم)<br>هو ⁦₪108⁩.",
+  "نريد حساب نسبة الخصم التي تتطابق مع السعر<br>الخصم الذي يبلغ ⁦₪27⁩:",
   propTable("النسبة المئوية", "السعر", [["x", "27"], ["100%", "108"]]),
   "لنبنِ معادلة النسبة:",
   EQ('<span class="frac"><span class="frac-num">x</span><span class="frac-den">100</span></span> = <span class="frac"><span class="frac-num">27</span><span class="frac-den">108</span></span>'),
@@ -2156,27 +2157,27 @@ const OIL_C_BODY = [
   EQ("108x = 2700"),
   "نقسم على 108 ونحصل على:",
   EQ("x = 25"),
-  "الخلاصة: نسبة الخصم على إجمالي المشتريات هي 25%.",
+  "الخلاصة: نسبة الخصم على إجمالي المشتريات هي <span dir='ltr'>25%</span>.",
 ];
 const MASKS_BODY = [
-  "إذا كانت كمية الأقنعة 70 وتم زيادتها بنسبة 20% فهذا يعني أن الكمية الآن هي 120%.",
+  "إذا كانت كمية الأقنعة 70 وتم زيادتها بنسبة <span dir='ltr'>20%</span> فهذا يعني أن الكمية الآن هي <span dir='ltr'>120%</span>.",
   "نضع في جدول النسبة الثلاثية ونكتشف كمية الأقنعة بعد الزيادة:",
   propTable("النسبة المئوية", "أقنعة", [["120%", "?"], ["100%", "70"]]),
   /* the deck's fraction reads 120%·70 over 108 — a slip (108 belongs to the oil
      question); the triangle divides by 100 and 84 is only reached that way */
-  EQ('<span class="frac"><span class="frac-num">120% · 70</span><span class="frac-den">100</span></span> = <span class="eq-unit" dir="rtl">84 قناع</span>'),
+  EQ('<span class="frac"><span class="frac-num"><span dir="ltr">120%</span> · 70</span><span class="frac-den">100</span></span> = <span class="eq-unit" dir="rtl">84 قناع</span>'),
   "النتيجة - عدد أقنعة المسرح الجديدة التي يجب على الطلاب تحضيرها للعرض الثاني هو 84.",
 ];
 const TAMAR_BODY = [
-  'أ. الصورة التي التقطتها هديل تم تصغيرها بنسبة 15%، لذلك حجمها بالنسبة المئوية الآن هو 85% <span dir="ltr">(100% - 15% = 85%)</span>.',
+  'أ. الصورة التي التقطتها هديل تم تصغيرها بنسبة <span dir="ltr">15%</span>، لذلك حجمها بالنسبة المئوية الآن هو <span dir="ltr">85%</span> <span dir="ltr">(100% - 15% = 85%)</span>.',
   "ب. لحساب حجم الصورة بعد التصغير:",
   propTable("النسبة المئوية", "الحجم (بكسل)", [["85%", "?"], ["100%", "200"]]),
-  EQ('<span class="frac"><span class="frac-num">85% · 200</span><span class="frac-den">100%</span></span> = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
+  EQ('<span class="frac"><span class="frac-num"><span dir="ltr">85%</span> · 200</span><span class="frac-den"><span dir="ltr">100%</span></span></span> = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
 ];
 const CAKE_BODY = [
   "في الوصفة الأصلية، تم طلب 200 غرام من الشوكولاتة الداكنة.",
-  "كريم زادَ كمية الشوكولاتة بنسبة 60% لذلك الآن يوجد في الكعكة 160% من كمية الشوكولاتة الأصلية وهي:",
-  EQ('160% · 200 = 1.6 · 200 = <span class="eq-unit" dir="rtl">320 غرام</span>'),
+  "كريم زادَ كمية الشوكولاتة بنسبة <span dir='ltr'>60%</span> لذلك الآن يوجد في الكعكة <span dir='ltr'>160%</span> من كمية الشوكولاتة الأصلية وهي:",
+  EQ('<span dir="ltr">160%</span> · 200 = 1.6 · 200 = <span class="eq-unit" dir="rtl">320 غرام</span>'),
   "الخلاصة: كمية الشوكولاتة الداكنة في الكعكة المُكبّرة هي 320 غرام.",
 ];
 
@@ -2186,7 +2187,7 @@ const TAG_ANSWERS = (rows) =>
   `<span class="tag-row tag-row--fb">${rows
     .map(
       (r) =>
-        `<span class="tag-cell"><img class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش. ج">` +
+        `<span class="tag-cell"><img class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش.ج">` +
         `<span class="tag-answer tag-answer--done">${r.answer} ش.ج</span></span>`,
     )
     .join("")}</span>`;
@@ -2198,16 +2199,16 @@ const PR = [
     q: 1,
     kind: "scq",
     media: "fridge-sale.svg",
-    mediaAlt: "ثلاجة عليها لافتة خصم 10%",
+    mediaAlt: "ثلاجة عليها لافتة خصم <span dir='ltr'>10%</span>",
     intro: EX_FRIDGE,
-    ask: "<strong>أ.</strong> هل الخصم فعلاً بقيمة 1,000 ₪؟",
+    ask: "<strong>أ.</strong> هل الخصم فعلاً بقيمة ⁦₪1,000⁩؟",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["نعم", "لا", "لا يمكن معرفة ذلك"],
     correctId: "b",
     correctTitle: "إجابتك صحيحة!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: FRIDGE_BODY,
-    hint: "للتحقق من ادعاء البائع، احسبوا كم تساوي 10% من 4,900 ₪.<br>هل النتيجة قريبة من 1,000 ₪؟",
+    hint: "للتحقق من ادعاء البائع، احسبوا كم تساوي <span dir='ltr'>10%</span> من ⁦₪4,900⁩.<br>هل النتيجة قريبة من ⁦₪1,000⁩؟",
   },
 
   {
@@ -2216,7 +2217,7 @@ const PR = [
     q: 2,
     kind: "viq",
     media: "fridge-sale.svg",
-    mediaAlt: "ثلاجة عليها لافتة خصم 10%",
+    mediaAlt: "ثلاجة عليها لافتة خصم <span dir='ltr'>10%</span>",
     intro: EX_FRIDGE,
     ask: "<strong>ب.</strong> ما هو السعر بعد الخصم؟",
     callToAction: "اكتبوا الإجابة الصحيحة:",
@@ -2227,14 +2228,14 @@ const PR = [
        lost its ش.ج, the second dropped the 90/100 step entirely. Same shape as
        the approved slide-55/56 chain (88% · 500 = 88/100 · 500 = … ش.ج 440). */
     body: [
-      "كما ذكرنا، 10% من 4,900 هي 490.",
+      "كما ذكرنا، <span dir='ltr'>10%</span> من 4,900 هي 490.",
       "لذلك، سعر الثلاجة بعد الخصم هو:",
-      EQ('4900 – 490 = <span class="eq-unit" dir="rtl">4,410 ش.ج</span>'),
+      EQ('4900 – 490 = <span class="eq-unit" dir="rtl">4,410 ش.ج</span>'),
       "يمكن أيضاً حساب المبلغ المدفوع بعد الخصم بعملية واحدة:",
-      "إذا كان الخصم 10%، فإننا ندفع 90% فقط من السعر، أي:",
-      EQ('4,900 · 90% = 4,900 · <span class="frac"><span class="frac-num">90</span><span class="frac-den">100</span></span> = <span class="eq-unit" dir="rtl">4,410 ش.ج</span>'),
+      "إذا كان الخصم <span dir='ltr'>10%</span>، فإننا ندفع <span dir='ltr'>90%</span> فقط من السعر، أي:",
+      EQ('4,900 · <span dir="ltr">90%</span> = 4,900 · <span class="frac"><span class="frac-num">90</span><span class="frac-den">100</span></span> = <span class="eq-unit" dir="rtl">4,410 ش.ج</span>'),
     ],
-    hint: "ما النسبة المئوية من السعر التي تبقى بعد خصم <strong>10%؟</strong>",
+    hint: "ما النسبة المئوية من السعر التي تبقى بعد خصم <strong><span dir='ltr'>10%</span>؟</strong>",
   },
 
   {
@@ -2254,7 +2255,7 @@ const PR = [
     body: GH_A_BODY.concat([
         "<strong>الطريقة ب:</strong>",
         "إذا حسبنا الزيادة في كمية المياه بمساعدة التحويل من نسبة مئوية إلى كسر نحصل على:",
-        EQ('14% · 2300 = <span class="frac"><span class="frac-num">14</span><span class="frac-den">100</span></span> · 2300 = <span class="eq-unit" dir="rtl">322 لترات</span>'),
+        EQ('<span dir="ltr">14%</span> · 2300 = <span class="frac"><span class="frac-num">14</span><span class="frac-den">100</span></span> · 2300 = <span class="eq-unit" dir="rtl">322 لترات</span>'),
         "لذلك، زادت كمية المياه بمقدار 322 لترًا.",
     ]),
     hint: "انتبهوا! عليكم أن تحسبوا فقط مقدار الزيادة في كمية المياه الأسبوعية (باللترات).",
@@ -2276,7 +2277,7 @@ const PR = [
        popup; it is part of the body now (producer 14.09.26). */
     body: GH_B_BODY.concat([
         "<strong>الطريقة ج:</strong>",
-        "نحسب كم تساوي 114% من 2,300 بمساعدة التحويل إلى كسر عشري:",
+        "نحسب كم تساوي <span dir='ltr'>114%</span> من 2,300 بمساعدة التحويل إلى كسر عشري:",
         EQ("1.14 · 2,300 = 2,622"),
         "الخلاصة: كمية المياه الأسبوعية بعد الزيادة هي 2,622 لترًا.",
     ]),
@@ -2301,9 +2302,9 @@ const PR = [
     media: "telescope.jpg",
     mediaAlt: "تلسكوب فضائي في سماء الليل",
     intro:
-      "في إطار مشروع في علم الفلك، تابع طلاب وطالبات مسار العلوم<br>اكتشافات كواكب جديدة.<br>" +
+      "في إطار مشروع في علم الفلك، تابع طلاب وطالبات مسار العلوم اكتشافات كواكب جديدة.<br>" +
       "في أحد التحديثات على موقع وكالة الفضاء قرؤوا أنه تمت ترقية عدسة تلسكوب الفضاء المركزي،<br>" +
-      "وأن الترقية زادت بنسبة 25% عدد الكواكب الجديدة التي يستطيع التلسكوب رصدها.<br>" +
+      "وأن الترقية زادت بنسبة <span dir='ltr'>25%</span> عدد الكواكب الجديدة التي يستطيع التلسكوب رصدها.<br>" +
       "بعد الترقية، وصل عدد الكواكب التي اكتُشفت هذا العام إلى 1,250 كوكبًا جديدًا.",
   },
 
@@ -2314,7 +2315,7 @@ const PR = [
     q: 1,
     /* QA 28.09.26: the two key facts repeat above the question */
     intro:
-      "الترقية زادت عدد الكواكب الجديدة بنسبة 25%.<br>" +
+      "الترقية زادت عدد الكواكب الجديدة بنسبة <span dir='ltr'>25%</span>.<br>" +
       "بعد الترقية، وصل عدد الكواكب الجديدة التي اكتُشفت إلى 1,250.",
     ask: "<strong>1. ما هو عدد الكواكب التي اكتُشفت في السنة التي سبقت الترقية التكنولوجية؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
@@ -2325,7 +2326,7 @@ const PR = [
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: PLANETS_BODY,
-    hint: "قيمة <strong>125%</strong> معروفة لنا.<br>علينا أن نجد قيمة <strong>100%</strong>.",
+    hint: "قيمة <strong><span dir='ltr'>125%</span></strong> معروفة لنا.<br>علينا أن نجد قيمة <strong><span dir='ltr'>100%</span></strong>.",
   },
 
   {
@@ -2334,7 +2335,7 @@ const PR = [
     set: "A",
     q: 2,
     media: "olive-oil-deal.jpg",
-    mediaAlt: "عرض خصم 50% على زيت الزيتون",
+    mediaAlt: "عرض خصم <span dir='ltr'>50%</span> على زيت الزيتون",
     intro: EX_OIL,
     callToAction: "اكتبوا الإجابة الصحيحة",
     rows: [
@@ -2353,10 +2354,10 @@ const PR = [
     q: 2,
     intro: EX_OIL,
     media: "olive-oil-deal.jpg",
-    mediaAlt: "عرض خصم 50% على زيت الزيتون",
+    mediaAlt: "عرض خصم <span dir='ltr'>50%</span> على زيت الزيتون",
     ask: "<strong>ب. كم ستكون قيمة الخصم (بالشواقل) التي سيحصل عليها المشتري عند شراء زجاجتين من زيت الزيتون من إنتاج الجليل؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
-    opts: ['20 ش.ج', '25 ش.ج', '27 ش.ج', '30 ش.ج'],
+    opts: ['20 ش.ج', '25 ش.ج', '27 ش.ج', '30 ش.ج'],
     correctId: "c",
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
@@ -2371,7 +2372,7 @@ const PR = [
     q: 2,
     intro: EX_OIL,
     media: "olive-oil-deal.jpg",
-    mediaAlt: "عرض خصم 50% على زيت الزيتون",
+    mediaAlt: "عرض خصم <span dir='ltr'>50%</span> على زيت الزيتون",
     ask: "<strong>ج. ما هي نسبة الخصم على الشراء كله؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["20%", "25%", "27%", "30%"],
@@ -2391,14 +2392,14 @@ const PR = [
     intro:
       "3. في إطار نادي المسرح، يقدّم الطلاب والطالبات مسرحية احتفالية في نهاية العام.<br>" +
       "كجزء من الإكسسوارات، أعدّ الطلاب والطالبات 70 قناعًا مسرحيًا مصمّمًا.<br><br>" +
-      "راجع المخرج النص المحدَّث وأعلن أن الحبكة ستتطلب 20% أقنعة أكثر مما أعدّوا.",
+      "راجع المخرج النص المحدَّث وأعلن أن الحبكة ستتطلب <span dir='ltr'>20%</span> أقنعة أكثر مما أعدّوا.",
     ask: "<strong>ما هو العدد الجديد من الأقنعة المسرحية الذي يجب إعداده؟</strong>",
     callToAction: "اكتبوا الإجابة الصحيحة",
     rows: [{ label: "", answer: 84, unit: "أقنعة" }],
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: MASKS_BODY,
-    hint: "<strong>تذكروا</strong> – الزيادة بنسبة <strong>20%</strong> تعني <strong>120%</strong> من الكمية الأصلية.",
+    hint: "<strong>تذكروا</strong> – الزيادة بنسبة <strong><span dir='ltr'>20%</span></strong> تعني <strong><span dir='ltr'>120%</span></strong> من الكمية الأصلية.",
   },
 
   {
@@ -2413,24 +2414,24 @@ const PR = [
     intro:
       "4. أرادت هديل رفع صورة خلفية لخادم الديسكورد الخاص بها.<br>" +
       "كان الحجم الأصلي للصورة التي التقطتها هديل 200 بكسل.<br>" +
-      "أخبرها التطبيق أن الصورة كبيرة جدًا، وأنه عليها تصغيرها بنسبة 15% لتناسب الشاشة.",
+      "أخبرها التطبيق أن الصورة كبيرة جدًا، وأنه عليها تصغيرها بنسبة <span dir='ltr'>15%</span> لتناسب الشاشة.",
     callToAction: "اكتبوا الإجابات الصحيحة",
     rows: [
-      { label: "أ. ما النسبة المئوية من الحجم الأصلي التي بقيت للصورة بعد التصغير بنسبة 15%؟", answer: 85, unit: "%" },
+      { label: "أ. ما النسبة المئوية من الحجم الأصلي التي بقيت للصورة بعد التصغير بنسبة <span dir='ltr'>15%</span>؟", answer: 85, unit: "%" },
       { label: "ب. ما هو حجم الصورة بعد التصغير؟", answer: 170, unit: "بكسل" },
     ],
     correctTitle: "صحيح!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: TAMAR_BODY.concat([
       "<strong>الطريقة ب:</strong>",
-      "نحسب كم تساوي 85% من 200 بكسل (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:",
-      EQ('85% · 200 = <span class="frac"><span class="frac-num">85</span><span class="frac-den">100</span></span> · 200 = 0.85 · 200 = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
+      "نحسب كم تساوي <span dir='ltr'>85%</span> من 200 بكسل (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:",
+      EQ('<span dir="ltr">85%</span> · 200 = <span class="frac"><span class="frac-num">85</span><span class="frac-den">100</span></span> · 200 = 0.85 · 200 = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
       "<strong>الطريقة ج:</strong>",
       "طريقة المثلث:",
-      EQ('<span class="frac"><span class="frac-num">85% · 200</span><span class="frac-den">100%</span></span> = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
+      EQ('<span class="frac"><span class="frac-num"><span dir="ltr">85%</span> · 200</span><span class="frac-den"><span dir="ltr">100%</span></span></span> = <span class="eq-unit" dir="rtl">170 بكسل</span>'),
       "الخلاصة: حجم صورة الخلفية بعد التصغير هو 170 بكسل.",
     ]),
-    hint: "أ. تذكروا – الكل بالنسبة المئوية هو 100%.<br>ب. احسبوا الكمية المناسبة للنسبة التي حسبتموها في البند أ.",
+    hint: "أ. تذكروا – الكل بالنسبة المئوية هو <span dir='ltr'>100%</span>.<br>ب. احسبوا الكمية المناسبة للنسبة التي حسبتموها في البند أ.",
   },
 
   {
@@ -2446,7 +2447,7 @@ const PR = [
       "5. يريد كريم أن يخبز كعكة الشوكولاتة الشهيرة الخاصة به لحفلة نهاية العام.<br>" +
       "الوصفة الأصلية مخصصة لقالب صغير وتتطلب 200 غرام شوكولاتة داكنة.<br><br>" +
       "لكي تكفي الكعكة الجميع، يستخدم كريم قالبًا أكبر،<br>" +
-      "وعليه أن يزيد كمية الشوكولاتة الداكنة بنسبة 60%.",
+      "وعليه أن يزيد كمية الشوكولاتة الداكنة بنسبة <span dir='ltr'>60%</span>.",
     callToAction: "اختاروا الإجابة الصحيحة من القائمة",
     ask: "كم غرامًا من الشوكولاتة الداكنة في الكعكة الأكبر؟",
     opts: ["260", "300", "320"],
@@ -2477,8 +2478,8 @@ const PR = [
     pages: [
       [
         "<strong>الطريقة ب:</strong>",
-        "نحسب كم تساوي 130% من 60 دقيقة (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:",
-        EQ('130% · 60 = <span class="frac"><span class="frac-num">130</span><span class="frac-den">100</span></span> · 60 = 1.3 · 60 = <span class="eq-unit" dir="rtl">78 دقائق</span>'),
+        "نحسب كم تساوي <span dir='ltr'>130%</span> من 60 دقيقة (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:",
+        EQ('<span dir="ltr">130%</span> · 60 = <span class="frac"><span class="frac-num">130</span><span class="frac-den">100</span></span> · 60 = 1.3 · 60 = <span class="eq-unit" dir="rtl">78 دقائق</span>'),
       ],
       [
         "<strong>الطريقة ج:</strong>",
@@ -2494,7 +2495,7 @@ const PR = [
     mediaAlt: "قائمة تشغيل على الهاتف",
     intro:
       "1. أعدّت سلمى قائمة تشغيل للاستماع خلال الاستراحات في المدرسة.<br>" +
-      "في النسخة الأولى كانت قائمة التشغيل تضم أغاني بمدة إجمالية 60 دقيقة (الكل). قبل حفلة نهاية العام، قررت أن تزيد مدة قائمة التشغيل بنسبة 30%.",
+      "في النسخة الأولى كانت قائمة التشغيل تضم أغاني بمدة إجمالية 60 دقيقة (الكل). قبل حفلة نهاية العام، قررت أن تزيد مدة قائمة التشغيل بنسبة <span dir='ltr'>30%</span>.",
     ask: "<strong>كم دقيقة تستمر قائمة التشغيل الجديدة لدى سلمى؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["18 دقيقة", "72 دقيقة", "78 دقيقة", "90 دقيقة"],
@@ -2502,15 +2503,15 @@ const PR = [
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "قائمة التشغيل الجديدة لدى سلمى زادت بنسبة 30%،",
-      "لذلك أصبح طولها الآن 130% من 60 دقيقة، أي:",
+      "قائمة التشغيل الجديدة لدى سلمى زادت بنسبة <span dir='ltr'>30%</span>،",
+      "لذلك أصبح طولها الآن <span dir='ltr'>130%</span> من 60 دقيقة، أي:",
       propTable("النسبة المئوية", "دقائق", [
         ["130%", "?"],
         ["100%", "60"],
       ]),
-      EQ('130% · 60 = <span class="frac"><span class="frac-num">130</span><span class="frac-den">100</span></span> · 60 = 1.3 · 60 = <span class="eq-unit" dir="rtl">78 دقائق</span>'),
+      EQ('<span dir="ltr">130%</span> · 60 = <span class="frac"><span class="frac-num">130</span><span class="frac-den">100</span></span> · 60 = 1.3 · 60 = <span class="eq-unit" dir="rtl">78 دقائق</span>'),
     ],
-    hint: 'زدنا الكل (100%) بنسبة 30%، لذلك أصبح حجمه الآن "بلغة النسب المئوية" 130%.',
+    hint: 'زدنا الكل (<span dir="ltr">100%</span>) بنسبة <span dir="ltr">30%</span>، لذلك أصبح حجمه الآن "بلغة النسب المئوية" <span dir="ltr">130%</span>.',
   },
 
   {
@@ -2518,7 +2519,7 @@ const PR = [
     kind: "tags",
     set: "B",
     q: 2,
-    intro: '2. يقيم متجر الملابس «ستايل» عرضًا احتفاليًا بمناسبة موسم الانتقال.<br>جميع المنتجات في المتجر تُباع بخصم 25%.',
+    intro: '2. يقيم متجر الملابس «ستايل» عرضًا احتفاليًا بمناسبة موسم الانتقال.<br>جميع المنتجات في المتجر تُباع بخصم <span dir="ltr">25%</span>.',
     callToAction: "أكملوا على البطاقات السعر الجديد بعد الخصم",
     rows: [
       { img: "tag-300.png", was: 300, answer: 225 },
@@ -2542,7 +2543,7 @@ const PR = [
       '<span class="g-eq" dir="ltr">120 · 75% = 90</span>',
       '<span class="g-eq" dir="ltr">60 · 75% = 45</span>',
     ],
-    hint: "إذا كان السعر الأصلي <strong>100%</strong>، فما النسبة المئوية التي تبقى للدفع بعد خصم <strong>25%؟</strong>",
+    hint: "إذا كان السعر الأصلي <strong><span dir='ltr'>100%</span></strong>، فما النسبة المئوية التي تبقى للدفع بعد خصم <strong><span dir='ltr'>25%</span>؟</strong>",
   },
 
   {
@@ -2550,8 +2551,8 @@ const PR = [
     pages: [
       [
         "<strong>الطريقة ب:</strong>",
-        'نحسب كم تساوي 88% من 500 ش.ج (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:',
-        EQ('88% · 500 = <span class="frac"><span class="frac-num">88</span><span class="frac-den">100</span></span> · 500 = 0.88 · 500 = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
+        'نحسب كم تساوي <span dir="ltr">88%</span> من 500 ش.ج (الكمية الكاملة) بمساعدة التحويل إلى كسر عشري:',
+        EQ('<span dir="ltr">88%</span> · 500 = <span class="frac"><span class="frac-num">88</span><span class="frac-den">100</span></span> · 500 = 0.88 · 500 = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
       ],
       [
         "<strong>الطريقة ج:</strong>",
@@ -2560,8 +2561,8 @@ const PR = [
           ["88%", "?"],
           ["100%", "500"],
         ]),
-        EQ('<span class="frac"><span class="frac-num">500 · 88%</span><span class="frac-den">100%</span></span> = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
-        'الخلاصة: دفع يوسف 440 ش.ج ثمن الحذاء بعد الخصم.',
+        EQ('<span class="frac"><span class="frac-num">500 · <span dir="ltr">88%</span></span><span class="frac-den"><span dir="ltr">100%</span></span></span> = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
+        'الخلاصة: دفع يوسف 440 ش.ج ثمن الحذاء بعد الخصم.',
       ],
     ],
     kind: "scq",
@@ -2570,8 +2571,8 @@ const PR = [
     media: "sport-shoes.jpg",
     mediaAlt: "حذاء رياضي",
     intro:
-      '3. أراد يوسف أن يشتري حذاءً رياضيًا شهيرًا كان سعره 500 ش.ج.<br>' +
-      "هو يعلم أنه بفضل التسجيل في نادي الأعضاء الرقمي الخاص بالمتجر،<br>يحق له خصم 12% على الحذاء.",
+      '3. أراد يوسف أن يشتري حذاءً رياضيًا شهيرًا كان سعره 500 ش.ج.<br>' +
+      "هو يعلم أنه بفضل التسجيل في نادي الأعضاء الرقمي الخاص بالمتجر،<br>يحق له خصم <span dir='ltr'>12%</span> على الحذاء.",
     ask: "أ. <strong>ما النسبة المئوية من السعر الأصلي للحذاء التي يجب على يوسف دفعها عند الصندوق؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["12%", "50%", "88%"],
@@ -2579,11 +2580,11 @@ const PR = [
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "حصل يوسف على خصم 12% على سعر الحذاء",
-      "لذلك دفع فقط 88% من سعر الحذاء",
+      "حصل يوسف على خصم <span dir='ltr'>12%</span> على سعر الحذاء",
+      "لذلك دفع فقط <span dir='ltr'>88%</span> من سعر الحذاء",
       EQ("(100% - 12% = 88%)"),
     ],
-    hint: "ما النسبة التي تبقى للدفع عندما نطرح <strong>12%</strong> من <strong>100%؟</strong>",
+    hint: "ما النسبة التي تبقى للدفع عندما نطرح <strong><span dir='ltr'>12%</span></strong> من <strong><span dir='ltr'>100%</span>؟</strong>",
   },
 
   {
@@ -2594,21 +2595,21 @@ const PR = [
     media: "sport-shoes.jpg",
     mediaAlt: "حذاء رياضي",
     intro:
-      '3. أراد يوسف أن يشتري حذاءً رياضيًا شهيرًا كان سعره 500 ش.ج.<br>' +
-      "هو يعلم أنه بفضل التسجيل في نادي الأعضاء الرقمي الخاص بالمتجر،<br>يحق له خصم 12% على الحذاء.",
-    ask: "<strong>ب. ادّعى يوسف أنه بعد الخصم سيدفع ثمن الحذاء أقل من 400 ₪.<br>هل يوسف محق؟</strong>",
+      '3. أراد يوسف أن يشتري حذاءً رياضيًا شهيرًا كان سعره 500 ش.ج.<br>' +
+      "هو يعلم أنه بفضل التسجيل في نادي الأعضاء الرقمي الخاص بالمتجر،<br>يحق له خصم <span dir='ltr'>12%</span> على الحذاء.",
+    ask: "<strong>ب. ادّعى يوسف أنه بعد الخصم سيدفع ثمن الحذاء أقل من ⁦₪400⁩.<br>هل يوسف محق؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["نعم", "لا", "لا يمكن التحديد"],
     correctId: "b",
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "خصم 12% يعني دفع 88%.",
-      "88% من 500 هي:",
-      EQ('88% · 500 = <span class="frac"><span class="frac-num">88</span><span class="frac-den">100</span></span> · 500 = 0.88 · 500 = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
-      "الخلاصة: يوسف مخطئ، سيدفع ثمن الحذاء أكثر من 400 ₪.",
+      "خصم <span dir='ltr'>12%</span> يعني دفع <span dir='ltr'>88%</span>.",
+      "<span dir='ltr'>88%</span> من 500 هي:",
+      EQ('<span dir="ltr">88%</span> · 500 = <span class="frac"><span class="frac-num">88</span><span class="frac-den">100</span></span> · 500 = 0.88 · 500 = <span class="eq-unit" dir="rtl">440 ش.ج</span>'),
+      "الخلاصة: يوسف مخطئ، سيدفع ثمن الحذاء أكثر من ⁦₪400⁩.",
     ],
-    hint: 'خصم 12% يعني دفع <span dir="ltr">___ %</span>.',
+    hint: 'خصم <span dir="ltr">12%</span> يعني دفع <span dir="ltr">___ %</span>.',
   },
 
   {
@@ -2621,15 +2622,15 @@ const PR = [
     intro:
       "4. أراد طلاب كثيرون الانضمام إلى منتخب كرة السلة في المدرسة.<br>" +
       "قرر المدرب منح فرصة لمزيد من اللاعبين.<br>" +
-      "وزاد عدد اللاعبين في المنتخب بنسبة 40%.<br>في الفريق الأصلي كان هناك 15 لاعبًا.",
+      "وزاد عدد اللاعبين في المنتخب بنسبة <span dir='ltr'>40%</span>.<br>في الفريق الأصلي كان هناك 15 لاعبًا.",
     ask: "<strong>أ. ما النسبة المئوية التي تمثل حجم المنتخب الجديد؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["100%", "140%", "40%", "60%"],
     correctId: "b",
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
-    body: ["المنتخب الجديد زاد بنسبة 40%", "لذلك حجمه بالنسبة المئوية الآن هو 140%", EQ("(100% + 40% = 140%)")],
-    hint: 'الحديث عن <strong>زيادة</strong> بنسبة 40% – كم نسبة أُضيفت «بلغة النسب المئوية»؟',
+    body: ["المنتخب الجديد زاد بنسبة <span dir='ltr'>40%</span>", "لذلك حجمه بالنسبة المئوية الآن هو <span dir='ltr'>140%</span>", EQ("(100% + 40% = 140%)")],
+    hint: 'الحديث عن <strong>زيادة</strong> بنسبة <span dir="ltr">40%</span> – كم نسبة أُضيفت «بلغة النسب المئوية»؟',
   },
 
   {
@@ -2642,7 +2643,7 @@ const PR = [
     intro:
       "4. أراد طلاب كثيرون الانضمام إلى منتخب كرة السلة في المدرسة.<br>" +
       "قرر المدرب منح فرصة لمزيد من اللاعبين.<br>" +
-      "وزاد عدد اللاعبين في المنتخب بنسبة 40%.<br>في الفريق الأصلي كان هناك 15 لاعبًا.",
+      "وزاد عدد اللاعبين في المنتخب بنسبة <span dir='ltr'>40%</span>.<br>في الفريق الأصلي كان هناك 15 لاعبًا.",
     callToAction: "اكتبوا الإجابات الصحيحة",
     rows: [
       { label: "<strong>ب. </strong>كم طالبًا يلعبون في منتخب كرة السلة الموسَّع؟", answer: 21, unit: "" },
@@ -2651,12 +2652,12 @@ const PR = [
     correctTitle: "صحيح جدًا‎!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "ب. لحساب عدد اللاعبين في المنتخب الموسَّع نحسب كم تساوي 140% من 15 (الكمية الكاملة):",
-      EQ('140% · 15 = <span class="frac"><span class="frac-num">140</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">21 لاعبين</span>'),
+      "ب. لحساب عدد اللاعبين في المنتخب الموسَّع نحسب كم تساوي <span dir='ltr'>140%</span> من 15 (الكمية الكاملة):",
+      EQ('<span dir="ltr">140%</span> · 15 = <span class="frac"><span class="frac-num">140</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">21 لاعبين</span>'),
       "ج. في الفريق الأصلي كان هناك 15 لاعبًا. وجدنا أن في الفريق الموسَّع 21 لاعبًا.",
       "الخلاصة: زاد الفريق بمقدار 6 لاعبين.",
     ],
-    hint: "الزيادة بنسبة 40% تعني أن الكمية الجديدة هي 140% من الكمية الأصلية.",
+    hint: "الزيادة بنسبة <span dir='ltr'>40%</span> تعني أن الكمية الجديدة هي <span dir='ltr'>140%</span> من الكمية الأصلية.",
   },
 
   {
@@ -2681,17 +2682,17 @@ const PR = [
     intro:
       "1. قررت البلدية تجديد ملعب كرة القدم المصغّرة في الحي.<br>" +
       "الملعب الحالي على شكل مستطيل طوله 50 مترًا وعرضه 20 مترًا.<br>" +
-      "في إطار التجديد، تقرر زيادة طول الملعب بنسبة 20% وعدم تغيير<br>عرض الملعب.",
+      "في إطار التجديد، تقرر زيادة طول الملعب بنسبة <span dir='ltr'>20%</span> وعدم تغيير<br>عرض الملعب.",
     ask: "<strong>بكم بالمئة زادت مساحة الملعب بعد التغيير؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
-    opts: ["زادت بنسبة 20%", "انخفضت بنسبة 20%", "زادت بنسبة 50%", "انخفضت بنسبة 50%"],
+    opts: ["زادت بنسبة <span dir='ltr'>20%</span>", "انخفضت بنسبة <span dir='ltr'>20%</span>", "زادت بنسبة <span dir='ltr'>50%</span>", "انخفضت بنسبة <span dir='ltr'>50%</span>"],
     correctId: "a",
     correctTitle: "إجابتكم صحيحة وهذا رائع، فهذا سؤال مركّب",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
       'طول الملعب المستطيل 50 م وعرضه 20 م، لذلك مساحة الملعب هي: <span dir="ltr">50 · 20 = <span class="eq-unit" dir="rtl">1000 م²</span></span>.',
       "زيادة الطول بنسبة 20٪ لذلك الآن الطول بالنسبة المئوية هو 120٪ من الطول السابق.",
-      'لنحسب كم يساوي 120% من 50: <span dir="ltr">120% · 50 = 1.2 · 50 = <span class="eq-unit" dir="rtl">60 متر</span></span>',
+      'لنحسب كم يساوي <span dir="ltr">120%</span> من 50: <span dir="ltr">120% · 50 = 1.2 · 50 = <span class="eq-unit" dir="rtl">60 متر</span></span>',
       'لذلك مساحة الملعب بعد زيادة الطول هي: <span dir="ltr">60 · 20 = <span class="eq-unit" dir="rtl">1200 م²</span></span>',
       'الخلاصة: مساحة الملعب <strong>زادت بمقدار 200 م²</strong> <span class="eq-keep">= 1000 م² – 1200 م².</span>',
       "نحسب <strong>بكم نسبة مئوية</strong> زاد مساحة الملعب:",
@@ -2703,7 +2704,7 @@ const PR = [
       'سنبني معادلة النسبة: <span dir="ltr"><span class="frac"><span class="frac-num">200</span><span class="frac-den">1000</span></span> = <span class="frac"><span class="frac-num">x</span><span class="frac-den">100</span></span></span>',
       'سنضرب في المقام المشترك ونحصل على: <span dir="ltr">10x = 200</span>',
       'نقسم على 10 ونحصل على: <span dir="ltr">x = 20</span>',
-      "الخلاصة: زاد مساحة الملعب بنسبة 20% (الإجابة أ صحيحة).",
+      "الخلاصة: زاد مساحة الملعب بنسبة <span dir='ltr'>20%</span> (الإجابة أ صحيحة).",
     ],
     hint: 'احسبوا أولًا بكم م² زادت مساحة الملعب، ثم استعينوا بجدول التناسب لإيجاد نسبة الزيادة.',
   },
@@ -2713,27 +2714,27 @@ const PR = [
     kind: "mcq",
     set: "F",
     q: 2,
-    intro: '2. أميرة تؤكد:<br>"إذا زدت عدداً بنسبة 50%، فأنا ببساطة أضيف إليه 50".',
+    intro: '2. أميرة تؤكد:<br>"إذا زدت عدداً بنسبة <span dir="ltr">50%</span>، فأنا ببساطة أضيف إليه 50".',
     ask: "<strong>هل أميرة محقة؟</strong>",
     callToAction: "ضعوا علامة على <strong>جميع</strong> الجمل الصحيحة",
     opts: [
-      "العبارة خاطئة لأنه إذا كان الرقم مثلاً 80 فإن 50% منه يساوي 40 وبالتالي يجب أن نضيف 40 وليس 50.",
+      "العبارة خاطئة لأنه إذا كان الرقم مثلاً 80 فإن <span dir='ltr'>50%</span> منه يساوي 40 وبالتالي يجب أن نضيف 40 وليس 50.",
       "أمير خاطئة، النسبة المئوية والكمية هما قيمتان مختلفتان.",
-      "تصريح خاطئ، إذا زدنا عددًا بنسبة 50% فهذا يعني إضافة 50 للعدد.",
-      "تصريح خاطئ، إضافة 50% إلى رقم هي إضافة نصفه وهذه الإضافة ليست دائماً 50.",
+      "تصريح خاطئ، إذا زدنا عددًا بنسبة <span dir='ltr'>50%</span> فهذا يعني إضافة 50 للعدد.",
+      "تصريح خاطئ، إضافة <span dir='ltr'>50%</span> إلى رقم هي إضافة نصفه وهذه الإضافة ليست دائماً 50.",
     ],
     correctIds: ["a", "b", "d"],
     correctTitle: "أنتم محقون!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "<strong><strong></strong>الادعاء أ<strong></strong></strong> يعرض مثالاً حيث الرقم هو 80 وليس 100، لذلك فإن 50% منه هو 40 وليس 50.",
+      "<strong>الادعاء أ </strong>يعرض مثالاً حيث الرقم هو 80 وليس 100، لذلك فإن <span dir='ltr'>50%</span> منه هو 40 وليس 50.",
       "<strong>خلاصة:</strong> الادعاء أ يشرح بشكل جيد جداً لماذا القول غير صحيح، وبالتالي فهذا ادعاء صحيح.",
       "<strong>ادعاء ب</strong> يقول بطريقة عامة أن النسبة المئوية والكمية هما قيمتان مختلفتان.",
-      "الخلاصة: هذا ادعاء صحيح لأنّ النسبة المئوية تُحسب دائماً كجزء من كمية.",
+      "<strong>الخلاصة: </strong>هذا ادعاء صحيح لأنّ النسبة المئوية تُحسب دائماً كجزء من كمية.",
       /* was a second popup page behind a "המשך" button — merged into the
          body so the panel has no continue of its own (producer 14.09.26) */
-        "<strong>الادعاء ج </strong>هو ادعاء خاطئ لأن قيمة 50% ليست دائمًا 50. على سبيل المثال، 50% من 200 هي 100.",
-        "<strong>الادعاء د</strong> تقول إن إضافة 50% هي إضافة نصف العدد. هذه الإضافة ليست دائماً 50، كما شرحنا في الأقسام السابقة.",
+        "<strong>الادعاء ج </strong>هو ادعاء خاطئ لأن قيمة <span dir='ltr'>50%</span> ليست دائمًا 50. على سبيل المثال، <span dir='ltr'>50%</span> من 200 هي 100.",
+        "<strong>الادعاء د</strong> تقول إن إضافة <span dir='ltr'>50%</span> هي إضافة نصف العدد. هذه الإضافة ليست دائماً 50، كما شرحنا في الأقسام السابقة.",
         "<strong>نتيجة:</strong> الادعاءات أ، ب، د هي ادعاءات صحيحة.",
     ],
     hint: "حاولوا اتباع طريقة أميرة عندما يكون الرقم 60 مثلاً.<br>هل أميرة على حق؟",
@@ -2746,7 +2747,7 @@ const PR = [
     video: "character-rubik.mp4",
     pre: "لقد أكملت التمرين بنجاح - ممتاز!",
     big: "وقت رائع للتعلم بطريقة مختلفة أيضاً",
-    mid: "لأن التعلم يحدث في أشكال مختلفة.",
+    mid: "لأن التعلّم يحدث في أشكال مختلفة.",
     cta: "متابعة",
   },
 
@@ -2756,12 +2757,12 @@ const PR = [
     char: "character-looking.png",
     bubble: "واو عندكم الكثير من<br>المقاعد في المدرسة!",
     intro:
-      "في ساحة المدرسة الإعدادية موزعة مقاعد جلوس." +
-      "مدير المدرسة راضٍ عن استخدام المقاعد ويخطط لزيادة عددها بنسبة 25%.<br>" +
+      "في ساحة المدرسة الإعدادية موزعة مقاعد جلوس.<br>" +
+      "مدير المدرسة راضٍ عن استخدام المقاعد ويخطط لزيادة عددها بنسبة <span dir='ltr'>25%</span>.<br>" +
       "(إذا لم يكن عدد المقاعد قابلاً للقسمة على 4، فقرّبوا لأعلى إلى مقعد كامل).",
     rows: [
       { label: "أ. توجهوا إلى الفناء وعدّوا عدد مقاعد الجلوس" },
-      { label: "ب. احسبوا كم مقعدًا يجب على المدير أن يضيف ليزداد عدد المقاعد بنسبة 25%" },
+      { label: "ب. احسبوا كم مقعدًا يجب على المدير أن يضيف ليزداد عدد المقاعد بنسبة <span dir='ltr'>25%</span>" },
       { label: "ج. كم عدد مقاعد الجلوس التي ستكون في الفناء بعد زيادة الكمية؟" },
     ],
   },
@@ -2786,11 +2787,11 @@ const PR = [
     media: "garden-plan.png",
     mediaAlt: "رسم حديقة المدينة العامة",
     intro:
-      "في البلدية، تم الاقرار بتوسيع حديقة عامة مستطيلة الشكل." +
+      "في البلدية، تم الاقرار بتوسيع حديقة عامة مستطيلة الشكل.<br>" +
       "كان طول الحديقة 40 م وعرضها 20 م.<br>" +
-      "في إطار الإصلاح، زادوا الطول بنسبة 25% وقللوا العرض بنسبة 25%.<br>" +
+      "في إطار الإصلاح، زادوا الطول بنسبة <span dir='ltr'>25%</span> وقللوا العرض بنسبة <span dir='ltr'>25%</span>.<br>" +
       'أعلنت البلدية على موقعها الرسمي: "لم تتغير مساحة الحديقة".',
-    callToAction: "بوايه نتحقق من ادعاء البلدية:",
+    callToAction: "<strong>لنتحقق من ادعاء البلدية:</strong>",
     rows: [{ label: "أ. احسبوا مساحة الحديقة قبل الإصلاح:", answer: 800, unit: 'م²' }],
     correctTitle: "أحسنت!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
@@ -2815,31 +2816,31 @@ screen: 49,
     media: "garden-plan.png",
     mediaAlt: "مخطط الحديقة العامة",
     intro:
-      "في البلدية، تم الاتفاق على توسيع حديقة عامة مستطيلة الشكل." +
+      "في البلدية، تم الاتفاق على توسيع حديقة عامة مستطيلة الشكل.<br>" +
       "طول الحديقة كان 40 م وعرضها 20 م.<br>" +
-      "في إطار عملية الترميم، زادوا الطول بنسبة 25% وقللوا العرض بنسبة 25%.<br>" +
+      "في إطار عملية الترميم، زادوا الطول بنسبة <span dir='ltr'>25%</span> وقللوا العرض بنسبة <span dir='ltr'>25%</span>.<br>" +
       'أعلنت البلدية على موقعها الإلكتروني: "لم تتغيّر مساحة الحديقة".',
     callToAction: "<strong>دعونا نتحقق من ادعاء البلدية:</strong>",
     rows: [{ label: "ب. احسبوا مساحة الحديقة بعد الترميم:", answer: 750, unit: 'م²' }],
     correctTitle: "أحسنت!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     bodyWrong: [
-      "زادوا طول الحديقة بـ 25% لذلك الآن طولها هو 125% من 40 م وهي:",
-      EQ('125% · 40 = <span class="frac"><span class="frac-num">125</span><span class="frac-den">100</span></span> · 40 = 1.25 · 40 = <span class="eq-unit" dir="rtl">50 متراً</span>'),
-      "قللوا عرض الحديقة بنسبة 25% لذلك الآن عرضها هو 75% من 20 م وهو:",
-      EQ('75% · 20 = <span class="frac"><span class="frac-num">75</span><span class="frac-den">100</span></span> · 20 = 0.75 · 20 = <span class="eq-unit" dir="rtl">15 متراً</span>'),
+      "زادوا طول الحديقة بـ <span dir='ltr'>25%</span> لذلك الآن طولها هو <span dir='ltr'>125%</span> من 40 م وهي:",
+      EQ('<span dir="ltr">125%</span> · 40 = <span class="frac"><span class="frac-num">125</span><span class="frac-den">100</span></span> · 40 = 1.25 · 40 = <span class="eq-unit" dir="rtl">50 متراً</span>'),
+      "قللوا عرض الحديقة بنسبة <span dir='ltr'>25%</span> لذلك الآن عرضها هو <span dir='ltr'>75%</span> من 20 م وهو:",
+      EQ('<span dir="ltr">75%</span> · 20 = <span class="frac"><span class="frac-num">75</span><span class="frac-den">100</span></span> · 20 = 0.75 · 20 = <span class="eq-unit" dir="rtl">15 متراً</span>'),
       "بعد التغيير، مساحة الحديقة هي:",
       EQ('50 · 15 = <span class="eq-unit" dir="rtl">750 م²</span>'),
     ],
     body: [
-      "زادوا طول الحديقة بنسبة 25% لذلك الآن طولها هو 125% من 40 متر وهو:",
-      EQ('125% · 40 = <span class="frac"><span class="frac-num">125</span><span class="frac-den">100</span></span> · 40 = 1.25 · 40 = <span class="eq-unit" dir="rtl">50 متراً</span>'),
-      "قللوا عرض الحديقة بنسبة 25% لذلك الآن عرضها هو 75% من 20 م' وهي:",
-      EQ('75% · 20 = <span class="frac"><span class="frac-num">75</span><span class="frac-den">100</span></span> · 20 = 0.75 · 20 = <span class="eq-unit" dir="rtl">15 متراً</span>'),
+      "زادوا طول الحديقة بنسبة <span dir='ltr'>25%</span> لذلك الآن طولها هو <span dir='ltr'>125%</span> من 40 متر وهو:",
+      EQ('<span dir="ltr">125%</span> · 40 = <span class="frac"><span class="frac-num">125</span><span class="frac-den">100</span></span> · 40 = 1.25 · 40 = <span class="eq-unit" dir="rtl">50 متراً</span>'),
+      "قللوا عرض الحديقة بنسبة <span dir='ltr'>25%</span> لذلك الآن عرضها هو <span dir='ltr'>75%</span> من 20 م' وهي:",
+      EQ('<span dir="ltr">75%</span> · 20 = <span class="frac"><span class="frac-num">75</span><span class="frac-den">100</span></span> · 20 = 0.75 · 20 = <span class="eq-unit" dir="rtl">15 متراً</span>'),
       "بعد التغيير، مساحة الحديقة هي:",
       EQ('50 · 15 = <span class="eq-unit" dir="rtl">750 م²</span>'),
     ],
-    hint: "يجب زيادة الطول بنسبة 25% وتقليل العرض بنسبة 25% ثم فقط حساب المساحة.",
+    hint: "يجب زيادة الطول بنسبة <span dir='ltr'>25%</span> وتقليل العرض بنسبة <span dir='ltr'>25%</span> ثم فقط حساب المساحة.",
   },
 
   {
@@ -2853,9 +2854,9 @@ screen: 49,
     media: "garden-plan.png",
     mediaAlt: "رسم الحديقة العامّة",
     intro:
-      "في البلدية، تقرر توسيع حديقة عامة مستطيلة الشكل." +
+      "في البلدية، تقرر توسيع حديقة عامة مستطيلة الشكل.<br>" +
       "كان طول الحديقة 40 م وعرضها 20 م.<br>" +
-      "في إطار التجديد، زادوا الطول بنسبة 25% وقللوا العرض بنسبة 25%.",
+      "في إطار التجديد، زادوا الطول بنسبة <span dir='ltr'>25%</span> وقللوا العرض بنسبة <span dir='ltr'>25%</span>.",
     ask: '<strong>ج. وجدنا أن مساحة الحديقة انخفضت (من 800 م² إلى 750 م²)، لذلك كان إعلان البلدية مضللًا.<br>بكم بالمئة انخفضت المساحة؟</strong>',
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["12%", "15%", "6.25%"],
@@ -2876,11 +2877,11 @@ screen: 49,
       EQ("8x = 50"),
       "نقسم على 8 فنحصل على:",
       EQ("x = 6.25"),
-      "الخلاصة: مساحة الحديقة صغرت بنسبة 6.25%.",
+      "الخلاصة: مساحة الحديقة صغرت بنسبة <span dir='ltr'>6.25%</span>.",
       "<strong>البند ب:</strong>",
-      "عرض الحديقة كان 20 م وتم تقليله بنسبة 25% وبالتالي العرض الجديد بالنسبة المئوية هو 75%. سنحسب العرض الجديد بالأمتار باستخدام جدول النسبة:",
+      "عرض الحديقة كان 20 م وتم تقليله بنسبة <span dir='ltr'>25%</span> وبالتالي العرض الجديد بالنسبة المئوية هو <span dir='ltr'>75%</span>. سنحسب العرض الجديد بالأمتار باستخدام جدول النسبة:",
       propTable("النسبة المئوية", "الطول (م')", [["75%", "?"], ["100%", "20 م"]]),
-      EQ('<span class="frac"><span class="frac-num">75% · 20</span><span class="frac-den">100%</span></span> = <span class="eq-unit" dir="rtl">15 متر</span>'),
+      EQ('<span class="frac"><span class="frac-num"><span dir="ltr">75%</span> · 20</span><span class="frac-den"><span dir="ltr">100%</span></span></span> = <span class="eq-unit" dir="rtl">15 متر</span>'),
       "تلقينا أن عرض الملعب بعد الانخفاض هو 15 م.",
       "لذلك، مساحة الحديقة بعد التجديد هي:",
       /* deck writes 50·17 here — a slip, the width just computed is 15 */
@@ -2900,7 +2901,7 @@ screen: 49,
     mediaAlt: "سجادة مستطيلة",
     intro:
       'شركة "سجادة السحر" أطلقت حملة مبيعات جديدة وأعلنت:<br>' +
-      '«زدنا طول السجادة بنسبة 10% وعرضها بنسبة 10%!»<br>' +
+      '«زدنا طول السجادة بنسبة <span dir="ltr">10%</span> وعرضها بنسبة <span dir="ltr">10%</span>!»<br>' +
       "الشركة تصنع سجادة مستطيلة طولها 2 متر وعرضها 1.5 متر.<br>" +
       "بأي نسبة مئوية زادت مساحة السجادة بعد زيادة طولها وعرضها؟",
     callToAction: "اكتبوا الإجابة الصحيحة",
@@ -2911,11 +2912,11 @@ screen: 49,
       "أولاً يجب أن نحسب مساحة السجادة قبل التغييرات:",
       "مساحة السجادة المستطيلة تُحسب بـ <strong>الطول × العرض</strong> لذلك، مساحة السجادة قبل التغييرات هي:",
       EQ('2 · 1.5 = <span class="eq-unit" dir="rtl">3 م²</span>'),
-      "زادوا طول السّجادة بنسبة 10% لذلك الآن طولها هو 110% من 2 م وهي:",
-      EQ('<strong>110% · 2 = 1.1 · 2 = <span class="eq-unit" dir="rtl">2.2 متر</span></strong>'),
-      "كما زادوا عرض السجادة بنسبة 10% لذلك الآن عرض السجادة هو 110% من 1.5 م وهو:",
-      EQ('110% · 1.5 = 1.1 · 1.5 = <span class="eq-unit" dir="rtl">1.65 متر</span>'),
-      "مساحة السجادة بعد التغييرات هي:",
+      "زادوا طول السّجادة بنسبة <span dir='ltr'>10%</span> لذلك الآن طولها هو <span dir='ltr'>110%</span> من 2 م وهي:",
+      EQ('<strong><span dir="ltr">110%</span> · 2 = 1.1 · 2 = <span class="eq-unit" dir="rtl">2.2 متر</span></strong>'),
+      "كما زادوا عرض السجادة بنسبة <span dir='ltr'>10%</span> لذلك الآن عرض السجادة هو <span dir='ltr'>110%</span> من 1.5 م وهو:",
+      EQ('<span dir="ltr">110%</span> · 1.5 = 1.1 · 1.5 = <span class="eq-unit" dir="rtl">1.65 متر</span>'),
+      "<strong>مساحة السجادة بعد التغييرات هي:</strong>",
       EQ('2.2 · 1.65 = <span class="eq-unit" dir="rtl">3.63 م²</span>'),
       '<strong>مساحة السجادة زادت بمقدار 0.63 م²</strong> <span dir="ltr">(3.63 - 3 = 0.63)</span>.',
       "استخدم جدول التناسب لحساب النسبة المئوية التي زاد بها المساح:",
@@ -2929,7 +2930,7 @@ screen: 49,
       EQ("3x = 63"),
       "نقسم على 3 ونحصل على:",
       EQ("x = 21"),
-      "<strong>الخلاصة: زادت مساحة السجادة بنسبة 21%.</strong>",
+      "<strong>الخلاصة: زادت مساحة السجادة بنسبة <span dir='ltr'>21%</span>.</strong>",
     ],
     hint: "احسبوا المساحة قبل التغيير وبعد التغيير واستعينوا بجدول التناسب لاكتشاف نسبة التغيير.",
   },
@@ -2943,10 +2944,10 @@ screen: 49,
     mediaAlt: "حاسبة علمية ودفتر سنوي",
     intro:
       "3. اشترى طارق من متجر أدوات كتابة آلة حاسبة علمية ودفتر سنوي.<br>" +
-      "الآلة الحاسبة العلمية تُباع بخصم 66% واليوميات تُباع بخصم 15%.<br>" +
+      "الآلة الحاسبة العلمية تُباع بخصم <span dir='ltr'>66%</span> واليوميات تُباع بخصم <span dir='ltr'>15%</span>.<br>" +
       "في الصندوق، اكتشف أنه على كل منتج من المنتجات حصل على خصم بنفس المبلغ (بالشواقل).",
     ask: "<strong>أ. هل هذا ممكن؟</strong>",
-    callToAction: "علّموا <strong><strong>جميع</strong></strong> الجمل الصحيحة",
+    callToAction: "علّموا <strong>جميع</strong> الجمل الصحيحة",
     /* order + key from the RENDERED deck page (slide 70's green marks):
        correct = "יכולים לתת זהים" and "כנראה אם מחיר המחשבון גבוה…".
        QA 28.09.26: the deck's first option ("חייבים לתת סכומי הנחה שונים")
@@ -2975,8 +2976,8 @@ screen: 49,
     mediaAlt: "آلة حاسبة علمية ودفتر يوميات سنوي",
     intro:
       "3. اشترى طارق من متجر الأدوات المكتبية آلة حاسبة علمية ودفتر سنوي.<br>" +
-      "الآلة الحاسبة العلمية تُباع بخصم 66% واليوميات تُباع بخصم 15%.",
-    ask: "ب. إذا كان السعر الذي دفعه طارق على كل منتج هو 170 ₪.<br>كم كان سعر كل منتج قبل الخصم؟",
+      "الآلة الحاسبة العلمية تُباع بخصم <span dir='ltr'>66%</span> واليوميات تُباع بخصم <span dir='ltr'>15%</span>.",
+    ask: "<strong>ب. إذا كان السعر الذي دفعه طارق على كل منتج هو ⁦₪170⁩.<br>كم كان سعر كل منتج قبل الخصم؟</strong>",
     callToAction: "اكتبوا الإجابات الصحيحة",
     rows: [
       { label: "سعر الآلة الحاسبة الأصلي:", answer: 500, unit: 'ش.ج' },
@@ -2985,7 +2986,7 @@ screen: 49,
     correctTitle: "أبطال!!!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "طارق دفع فقط 170 ₪ مقابل الحاسبة بعد خصم بنسبة 66% من سعر الحاسبة، لذلك: 34% من سعر الحاسبة هي 170 ₪ ويمكننا الحساب باستخدام جدول التناسب:",
+      "طارق دفع فقط ⁦₪170⁩ مقابل الحاسبة بعد خصم بنسبة <span dir='ltr'>66%</span> من سعر الحاسبة، لذلك: <span dir='ltr'>34%</span> من سعر الحاسبة هي ⁦₪170⁩ ويمكننا الحساب باستخدام جدول التناسب:",
       propTable("النسبة المئوية", "السعر", [
         ["34%", "170"],
         ["100%", "x"],
@@ -2996,8 +2997,8 @@ screen: 49,
       EQ("34x = 17000"),
       "نقسم على 34 ونحصل على:",
       EQ("x = 500"),
-      "<strong>النتيجة: سعر الآلة الحاسبة العلمية هو 500 ₪.</strong>",
-      "بطريقة مشابهة، دفع طارق 170 ₪ مقابل اليوميات بعد تطبيق خصم بنسبة 15% من سعر اليوميات، لذلك: 85% من سعر اليوميات هي 170 ₪ ويمكننا الحساب بمساعدة جدول النسبة:",
+      "<strong>النتيجة: سعر الآلة الحاسبة العلمية هو ⁦₪500⁩.</strong>",
+      "بطريقة مشابهة، دفع طارق ⁦₪170⁩ مقابل اليوميات بعد تطبيق خصم بنسبة <span dir='ltr'>15%</span> من سعر اليوميات، لذلك: <span dir='ltr'>85%</span> من سعر اليوميات هي ⁦₪170⁩ ويمكننا الحساب بمساعدة جدول النسبة:",
       propTable("النسبة المئوية", "السعر", [
         ["85%", "170"],
         ["100%", "x"],
@@ -3005,9 +3006,9 @@ screen: 49,
       EQ('<span class="frac"><span class="frac-num">170</span><span class="frac-den">x</span></span> = <span class="frac"><span class="frac-num">85</span><span class="frac-den">100</span></span>'),
       EQ("85x = 17000"),
       EQ("x = 200"),
-      "<strong>النتيجة: سعر اليوميّة هو 200 ₪.</strong>",
+      "<strong>النتيجة: سعر اليوميّة هو ⁦₪200⁩.</strong>",
     ],
-    hint: "لاحظوا - المبلغ 170 ₪ هو بعد الخصم.",
+    hint: "لاحظوا - المبلغ ⁦₪170⁩ هو بعد الخصم.",
   },
 
   {
@@ -3017,7 +3018,7 @@ screen: 49,
     q: 4,
     media: "mars-probe.jpg",
     mediaAlt: "مسبار بحث على سطح المريخ",
-    intro: "4. قوة الجاذبية على سطح كوكب المريخ أضعف بنسبة 62% مقارنة بالأرض.",
+    intro: "4. قوة الجاذبية على سطح كوكب المريخ أضعف بنسبة <span dir='ltr'>62%</span> مقارنة بالأرض.",
     ask: '<strong>أ. مسبار بحثي تابع لناسا يزن 450 كيلوغرامًا على الأرض،<br>ما وزنه على سطح المريخ؟</strong>',
     callToAction: "اكتبوا الإجابة الصحيحة",
     opts: ['171 كغ', '243 كغ', '279 كغ', '388 كغ'],
@@ -3025,14 +3026,14 @@ screen: 49,
     correctTitle: "إجابة صحيحة!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "قوة الجاذبية على المريخ أضعف بنسبة 62% مقارنة بالأرض.",
-      "لذلك سيكون وزن جسم الروبوت على المريخ 38% من وزنه على الأرض.",
+      "قوة الجاذبية على المريخ أضعف بنسبة <span dir='ltr'>62%</span> مقارنة بالأرض.",
+      "لذلك سيكون وزن جسم الروبوت على المريخ <span dir='ltr'>38%</span> من وزنه على الأرض.",
       EQ("(100% - 62% = 38%)"),
       'الخلاصة: إذا كان المسبار يزن 450 كغ على الأرض، فسيزن:',
-      EQ('38% · 450 = <span class="frac"><span class="frac-num">38</span><span class="frac-den">100</span></span> · 450 = <span class="eq-unit" dir="rtl">171 كغ</span>'),
+      EQ('<span dir="ltr">38%</span> · 450 = <span class="frac"><span class="frac-num">38</span><span class="frac-den">100</span></span> · 450 = <span class="eq-unit" dir="rtl">171 كغ</span>'),
       "على المريخ.",
     ],
-    hint: "إذا انخفض وزن جسم بنسبة 62%، فما النسبة المئوية من الوزن الأصلي التي تبقى؟",
+    hint: "إذا انخفض وزن جسم بنسبة <span dir='ltr'>62%</span>، فما النسبة المئوية من الوزن الأصلي التي تبقى؟",
   },
 
   {
@@ -3043,10 +3044,10 @@ screen: 49,
     media: "mars-probe.jpg",
     mediaAlt: "مسبار أبحاث على سطح المريخ",
     intro:
-      "4. رائد فضاء يرتدي بدلة فضاء ثقيلة يزن <strong>على سطح المريخ</strong>،" +
+      "4. رائد فضاء يرتدي بدلة فضاء ثقيلة يزن <strong>على سطح المريخ</strong>،<br>" +
       "وأظهرت ميزان الوزن 76 كيلوغرام.<br>" +
-      "(تذكّروا: قوة الجاذبية على سطح كوكب المريخ أضعف بنسبة 62% مقارنة بالأرض).",
-    callToAction: "أكملوا البيانات الناقصة:",
+      "(تذكّروا: قوة الجاذبية على سطح كوكب المريخ أضعف بنسبة <span dir='ltr'>62%</span> مقارنة بالأرض).",
+    callToAction: "<strong>أكملوا البيانات الناقصة:</strong>",
     rows: [
       {
         label: "<strong>ب. الوزن الإجمالي للرائد الفضائي (مع البدلة) على سطح الأرض هو:</strong>",
@@ -3057,7 +3058,7 @@ screen: 49,
     correctTitle: "إجابة صحيحة، برافو عليك!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      'وزن رائد الفضاء الذي يرتدي بدلة فضاء ثقيلة على المريخ هو 76 كغ. هذا الوزن هو 38% من وزنه على الأرض.',
+      'وزن رائد الفضاء الذي يرتدي بدلة فضاء ثقيلة على المريخ هو 76 كغ. هذا الوزن هو <span dir="ltr">38%</span> من وزنه على الأرض.',
       "استخدم جدول النسبة لإيجاد وزنه على الأرض:",
       propTable("النسبة المئوية", 'الوزن (كغ)', [
         ["38%", "76"],
@@ -3080,12 +3081,12 @@ screen: 49,
     set: "C",
     q: 5,
     media: "cheese.jpg",
-    mediaAlt: "كتلة جبن مالحة",
+    mediaAlt: "قطعة جبنة مالحة",
     intro:
-      "5. مصنع ألبان ينتج أنواعاً مختلفة من الأجبان ويحرص على وضع علامات تغذوية دقيقة للمستهلكين.<br><br>" +
-      "تنتج المحلبة كتلة <strong>جبن مالح كلاسيكي</strong> بوزن 250 غرام، تحتوي على <strong>12% دهون</strong>." +
-      "عشية عيد الأسابيع طوّروا في مصنع الألبان <strong>نسخة خاصة</strong> من الجبن، وهي أيضًا في قطعة وزنها 250 غرامًا، " +
-      "الكمية التي تحتوي على الدهون <strong>أكبر بمقدار 14 غرام</strong> من تلك الموجودة في الجبن الكلاسيكي.",
+      "5. يُنتج مصنع ألبان أنواعًا مختلفة من الأجبان، ويحرص على وضع بيانات غذائية دقيقة من أجل المستهلكين.<br><br>" +
+      "ينتج المصنع قطعة <strong>جبنة مالحة كلاسيكية</strong> وزنها 250 غرامًا، وتحتوي على <strong><span dir='ltr'>12%</span> دهون</strong>.<br><br>" +
+      "قبيل عيد الأسابيع (شفوعوت) طوّر المصنع <strong>نسخة خاصة</strong> من الجبنة، وهي أيضًا في قطعة وزنها 250 غرامًا، " +
+      "وتزيد فيها كمية الدهون <strong>بمقدار 14 غرامًا</strong> عمّا في الجبنة الكلاسيكية.",
   },
 
   {
@@ -3102,9 +3103,9 @@ screen: 49,
     correctTitle: "أحسنت!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
-      "في الكتلة الكلاسيكية من الجبن يوجد 250 غرام تحتوي على 12% دهون.",
+      "في الكتلة الكلاسيكية من الجبن يوجد 250 غرام تحتوي على <span dir='ltr'>12%</span> دهون.",
       "دعونا نحسب كمية الدهون في الجبنة الكلاسيكية:",
-      EQ('12% · 250 = <span class="frac"><span class="frac-num">12</span><span class="frac-den">100</span></span> · 250 = <span class="eq-unit" dir="rtl">30 غرام</span>'),
+      EQ('<span dir="ltr">12%</span> · 250 = <span class="frac"><span class="frac-num">12</span><span class="frac-den">100</span></span> · 250 = <span class="eq-unit" dir="rtl">30 غرام</span>'),
       "كمية الدهون في قطعة الجبن الخاصة أكبر بـ 14 غرام من كمية الدهون في الجبن الأصلية، لذلك كمية الدهون في الجبن الخاصة هي:",
       EQ('<span class="eq-unit" dir="rtl">30 غرام</span> + <span class="eq-unit" dir="rtl">14 غرام</span> = <span class="eq-unit" dir="rtl">44 غرام</span>'),
       "نحسب النسبة المئوية التي تمثلها 44 غرام من أصل 250 غرام باستخدام جدول التناسب:",
@@ -3118,7 +3119,7 @@ screen: 49,
       EQ("250x = 4400"),
       "ونحصل على:",
       EQ("x = 17.6"),
-      "لذلك، نسبة الدهون في الجبن الخاص هي 17.6%.",
+      "لذلك، نسبة الدهون في الجبن الخاص هي <span dir='ltr'>17.6%</span>.",
     ],
     hint: "احسبوا أولاً <strong>كمية الدهون</strong> في الجبن الكلاسيكي.",
   },
@@ -3148,9 +3149,9 @@ screen: 49,
         char: "character-looking.png",
         bubble: "أي عرض رائع!",
         intro:
-          "مع اقتراب نهاية العام الدراسي، أعلنت مجلس الطلاب في المدرسة عن عرض ترويجي في الكافتيريا:<br>" +
-          '🌟 "خصم ضخم بنسبة 25% على جميع المنتجات الغذائية والمشروبات في الكشك!" 🌟' +
-          'من المعروف أن سعر الساندويتش في الكافتيريا بعد تطبيق خصم العرض كان بالضبط 15 ش.ج.',
+          "مع اقتراب نهاية العام الدراسي، أعلن مجلس الطلاب في المدرسة عن عرض ترويجي في الكافتيريا:<br>" +
+          '🌟 "خصم ضخم بنسبة <span dir="ltr">25%</span> على جميع المنتجات الغذائية والمشروبات في الكشك!" 🌟<br><br>' +
+          'من المعروف أن سعر الساندويتش في الكافتيريا بعد تطبيق خصم العرض كان بالضبط 15 ش.ج.',
       },
 
       {
@@ -3180,14 +3181,14 @@ screen: 49,
         correctTitle: "إجابة صحيحة!",
         wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
         body: [
-          "السعر بعد الخصم (15 ₪) يمثل 75% من السعر الأصلي، لذلك يجب إيجاد قيمة 100%.",
+          "السعر بعد الخصم (⁦₪15⁩) يمثل <span dir='ltr'>75%</span> من السعر الأصلي، لذلك يجب إيجاد قيمة <span dir='ltr'>100%</span>.",
           "النتيجة: الجدول ج صحيح.",
         ],
         bodyWrong: [
-          "انتبهوا - السعر بعد الخصم (15 ₪) يمثل 75% من السعر الأصلي، وبالتالي يجب أن تجدوا قيمة 100%.",
+          "انتبهوا - السعر بعد الخصم (⁦₪15⁩) يمثل <span dir='ltr'>75%</span> من السعر الأصلي، وبالتالي يجب أن تجدوا قيمة <span dir='ltr'>100%</span>.",
           "النتيجة: الجدول ج صحيح.",
         ],
-        hint: "أي نسبة مئوية من السعر الأصلي تدفعون بعد خصم بنسبة 25%؟",
+        hint: "أي نسبة مئوية من السعر الأصلي تدفعون بعد خصم بنسبة <span dir='ltr'>25%</span>؟",
       },
 
       {
@@ -3198,7 +3199,7 @@ screen: 49,
         correctTitle: "إجابة صحيحة!",
         wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
         body: [
-          "جدول النسبة الصحيح من البند أ' سيساعدنا في إيجاد السعر الأصلي (100%) للساندويتش:",
+          "جدول النسبة الصحيح من البند أ سيساعدنا في إيجاد السعر الأصلي (<span dir='ltr'>100%</span>) للساندويتش:",
           propTable("النسبة المئوية", 'السعر (بـ ش.ج)', [
             ["75%", "15"],
             ["100%", "x"],
@@ -3209,7 +3210,7 @@ screen: 49,
           EQ("75x = 1500"),
           "وبعد القسمة على 75 سنحصل على:",
           EQ("x = 20"),
-          "لذلك، السعر الأصلي للسندويش (قبل الخصم) كان 20 ₪.",
+          "لذلك، السعر الأصلي للساندويتش (قبل الخصم) كان ⁦₪20⁩.",
         ],
         hint: "استعينوا بالإجابة الصحيحة للبند أ.",
       },
@@ -3217,7 +3218,7 @@ screen: 49,
       {
         kind: "scq",
         ask:
-          '<strong>ج. ياسمين، طالبة في الصف الثامن، ادّعت: «إذا حسبنا 25% من السعر بعد الخصم (15 شاقلًا) ' +
+          '<strong>ج. ياسمين، طالبة في الصف الثامن، ادّعت: «إذا حسبنا <span dir="ltr">25%</span> من السعر بعد الخصم (15 شاقلًا) ' +
           'وأضفنا هذا المبلغ إلى 15 شاقلًا، فسنحصل بالضبط على السعر الأصلي للساندويتش».<br>هل ادّعاء ياسمين صحيح؟</strong>',
         callToAction: "اختاروا الإجابة الصحيحة",
         opts: ["نعم", "لا", "لا يمكن التحديد"],
@@ -3225,20 +3226,20 @@ screen: 49,
         correctTitle: "صحيح جدًا‎!",
         wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
         body: [
-          "وفقًا لطريقة نويا، يجب أن نحسب السعر الأصلي للساندويتش من خلال الخطوات التالية:",
-          "المرحلة أ – حساب 25% من 15 ₪:",
-          EQ('25% · 15 = <span class="frac"><span class="frac-num">25</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">3.75 ش.ج</span>'),
-          "المرحلة ب – إضافة المبلغ المستلم (3.75 ₪) إلى 15 ₪:",
-          EQ('15 + 3.75 = <span class="eq-unit" dir="rtl">18.75 ش.ج</span>'),
-          "نعلم من البند ب أن السعر الأصلي (قبل الخصم) هو 20 ₪ وبالتالي <strong>ياسمين مخطئة.</strong>",
+          "وفقًا لطريقة ياسمين، يجب أن نحسب السعر الأصلي للساندويتش من خلال الخطوات التالية:",
+          "المرحلة أ – حساب <span dir='ltr'>25%</span> من ⁦₪15⁩:",
+          EQ('<span dir="ltr">25%</span> · 15 = <span class="frac"><span class="frac-num">25</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">3.75 ش.ج</span>'),
+          "المرحلة ب – إضافة المبلغ المستلم (⁦₪3.75⁩) إلى ⁦₪15⁩:",
+          EQ('15 + 3.75 = <span class="eq-unit" dir="rtl">18.75 ش.ج</span>'),
+          "نعلم من البند ب أن السعر الأصلي (قبل الخصم) هو ⁦₪20⁩ وبالتالي <strong>ياسمين مخطئة.</strong>",
         ],
         bodyWrong: [
-          "وفقاً لطريقة نويا، يجب علينا حساب السعر الأصلي للشطيرة وفقاً للخطوات التالية:",
-          "المرحلة أ - حساب 25% من 15 ₪:",
-          EQ('25% · 15 = <span class="frac"><span class="frac-num">25</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">3.75 ش.ج</span>'),
-          "المرحلة ب' – إضافة المبلغ الذي تم الحصول عليه (3.75 ₪) إلى 15 ₪:",
-          EQ('15 + 3.75 = <span class="eq-unit" dir="rtl">18.75 ش.ج</span>'),
-          "نحن نعرف من البند ب أن السعر الأصلي (قبل الخصم) هو 20 ₪ وبالتالي <strong>ياسمين مخطئة.</strong>",
+          "وفقًا لطريقة ياسمين، علينا حساب السعر الأصلي للساندويتش من خلال الخطوات التالية:",
+          "المرحلة أ - حساب <span dir='ltr'>25%</span> من ⁦₪15⁩:",
+          EQ('<span dir="ltr">25%</span> · 15 = <span class="frac"><span class="frac-num">25</span><span class="frac-den">100</span></span> · 15 = <span class="eq-unit" dir="rtl">3.75 ش.ج</span>'),
+          "المرحلة ب – إضافة المبلغ الذي تم الحصول عليه (⁦₪3.75⁩) إلى ⁦₪15⁩:",
+          EQ('15 + 3.75 = <span class="eq-unit" dir="rtl">18.75 ش.ج</span>'),
+          "نحن نعرف من البند ب أن السعر الأصلي (قبل الخصم) هو ⁦₪20⁩ وبالتالي <strong>ياسمين مخطئة.</strong>",
         ],
         hint: "احسبوا السعر الأصلي (قبل الخصم) بطريقة ياسمين.",
       },
@@ -3246,22 +3247,22 @@ screen: 49,
       {
         kind: "scq",
         ask:
-          "د. في اليوم الأخير من العرض، تقرّر إلغاء الخصم بنسبة 25% وإرجاع الساندويتش إلى سعره الأصلي (قبل العرض).<br>" +
-          "بأي نسبة مئوية يجب زيادة السعر المخفّض (15 شاقل) حتى يعود السندويتش إلى سعره الأصلي بالضبط؟",
+          "<strong>د. في اليوم الأخير من العرض، تقرّر إلغاء الخصم بنسبة <span dir='ltr'>25%</span> وإرجاع الساندويتش إلى سعره الأصلي (قبل العرض).<br>" +
+          "بأي نسبة مئوية يجب زيادة السعر بعد الخصم (15 شاقلًا) حتى يعود الساندويتش إلى سعره الأصلي بالضبط؟</strong>",
         callToAction: "اختاروا الإجابة الصحيحة",
-        opts: ['ب - <span dir="ltr">25%</span>', 'ب - <span dir="ltr">50%</span>', 'ب – <span dir="ltr">20.5%</span>', 'ب - <span dir="ltr">33⅓%</span>'],
+        opts: ['بنسبة <span dir="ltr">25%</span>', 'بنسبة <span dir="ltr">50%</span>', 'بنسبة <span dir="ltr">20.5%</span>', 'بنسبة <span dir="ltr">33⅓%</span>'],
         correctId: "d",
         correctTitle: "إجابة رائعة!",
         wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
         body: [
-          "نعلم من البند ب أن سعر الساندويتش قبل الخصم كان 20 ₪.",
-          "الآن السعر هو 15 ₪ وهو 100% لدينا.",
-          "لننحسب النسبة المئوية التي تناسب 20 ₪ ونرى بكم نسبة مئوية يجب أن نزيد السعر مرة أخرى:",
+          "نعلم من البند ب أن سعر الساندويتش قبل الخصم كان ⁦₪20⁩.",
+          "الآن السعر هو ⁦₪15⁩ وهو <span dir='ltr'>100%</span> لدينا.",
+          "لنحسب النسبة المئوية التي تناسب ⁦₪20⁩ ونرى بكم نسبة مئوية يجب أن نزيد السعر مرة أخرى:",
           propTable("النسبة المئوية", 'السعر (بـ ش.ج)', [
             ["x", "20"],
             ["100%", "15"],
           ]),
-          "سعر الكعك قبل الخصم هو:",
+          "سعر الساندويتش قبل الخصم هو:",
           EQ('100% · <span class="frac"><span class="frac-num">20</span><span class="frac-den">15</span></span> = 133⅓%'),
           "<strong>أي:</strong> يجب رفع السعر بـ " + EQ("133⅓% - 100% = 33⅓%"),
           "<strong>شاهدوا جيداً أن هذا بوضوح ليس نفس النسبة المئوية كما في الخصم!</strong>",
@@ -3279,7 +3280,7 @@ screen: 49,
     kind: "transition",
     video: "character-challenge.mp4",
     /* copy replaced verbatim by the producer, 14.09.26 */
-    pre: "كل التحية لك!<br>إذا لم تتمكن من الإجابة بشكل صحيح على بعض الأسئلة،<br>من المهم أن تفهم ما الذي لا يزال غير واضح وأن تتواصل مع الدردشة أو المعلم لشرح إضافي.",
+    pre: "كل الاحترام لك!<br>إذا لم تتمكن من الإجابة بشكل صحيح على بعض الأسئلة،<br>من المهم أن تفهم ما الذي لا يزال غير واضح وأن تتواصل مع الدردشة أو المعلم لشرح إضافي.",
     big: "الآن يأتي السؤال الأهم",
     mid: "تحتوي على 3 بنود. يجب أن تنجحوا في 2 على الأقل.",
     cta: "متابعة",
@@ -3292,7 +3293,7 @@ screen: 49,
     media: "phone-battery.jpg",
     mediaAlt: "بطارية الهاتف المحمول",
     intro:
-      "قام عمر بتحديث إصدار على هاتفه المحمول وانخفضت مدة عمل البطارية بنسبة 20% " +
+      "قام عمر بتحديث إصدار على هاتفه المحمول وانخفضت مدة عمل البطارية بنسبة <span dir='ltr'>20%</span> " +
       "(البطارية تفرغ بسرعة أكبر).<br><br>" +
       "في أعقاب شكواه، أعلنت الشركة أنها ستصدر تحديثاً إضافياً سيعيد وقت البطارية بالضبط إلى المستوى الذي كان عليه قبل التحديث.",
   },
@@ -3305,8 +3306,8 @@ screen: 49,
     media: "phone-battery.jpg",
     mediaAlt: "بطارية الهاتف الجوال",
     ask:
-      "أ. لنفترض أنه في النسخة الأولية، كانت بطارية الهاتف تكفي لمدة 10 ساعات من الاستخدام المتواصل على الجهاز." +
-      "لكم ساعة استخدام ستكفي البطارية بعد تحديث الإصدار؟",
+      "<strong>أ. لنفترض أنه في النسخة الأولية، كانت بطارية الهاتف تكفي لمدة 10 ساعات من الاستخدام المتواصل على الجهاز.<br>" +
+      "لكم ساعة استخدام ستكفي البطارية بعد تحديث الإصدار؟</strong>",
     callToAction: "اختاروا الإجابة الصحيحة",
     opts: ["12 ساعة", "ساعتان", "8 ساعات", "9.8 ساعات"],
     correctId: "c",
@@ -3314,13 +3315,13 @@ screen: 49,
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
     body: [
       "<strong>الطريقة أ -</strong>",
-      "تقدير: 20% من 10 هو ساعتان، لذلك 80% من 10 هي 8 ساعات.",
+      "تقدير: <span dir='ltr'>20%</span> من 10 هو ساعتان، لذلك <span dir='ltr'>80%</span> من 10 هي 8 ساعات.",
       "<strong>الطريقة ب -</strong>",
       "حساب باستخدام كسر بسيط:",
-      EQ('80% · 10 = <span class="frac"><span class="frac-num">80</span><span class="frac-den">100</span></span> · 10 = <span class="eq-unit" dir="rtl">8 ساعات</span>'),
+      EQ('<span dir="ltr">80%</span> · 10 = <span class="frac"><span class="frac-num">80</span><span class="frac-den">100</span></span> · 10 = <span class="eq-unit" dir="rtl">8 ساعات</span>'),
       /* deck ends "לכן תשובה ב' נכונה" — our options carry no letters (and 8
          שעות is the third pill), so the clause is dropped rather than confuse */
-      "الخلاصة: بعد تحديث الإصدار الذي قلّل الوقت بنسبة 20% استمرت البطارية لمدة 8 ساعات من الاستخدام (بدلاً من 10).",
+      "<strong>الخلاصة: </strong>بعد تحديث الإصدار الذي قلّل الوقت بنسبة <span dir='ltr'>20%</span> استمرت البطارية لمدة 8 ساعات من الاستخدام (بدلاً من 10).",
     ],
     hint: 'نظراً لأننا نتعامل مع رقم "مريح" (10 ساعات)، يمكننا استخدام حساب بالتقدير التقريبي.',
   },
@@ -3334,7 +3335,7 @@ screen: 49,
       "<strong>ب. بأي نسبة يجب إطالة (زيادة) وقت البطارية في النسخة الحالية (الأقصر)، " +
       "لإعادة وقت الاستخدام بدقة إلى الحالة التي كانت عليها قبل التحديث؟",
     callToAction: "اختاروا الإجابة الصحيحة",
-    opts: ["بنسبة 15%", "ب-20%", "ب-25%", "ب-30%"],
+    opts: ["بنسبة <span dir='ltr'>15%</span>", "ب-<span dir='ltr'>20%</span>", "ب-<span dir='ltr'>25%</span>", "ب-<span dir='ltr'>30%</span>"],
     correctId: "c",
     correctTitle: "إجابة صحيحة!",
     wrongTitle: "هذا خطأ. الإجابة الصحيحة تظهر الآن.<br>هيّا نفهم السبب",
@@ -3350,10 +3351,10 @@ screen: 49,
       EQ("8x = 1000"),
       "وبعد القسمة على 8 نحصل على:",
       EQ("x = 125"),
-      "الخلاصة: لقد توصلنا إلى أنه إذا كانت 8 ساعات بطارية تساوي 100% فإن 10 ساعات بطارية تساوي 125%، لذلك للعودة إلى وقت بطارية قدره 10 ساعات يجب زيادة وقت البطارية بـ",
+      "الخلاصة: لقد توصلنا إلى أنه إذا كانت 8 ساعات بطارية تساوي <span dir='ltr'>100%</span> فإن 10 ساعات بطارية تساوي <span dir='ltr'>125%</span>، لذلك للعودة إلى وقت بطارية قدره 10 ساعات يجب زيادة وقت البطارية بـ",
       EQ("125% - 100% = 25%"),
     ],
-    hint: "استخدموا جدول التناسب وتذكروا أن نسبتكم 100% هي 8 ساعات.",
+    hint: "استخدموا جدول التناسب وتذكروا أن نسبتكم <span dir='ltr'>100%</span> هي 8 ساعات.",
   },
 
   {
@@ -3362,8 +3363,8 @@ screen: 49,
     set: "E",
     q: 3,
     ask:
-      "ج. تحقق عمر من الهاتف بعد أن أعادت شركة التكنولوجيا الحالة إلى وضعها السابق " +
-      "واكتشف أن وقت بطاريته أصبح الآن 10 ساعات مرة أخرى." +
+      "<strong>ج. تحقق عمر من الهاتف بعد أن أعادت شركة التكنولوجيا الحالة إلى وضعها السابق " +
+      "واكتشف أن وقت بطاريته أصبح الآن 10 ساعات مرة أخرى.<br>" +
       'ادّعى عمر: </strong>«بما أن الوقت زاد من 8 ساعات عائدًا إلى 10 ساعات، فإن <strong>التغيّر في الوقت (في مجموع الساعات) </strong>' +
       'يساوي بالضبط التغيّر الذي حدث عندما قصر الوقت».<br><strong>هل ادّعاء عمر بخصوص التغيّر في عدد الساعات صحيح؟</strong>',
     callToAction: "اختاروا الإجابة الصحيحة",
@@ -3385,7 +3386,7 @@ screen: 49,
 function prHintBlock(sid, hint) {
   if (!hint) return "";
   return `
-     <button class="scq-hint" id="${sid}-hint" type="button" onclick="openHint('${sid}')"><span class="nav-label" data-label="هل تريد تلميح؟"><span>هل تريد تلميح؟</span></span>${HINT_ICON}</button> <div class="scq-hint-overlay hidden" id="${sid}-hint-overlay" onclick="closeHintOnBackdrop(event, '${sid}')"> <div class="scq-hint-popup" role="dialog" aria-modal="true" aria-labelledby="${sid}-hint-title"> <div class="scq-hint-text"><h2 class="scq-hint-title" id="${sid}-hint-title">${HINT_TITLE_ICON} تلميح</h2> <div class="scq-hint-body"><p>${hint}</p></div></div> <button class="scq-hint-close" type="button" onclick="closeHint('${sid}')"><span class="nav-label" data-label="العودة إلى السؤال"><span>العودة إلى السؤال</span></span></button> </div> </div>`;
+     <button class="scq-hint" id="${sid}-hint" type="button" onclick="openHint('${sid}')"><span class="nav-label" data-label="أريد تلميحًا"><span>أريد تلميحًا</span></span>${HINT_ICON}</button> <div class="scq-hint-overlay hidden" id="${sid}-hint-overlay" onclick="closeHintOnBackdrop(event, '${sid}')"> <div class="scq-hint-popup" role="dialog" aria-modal="true" aria-labelledby="${sid}-hint-title"> <div class="scq-hint-text"><h2 class="scq-hint-title" id="${sid}-hint-title">${HINT_TITLE_ICON} تلميح</h2> <div class="scq-hint-body"><p>${hint}</p></div></div> <button class="scq-hint-close" type="button" onclick="closeHint('${sid}')"><span class="nav-label" data-label="العودة إلى السؤال"><span>العودة إلى السؤال</span></span></button> </div> </div>`;
 }
 /* sub-question letters (א. / ב. / ג.) render in Subject purple (producer 27.08) */
 function letterize(html) {
@@ -3523,7 +3524,7 @@ function buildPracticeScreens() {
           ${prBody(sec2, qid)}
           <div class="rs-actions">
             <button class="btn-inline-check" id="${qid}-check" disabled onclick="${sec2.kind === "viq" ? `viqCheck('${qid}')` : `scqCheck('${qid}')`}">هل إجابتي صحيحة؟</button>
-            ${sec2.hint ? `<button class="scq-hint scrollset-hint-btn" id="${qid}-hint" type="button"${hintGated(qid) ? ' style="visibility:hidden"' : ""} onclick="openHint('${qid}')"><span class="nav-label" data-label="هل يمكنني الحصول على تلميح؟"><span>هل يمكنني الحصول على تلميح؟</span></span>${HINT_ICON}</button>` : ""}
+            ${sec2.hint ? `<button class="scq-hint scrollset-hint-btn" id="${qid}-hint" type="button"${hintGated(qid) ? ' style="visibility:hidden"' : ""} onclick="openHint('${qid}')"><span class="nav-label" data-label="أريد تلميحًا"><span>أريد تلميحًا</span></span>${HINT_ICON}</button>` : ""}
           </div>
           ${
             sec2.hint

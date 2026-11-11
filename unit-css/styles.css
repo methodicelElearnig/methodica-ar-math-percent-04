@@ -103,7 +103,7 @@ html, body {
   width: 100%; height: 100%;
   overflow: hidden;
   direction: rtl;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   background: #fff;
 }
 
@@ -209,7 +209,7 @@ html, body {
 .flag-btn-glyph-pole   { inset: 0 93.38% 0 0; }
 .flag-btn-glyph-banner { inset: 3.49% 0 41.72% 0; }
 .flag-btn-label {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-weight: 600; font-size: 18px; color: var(--subject-500);   /* 18px type floor */
   text-align: center; width: 92px; line-height: 1.15;
   direction: rtl; display: none;
@@ -232,7 +232,7 @@ html, body {
   width: auto; min-width: 140px; padding: 0 40px;
   border: 1px solid var(--subject-700); border-radius: 1000px; background: #fff;
   color: var(--subject-700);
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 400;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 400;
   cursor: pointer; direction: rtl; white-space: nowrap;
 }
 .scq-back:hover { font-weight: 600; border-width: 1.5px; }
@@ -253,7 +253,7 @@ html, body {
   background: var(--primary-action-gradient);
   color: #fff;
   border: none; border-radius: 1000px;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 20px; font-weight: 400;
   cursor: pointer; direction: rtl;
   text-align: center; white-space: nowrap;
@@ -403,18 +403,18 @@ html, body {
 .report-field { display: flex; flex-direction: column; gap: 6px; }
 .report-label { font-size: 16px; font-weight: 600; color: #303030; }
 .required-star { color: #D32F2F; }
-.report-select { height: 44px; border: 2px solid #C9CED8; border-radius: 10px; padding: 0 14px; font-family: 'Assistant', sans-serif; font-size: 17px; color: #303030; background: #ffffff; direction: rtl; outline: none; cursor: pointer; transition: border-color 0.12s; }
+.report-select { height: 44px; border: 2px solid #C9CED8; border-radius: 10px; padding: 0 14px; font-family: Calibri, 'Assistant', sans-serif; font-size: 17px; color: #303030; background: #ffffff; direction: rtl; outline: none; cursor: pointer; transition: border-color 0.12s; }
 .report-select:focus { border-color: #8900E1; }
-.report-textarea { border: 2px solid #C9CED8; border-radius: 10px; padding: 12px 14px; font-family: 'Assistant', sans-serif; font-size: 16px; color: #303030; direction: rtl; resize: none; outline: none; transition: border-color 0.12s; line-height: 1.5; }
+.report-textarea { border: 2px solid #C9CED8; border-radius: 10px; padding: 12px 14px; font-family: Calibri, 'Assistant', sans-serif; font-size: 16px; color: #303030; direction: rtl; resize: none; outline: none; transition: border-color 0.12s; line-height: 1.5; }
 .report-textarea:focus { border-color: #8900E1; }
 .report-char-count { font-size: 13px; color: #8A9AAA; text-align: left; direction: ltr; }
 .report-actions { display: flex; flex-direction: row; gap: 12px; direction: rtl; margin-top: 4px; }
 .report-error { color: #d33; font-size: 14px; margin: 4px 0 8px; direction: rtl; }
 .report-thanks { text-align: center; padding: 8px 0; direction: rtl; }
-.report-submit-btn { height: 44px; padding: 0 32px; background: linear-gradient(180deg, #8900E1 9%, #6500A5 100%); color: #ffffff; border: none; border-radius: 50px; font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600; cursor: pointer; outline: none; transition: opacity 0.12s; }
+.report-submit-btn { height: 44px; padding: 0 32px; background: linear-gradient(180deg, #8900E1 9%, #6500A5 100%); color: #ffffff; border: none; border-radius: 50px; font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 600; cursor: pointer; outline: none; transition: opacity 0.12s; }
 .report-submit-btn:hover { opacity: 0.88; }
 .report-submit-btn:focus-visible { outline: 3px solid #8900E1; outline-offset: 3px; }
-.report-cancel-btn { height: 44px; padding: 0 28px; background: #ffffff; color: #5A6A7A; border: 2px solid #C9CED8; border-radius: 50px; font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 400; cursor: pointer; outline: none; transition: border-color 0.12s, color 0.12s; }
+.report-cancel-btn { height: 44px; padding: 0 28px; background: #ffffff; color: #5A6A7A; border: 2px solid #C9CED8; border-radius: 50px; font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 400; cursor: pointer; outline: none; transition: border-color 0.12s, color 0.12s; }
 .report-cancel-btn:hover { border-color: #8A9AAA; color: #303030; }
 .report-cancel-btn:focus-visible { outline: 3px solid #8900E1; outline-offset: 3px; }
 
@@ -458,7 +458,7 @@ html, body {
   width: 792px; height: auto;
   display: flex; flex-direction: column; justify-content: flex-start; gap: 0;
   padding-top: 16px;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 24px; font-weight: 700; color: var(--subject-500);
   text-align: right; direction: rtl; line-height: normal;
 }
@@ -475,7 +475,7 @@ html, body {
   background: #fff; padding: 7px 20px;
   display: flex; align-items: center; gap: 10px;
   direction: rtl; cursor: pointer;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   overflow: visible;
 }
 .scq-opt-text {
@@ -577,7 +577,7 @@ html, body {
   background: #fff; border: 1px solid #aeaeae; border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
   padding: 18px 15px;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 18px; font-weight: 400; color: #222;
   text-align: right; direction: rtl; line-height: normal;
   display: none; z-index: 40;
@@ -609,7 +609,7 @@ html, body {
 }
 .scq-popup-title {
   flex: 1;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 20px; font-weight: 700;
   text-align: right; direction: rtl;
   line-height: normal; margin: 0;
@@ -617,7 +617,7 @@ html, body {
 }
 .scq-popup-body { direction: rtl; }
 .scq-popup-body p {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 20px; font-weight: 400; color: #222;
   text-align: right; direction: rtl;
   line-height: normal; margin: 0 0 4px;
@@ -894,7 +894,7 @@ html, body {
 }
 .qs-bullets {
   margin: 0; padding-right: 28px;
-  font-family: 'Assistant', sans-serif; font-size: 22px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; color: #222;
   line-height: 1.45;
 }
 .qs-stickers { width: 640px; max-width: 100%; height: auto; align-self: flex-start; margin: 10px 0; }
@@ -928,14 +928,14 @@ html, body {
   direction: ltr; justify-content: flex-end;   /* inputs sit at the physical right */
 }
 .ratio-colon {
-  font-family: 'Assistant', sans-serif; font-size: 32px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 32px; font-weight: 700;
   color: #303030;
 }
 .viq-input-box {
   width: 96px; height: 52px;
   border: 1.5px solid rgba(174, 174, 174, 0.5); border-radius: 10px;
   background: #fff;
-  font-family: 'Assistant', sans-serif; font-weight: 700; font-size: 24px;
+  font-family: Calibri, 'Assistant', sans-serif; font-weight: 700; font-size: 24px;
   text-align: center; color: #303030;
 }
 .viq-input-box::-webkit-inner-spin-button,
@@ -957,14 +957,14 @@ html, body {
   background: #fff;
 }
 .saq-text {
-  font-family: 'Assistant', sans-serif; font-size: 22px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; color: #222;
 }
 .saq-toggle { display: flex; gap: 8px; flex-shrink: 0; }
 .saq-pill {
   min-width: 64px; padding: 6px 18px;
   border: 1.5px solid rgba(174, 174, 174, 0.6); border-radius: 1000px;
   background: #fff; color: #303030;
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 600;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 600;
   cursor: pointer;
 }
 .saq-pill:hover:not(:disabled) { border-color: var(--subject-500); }
@@ -988,7 +988,7 @@ html, body {
 }
 .frc-front--text .frac--big .frac-num { border-bottom-width: 3px; }
 .frc-ratio {
-  font-family: 'Assistant', sans-serif; font-size: 44px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 44px; font-weight: 700;
   color: #fff;
 }
 .frc-back--text {
@@ -1021,7 +1021,7 @@ html, body {
   right: 0; left: 6.81%;   /* keep the text clear of the left-side tail */
   top: 50%; transform: translateY(-50%);
   padding: 12px;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 18px; font-weight: 400; color: #000;
   text-align: center; direction: rtl; line-height: normal;
 }
@@ -1062,11 +1062,11 @@ html, body {
   text-align: center;
 }
 .s1-title {
-  font-family: 'Assistant', sans-serif; font-size: 40px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 40px; font-weight: 700;
   color: #303030; margin: 0;
 }
 .s1-subtitle {
-  font-family: 'Assistant', sans-serif; font-size: 28px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 28px; font-weight: 700;
   color: #303030; margin: 0;
 }
 .s1-video-wrap { position: relative; width: 640px; height: 360px; flex-shrink: 0; }
@@ -1074,7 +1074,7 @@ html, body {
 
 /* shared intro text for question screens (percent-02 .s9-intro) */
 .s9-intro {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 22px; font-weight: 400; color: #222;
   text-align: right; direction: rtl; line-height: 1.4;
   margin: 0;
@@ -1093,8 +1093,8 @@ html, body {
   padding: 0 20px;
   background: #fff; border: 1px solid var(--subject-700); border-radius: 1000px;
   color: var(--subject-500);
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 400;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 400;
+  display: flex; flex-direction: row-reverse; align-items: center; justify-content: center; gap: 6px;
   cursor: pointer; direction: rtl;
 }
 .scq-hint-icon { width: 26px; height: 22.288px; flex-shrink: 0; color: var(--subject-500); }
@@ -1119,7 +1119,7 @@ html, body {
 .scq-hint-title {
   width: 100%; text-align: right; position: relative;
   padding-right: 56px;
-  font-family: 'Assistant', sans-serif; font-weight: 700; font-size: 32px;
+  font-family: Calibri, 'Assistant', sans-serif; font-weight: 700; font-size: 32px;
   color: #fff; line-height: normal; margin: 0;
 }
 .scq-hint-title-icon {
@@ -1128,7 +1128,7 @@ html, body {
 }
 .scq-hint-body {
   width: 100%; text-align: right;
-  font-family: 'Assistant', sans-serif; font-weight: 400; font-size: 24px;
+  font-family: Calibri, 'Assistant', sans-serif; font-weight: 400; font-size: 24px;
   color: #fff; line-height: normal;
 }
 .scq-hint-body p { margin: 0 0 12px; }
@@ -1137,7 +1137,7 @@ html, body {
   width: auto; min-width: 196px; padding: 16px 40px;
   border: none; border-radius: 1000px; background: #fff;
   color: #303030;
-  font-family: 'Assistant', sans-serif; font-size: 24px; font-weight: 400;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px; font-weight: 400;
   cursor: pointer; white-space: nowrap;
 }
 .scq-hint-close:hover { font-weight: 600; }
@@ -1160,7 +1160,7 @@ html, body {
   display: flex; align-items: center;
 }
 .s18-title {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 40px; font-weight: 700; line-height: 1;
   color: var(--subject-500);
   margin: 0; white-space: nowrap;
@@ -1180,7 +1180,7 @@ html, body {
 }
 .s18-lead, .s18-scenario, .s18-ask {
   width: 100%; margin: 0;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 22px; line-height: 1.3;
   text-align: right; direction: rtl;
 }
@@ -1196,7 +1196,7 @@ html, body {
 /* tile strip inside the exercise card */
 .tile-strip-wrap { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
 .tile-dim {
-  font-family: 'Assistant', sans-serif; font-size: 15px; color: #666;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 15px; color: #666;
   padding-right: 4px;
 }
 .tile-strip { display: flex; direction: ltr; gap: 3px; }
@@ -1243,7 +1243,7 @@ html, body {
 .s19-per3 { gap: 20px; }
 .s19-step-label, .s19-elaboration, .s19-question-line {
   width: 100%; margin: 0;
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 20px; line-height: 1.3;
   color: #fff;
   text-align: right; direction: rtl;
@@ -1267,7 +1267,7 @@ html, body {
   cursor: pointer;
 }
 .s19-opt-text {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 18px; font-weight: 400;
   color: var(--subject-500);
   text-align: right; direction: rtl;
@@ -1324,7 +1324,7 @@ html, body {
 .qprog-station.is-correct .qprog-dot svg.qp-tick { display: block; }
 .qprog-station.is-wrong   .qprog-dot svg.qp-x    { display: block; }
 .qprog-label {
-  font-family: 'Assistant', sans-serif; font-size: 14px; color: #b9bac0;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 14px; color: #b9bac0;
   white-space: nowrap;
 }
 .qprog-station.is-current .qprog-label { color: #303030; font-weight: 700; }
@@ -1380,19 +1380,19 @@ html, body {
 .pizza-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .pizza-fig img { width: 168px; height: 168px; display: block; }
 .pizza-fig figcaption {
-  font-family: 'Assistant', sans-serif; font-size: 24px; font-weight: 700; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px; font-weight: 700; color: #303030;
 }
 .dq-rows { display: flex; flex-direction: column; gap: 10px; }
 .dq-row {
   display: flex; align-items: center; gap: 10px;
-  font-family: 'Assistant', sans-serif; font-size: 20px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; color: #222;
 }
 .dq-text { line-height: 1.3; }
 .dq-select {
   min-width: 84px; height: 40px;
   border: 1.5px solid rgba(174, 174, 174, 0.6); border-radius: 10px;
   background: #fff;
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 700; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 700; color: #303030;
   text-align: center; cursor: pointer; direction: rtl;
 }
 .dq-select:focus { outline: none; border-color: var(--subject-500); }
@@ -1404,7 +1404,7 @@ html, body {
 .viq-rows { display: flex; flex-direction: column; gap: 9px; max-width: 560px; }
 .viq-row {
   display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  font-family: 'Assistant', sans-serif; font-size: 20px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; color: #222;
 }
 .viq-row-label { line-height: 1.3; }
 .viq-row-input { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -1431,7 +1431,7 @@ html, body {
   min-width: 116px; padding: 8px 14px;
   border: 1.5px solid var(--subject-500); border-radius: 1000px;
   background: #fff; color: var(--subject-500);
-  font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
   cursor: pointer; white-space: nowrap;
 }
 .bq-btn:hover:not(:disabled) { background: var(--subject-100); }
@@ -1440,18 +1440,18 @@ html, body {
   min-width: 52px; height: 42px;
   display: inline-flex; align-items: center; justify-content: center;
   border: 1.5px solid rgba(174, 174, 174, 0.6); border-radius: 10px;
-  font-family: 'Assistant', sans-serif; font-size: 22px; font-weight: 700; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; font-weight: 700; color: #303030;
   background: #fff;
 }
 .bq-count.correct { border-color: #609e12; background: #f4faee; }
 .bq-count.error   { border-color: #b20010; background: #fff5f5; }
 .bq-ctrl-label {
-  font-family: 'Assistant', sans-serif; font-size: 18px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; color: #222;
 }
 
 /* transition extras (S13) */
 .s13-pre, .s13-mid {
-  font-family: 'Assistant', sans-serif; font-size: 24px;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px;
   color: #303030; margin: 0;
 }
 .s13-pre { font-weight: 400; }
@@ -1473,12 +1473,12 @@ html, body {
 .ratio-ex-rows { display: flex; flex-direction: column; gap: 14px; }
 .ratio-ex-row { display: flex; align-items: center; gap: 14px; }
 .ratio-ex-letter {
-  font-family: 'Assistant', sans-serif; font-size: 22px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; font-weight: 700;
   color: #303030; min-width: 26px;
 }
 .ratio-ex {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Assistant', sans-serif; font-size: 24px; font-weight: 600;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px; font-weight: 600;
   color: #303030;
 }
 /* fixed-width given-ratio segment → the =, boxes and colons align as
@@ -1510,14 +1510,14 @@ html, body {
 /* recipe-for-30 card bits */
 .recipe30-title {
   margin: 0 0 2px;
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 700;
   color: var(--subject-500);
 }
 .viq-given {
   min-width: 72px; height: 42px;
   display: inline-flex; align-items: center; justify-content: center;
   border: 1.5px solid #609e12; border-radius: 10px; background: #f4faee;
-  font-family: 'Assistant', sans-serif; font-size: 22px; font-weight: 700; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; font-weight: 700; color: #303030;
 }
 .scq-img--tall { width: 340px; height: 430px; padding: 0; }
 .scq-img--tall .zoom-img-inner, .scq-img--tall .zoom-img-inner img {
@@ -1527,7 +1527,7 @@ html, body {
 /* light data table (desserts / water amounts) */
 .data-table {
   border-collapse: collapse;
-  font-family: 'Assistant', sans-serif; font-size: 19px; color: #222;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 19px; color: #222;
   background: #fff;
   align-self: flex-start;
 }
@@ -1558,7 +1558,7 @@ html, body {
   height: 48px; padding: 0 18px;
   border: 1.5px solid rgba(174, 174, 174, 0.6); border-radius: 12px;
   background: #fff;
-  font-family: 'Assistant', sans-serif; font-size: 22px; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; color: #303030;
   direction: rtl;
 }
 .task-input:focus { outline: none; border-color: var(--subject-500); }
@@ -1584,12 +1584,12 @@ html, body {
 }
 .scene-title {
   margin: 0;
-  font-family: 'Assistant', sans-serif; font-size: 24px; font-weight: 700;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px; font-weight: 700;
   color: var(--subject-500); line-height: 1.3;
 }
 .scene-text {
   margin: 0;
-  font-family: 'Assistant', sans-serif; font-size: 22px; font-weight: 400;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; font-weight: 400;
   color: #222; line-height: 1.4;
 }
 
@@ -1600,12 +1600,12 @@ html, body {
 }
 .graph-axis-y {
   position: absolute; top: -4px; left: 6px;
-  font-family: 'Assistant', sans-serif; font-size: 15px; font-weight: 600; color: #38506b;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 15px; font-weight: 600; color: #38506b;
   direction: rtl;
 }
 .graph-axis-x {
   position: absolute; bottom: -2px; right: -6px;
-  font-family: 'Assistant', sans-serif; font-size: 15px; font-weight: 600; color: #38506b;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 15px; font-weight: 600; color: #38506b;
   direction: rtl;
 }
 
@@ -1621,7 +1621,7 @@ html, body {
 }
 .graph-card img { width: 100%; height: auto; display: block; }
 .graph-card-letter {
-  font-family: 'Assistant', sans-serif; font-size: 24px; font-weight: 700; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 24px; font-weight: 700; color: #303030;
 }
 .graph-card .mcq-check { position: absolute; top: 10px; right: 10px; }
 .graph-card:focus-visible { outline: 3px solid var(--subject-350); outline-offset: 2px; }
@@ -1757,7 +1757,7 @@ html, body {
 }
 .acq-step:hover { transform: translateY(-3px); }
 .acq-step-num {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 48px; font-weight: 700; color: var(--subject-500);
 }
 /* a step that has been opened greys out (production note, slide 8) */
@@ -1778,7 +1778,7 @@ html, body {
 .acq-step.is-next .acq-step-num { color: #fff; }
 .acq-step-tag {
   display: none; position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%);
-  white-space: nowrap; font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
+  white-space: nowrap; font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
   color: var(--subject-500);
 }
 .acq-step.is-next .acq-step-tag { display: block; }
@@ -1810,7 +1810,7 @@ html, body {
 }
 .acq-popup-img { width: 340px; height: auto; border-radius: 16px; display: block; }
 .acq-popup-body {
-  font-family: 'Assistant', sans-serif;
+  font-family: Calibri, 'Assistant', sans-serif;
   font-size: 22px; line-height: 1.5; color: #303030; text-align: center;
 }
 .acq-popup-close {
@@ -1907,8 +1907,10 @@ html, body {
 .acq-popup-box {
   width: 860px; padding: 32px 44px 28px; gap: 20px;
   max-height: 92%;                 /* never taller than the canvas */
+  overflow-y: auto;                /* long (Arabic) copy scrolls instead of being cut off */
 }
-.acq-popup-img { width: auto; height: 340px; max-width: 100%; object-fit: contain; }
+.acq-popup-box > * { flex-shrink: 0; }
+.acq-popup-img { width: auto; height: min(340px, 34vh); max-width: 100%; object-fit: contain; }
 .acq-popup-body { font-size: 24px; }
 /* colored run in the pptx title (accent) — subject color in the Math theme */
 .accent-word { color: var(--subject-500); }
@@ -1918,12 +1920,12 @@ html, body {
 .dq-rows { display: flex; flex-direction: column; gap: 14px; }
 .dq-row {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  font-family: 'Assistant', sans-serif; font-size: 22px; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; color: #303030;
 }
 .dq-select {
   height: 46px; min-width: 130px; padding: 0 16px;
   border: 2px solid var(--subject-500); border-radius: 10px;
-  font-family: 'Assistant', sans-serif; font-size: 20px; color: #303030;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; color: #303030;
   background: #fff; cursor: pointer; direction: rtl;
 }
 .dq-select:focus { outline: none; border-color: var(--subject-700); }
@@ -1976,7 +1978,7 @@ html, body {
 /* ══ Guided practice (slides 25-35) — Guided Instruction Flow ══ */
 .g-title {
   position: absolute; top: 40px; right: var(--page-pad, 40px); left: var(--page-pad, 40px);
-  margin: 0; font-family: 'Assistant', sans-serif;
+  margin: 0; font-family: Calibri, 'Assistant', sans-serif;
   font-size: 34px; font-weight: 700; color: var(--subject-500);
   text-align: center; direction: rtl;
 }
@@ -1994,10 +1996,10 @@ html, body {
 /* the lead runs full width, centred, between the title and the two columns */
 .g-lead {
   position: absolute; top: 100px; right: var(--page-pad, 40px); left: var(--page-pad, 40px);
-  margin: 0; font-family: 'Assistant', sans-serif; font-size: 20px; line-height: 1.5;
+  margin: 0; font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; line-height: 1.5;
   color: #303030; text-align: center; direction: rtl;
 }
-.g-body { font-family: 'Assistant', sans-serif; font-size: 22px; line-height: 1.5; color: #303030; }
+.g-body { font-family: Calibri, 'Assistant', sans-serif; font-size: 22px; line-height: 1.5; color: #303030; }
 .g-callout {
   flex: 0 0 430px; align-self: flex-start;
   display: flex; flex-direction: column; gap: 18px;
@@ -2016,7 +2018,7 @@ html, body {
 .gc-opt {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   background: #fff; color: var(--subject-500); border: 2px solid #fff; border-radius: 1000px;
-  padding: 10px 26px; font-family: 'Assistant', sans-serif; font-size: 20px;
+  padding: 10px 26px; font-family: Calibri, 'Assistant', sans-serif; font-size: 20px;
   font-weight: 400; cursor: pointer;
 }
 .gc-opt-text { direction: rtl; }
@@ -2122,7 +2124,7 @@ html, body {
   width: 96px; height: 52px;
   border: 1.5px solid rgba(174, 174, 174, 0.5); border-radius: 10px;
   background: #fff;
-  font-family: 'Assistant', sans-serif; font-weight: 700; font-size: 24px;
+  font-family: Calibri, 'Assistant', sans-serif; font-weight: 700; font-size: 24px;
   text-align: center; color: #303030;
 }
 .viq-input-box::-webkit-inner-spin-button,
@@ -2159,7 +2161,7 @@ html, body {
 .qprog-dot svg { width: 12px; height: 12px; display: none; }
 .qprog-station.is-correct .qprog-dot svg.qp-tick { display: block; }
 .qprog-station.is-wrong   .qprog-dot svg.qp-x    { display: block; }
-.qprog-label { font-family: 'Assistant', sans-serif; font-size: 18px; color: #b9bac0; white-space: nowrap; }
+.qprog-label { font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; color: #b9bac0; white-space: nowrap; }
 .qprog-station.is-current .qprog-label { color: #303030; font-weight: 700; }
 .qprog-station.is-correct .qprog-label,
 .qprog-station.is-wrong   .qprog-label { color: #303030; }
@@ -2263,7 +2265,7 @@ html, body {
    centring, which the deck sets with m:jc. */
 .scq-popup-body, .scq-popup-body p, .scq-popup-body li, .scq-popup-body div { text-align: right; }
 .scq-popup-body .g-eq, .scq-popup-body .acq-table { text-align: center; }
-.scq-popup-title { text-align: center; }
+.scq-popup-title { text-align: right; }
 /* the RED panel's title is a two-line sentence, so it reads right like its
    body; the green "כל הכבוד!" stays centred (producer 14.09.26, dev 31). */
 [data-state="wrong2"] .scq-popup-title,
@@ -2284,7 +2286,7 @@ html, body {
   display: inline-block; margin-top: 12px; height: 38px; padding: 0 20px;
   border: 1.5px solid var(--subject-500); border-radius: 1000px;
   background: #fff; color: var(--subject-700);
-  font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 600;
   cursor: pointer;
 }
 .fb-answer-toggle:hover { background: var(--subject-50, #F7EFFF); }
@@ -2303,7 +2305,7 @@ html, body {
 .popup-more {
   display: block; margin: 12px auto 2px; padding: 8px 26px;
   border: none; border-radius: 1000px; background: var(--subject-500); color: #fff;
-  font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600; cursor: pointer;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 18px; font-weight: 600; cursor: pointer;
 }
 .popup-more:hover { background: var(--subject-700, #4a3bb5); }
 /* slides 74/75 are scroll slides — the column scrolls inside the screen */
@@ -2368,7 +2370,7 @@ html, body {
 .btn-inline-check {
   align-self: flex-start; margin-top: 12px; padding: 9px 30px;
   border: none; border-radius: 1000px; background: var(--subject-500); color: #fff;
-  font-family: 'Assistant', sans-serif; font-size: 20px; font-weight: 600; cursor: pointer;
+  font-family: Calibri, 'Assistant', sans-serif; font-size: 20px; font-weight: 600; cursor: pointer;
 }
 .btn-inline-check:disabled { background: #c8c8cf; cursor: default; }
 .scrollset-feedback {
@@ -2567,10 +2569,5 @@ html, body {
 #s59 .scq-opt--rich .acq-table { font-size: 20px; }
 #s59 .rs-bubble-text { font-size: 22px; }
 
-/* Guided-flow feedback popup (gShowPopup): title and lines centred in the bubble.
-   Placed last and with .scq-popup--centered so it beats the right-aligned
-   popup rules and the red-panel title rule above. */
-.scq-popup--centered .scq-popup-title,
-.scq-popup--centered .scq-popup-body,
-.scq-popup--centered .scq-popup-body p,
-.scq-popup--centered[data-state] .scq-popup-title { text-align: center; }
+/* One family everywhere: buttons/inputs default to the system font and their child spans inherit it. */
+html, body, button, input, select, textarea, option { font-family: Calibri, 'Assistant', sans-serif; }
