@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>النسب المئوية — الهدف 4.4 · المكون 07</title>
-    <link rel="stylesheet" href="../unit-css/styles.css?v=6" />
+    <title>النسب المئوية — الهدف 4.4 · المكوّن 04</title>
+    <!-- The shared xAPI library is fetched by unit-js/50-loader.js from the end of the body, after the parser
+     has queued every image; preloading it from the head puts it FIRST in the queue (2026-11-03,
+     BOOT-AND-RESUME-HARDENING §2.3). The href must equal what 50-loader.js builds (no ?v=, no
+     crossorigin) or the browser fetches it twice; the letter changes together with LIB720 there. -->
+<link rel="preload" as="script" fetchpriority="high" href="https://lomdot.education.gov.il/metodica/720active/common/xapiwrapper.min.js">
+<link rel="preload" as="script" fetchpriority="high" href="https://lomdot.education.gov.il/metodica/720active/common/xapi-720-l.js">
+<link rel="preconnect" href="https://kata.cet.ac.il">
+    <link rel="stylesheet" href="../unit-css/styles.css?v=7" />
   </head>
   <!-- data-subject-theme activates the Math token override block in
      css/style.css. :root holds the Science defaults; this one attribute
@@ -77,6 +84,11 @@
     <div id="boot-cover" style="position:fixed;inset:0;z-index:9999;background:#ffffff"></div>
     <script>
     (function () {
+      /* A Kata launch (registration in the query) may have a document to restore: raise the flag HERE,
+         before any script is fetched. bootXAPI raises it too, but from the last script tag, which on a cold
+         cache arrives after the 800 ms below — the cover dropped before the flag existed (2026-11-03).
+         Without a registration (local, dev) the 800 ms behaviour is unchanged. */
+      if (/[?&]registration=/.test(location.search)) window.__resumeInFlight = true;
       var t0 = Date.now();
       function tick() {
         var c = document.getElementById('boot-cover');
@@ -516,12 +528,12 @@
     </div>
     <!-- 720 platform layer (guide §3.1). Order is load-bearing: script.js before main.js,
              main.js before 90-boot.js, 90-boot.js LAST. ?v= identical in all 7 components. -->
-    <script src="../unit-js/10-identity.js?v=1"></script>
-    <script src="../unit-js/20-xapi.js?v=1"></script>
-    <script src="../unit-js/40-resume.js?v=2"></script>
-    <script src="../unit-js/50-loader.js?v=1"></script>
-    <script src="script.js?v=3"></script>
-    <script src="../unit-js/main.js?v=5"></script>
+    <script src="../unit-js/10-identity.js?v=3"></script>
+    <script src="../unit-js/20-xapi.js?v=2"></script>
+    <script src="../unit-js/40-resume.js?v=4"></script>
+    <script src="../unit-js/50-loader.js?v=2"></script>
+    <script src="script.js?v=5"></script>
+    <script src="../unit-js/main.js?v=9"></script>
     <script src="../unit-js/90-boot.js?v=1"></script>
   </body>
 </html>

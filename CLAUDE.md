@@ -1,40 +1,61 @@
-# Unit: methodica-math-percent-04
+# Unit: methodica-ar-math-percent-04 (Arabic twin)
 
-Interactive learning unit (לומדה) for Methodica's 720 project. Hebrew, RTL, static
-HTML/CSS/JS. Built from the extracted spec in `spec/` — read `spec/manifest.md` first;
-each screen's full instructions live in `spec/screens/slide-NNN.md` (production notes
-from the תסריט, slide text, and reference images in `spec/assets/`).
+**Before any change, read `../../KNOWN-ISSUES.md` (the unit folder, outside git) and remind Vadim of it.**
 
-## Build order
+The Arabic twin of `methodica-math-percent-04` (Hebrew repo `methodicelElearnig/methodica-math-percent-04`).
+Same engine, same screens (global 0–64), same flow, gates, hints, scoring, reporting and resume:
+**functionality is the Hebrew unit's; only learner-visible text is Arabic.** Comments and docs stay
+Hebrew/English and are not translated.
 
-1. `spec/manifest.md` → group slides into screens (consecutive "לא צוין" slides are
-   usually feedback/hint states of the preceding question screen, not new screens).
-2. For each screen use the template named under **תבנית** via the `720-templates` /
-   `figma-lomda-builder` skills. Screens marked CUSTOM — confirm approach before building.
-3. Follow `720-design-guidelines` for all styling. Do not invent colors/typography.
+## Twin status
+- Level with Hebrew `b503e1e` (14.11.26): B-2 Back (`96d7c0d`), 03.11 resume hardening + leave save
+  on `xapi-720-l.js` (`bd65765`), guided 01-004 reports nothing (`f33bd26`) — ported 15.11.26 with
+  `git apply -C1`; hunks broken by translated text were applied by hand (commit bodies say which).
+- **Porting a Hebrew change:** `git -C <he> format-patch -1 <sha> --stdout -- . ':!metadata'` →
+  rename `methodica-math-percent-04` → `methodica-ar-math-percent-04` in the patch paths →
+  `git apply -C1 --reject`; redo rejected hunks by hand keeping the Arabic text; port the matching
+  `_test` change; bump `?v=` in all seven parts; commit as "… - port of methodica-math-percent-04 <sha>".
+- Known gap inherited from Hebrew, deliberately mirrored (decision 15.11.26): no metadata-driven
+  `result.response` (guide §6.3c). Fix Hebrew first, then port. See KNOWN-ISSUES.md.
 
-## Structure
+## Identity (differs from Hebrew on purpose)
+| | Hebrew | Arabic (this repo) |
+|---|---|---|
+| component folders / slugs | `methodica-math-percent-04-0N` | `methodica-ar-math-percent-04-0N` |
+| `XAPI_ID_PREFIX` | `…/metodica/720active/math/percent/04/` | `…/metodica/720/ar/math/percent/04/` |
+| `XAPI_UNIT_ID` | `methodica-math-percent-04` | `methodica-ar-math-percent-04` |
+| storage keys | `methodica_math_percent_04_selectedCharacter`, `lomda_nav_edges::methodica-math-percent-04` | `methodica_ar_…`, `…::methodica-ar-math-percent-04` |
+| content served from | `…/720/math/percent/04/` | `…/720/ar/math/percent/04/` |
+| Kata | its own unit | **no unit of its own**: 7 components inside the Hebrew unit, `send-metadata.ps1` parent-unit mode; read through the Hebrew key (`methodica-ar-…` is a 404) |
 
-- `index.html` — the real unit flow (linear, gated navigation per the spec).
-- `index_dev.html` — dev harness: free navigation to any screen, any state.
-- `media/` — final media assets. Use placeholders until finals arrive; media file
-  names in English, no spaces.
-- `spec/` — generated, read-only. Regenerate with `tools/pptx_to_spec.py` when the
-  client sends a new script version; never hand-edit.
+- **Arabic components stay `draft`** until MOE approves the Arabic version in writing
+  (KATA-API.md "Arabic components in a Hebrew unit"). `send-metadata.ps1 -Publish` throws here.
+- Metadata comes from Vadim (Arabic), Kata is the source of truth; ids/slugs must match the table above.
 
-## State rules
+## Arabic text conventions in this unit
+- `%` and numbers in an RTL run: `<span dir="ltr">10%</span>`; the shekel as an isolate `⁦₪20⁩`
+  (LRI…PDI). Unit words follow THE UNIT LAW below exactly as in Hebrew.
+- Font: `Calibri, 'Assistant', sans-serif` on every rule + a global `html, body, button, input,
+  select, textarea, option` rule at the end of `unit-css/styles.css` (Assistant stays as fallback).
+- `letterize` matches Hebrew AND Arabic letters, written as escapes `[\u05D0-\u05EA\u0621-\u064A]`
+  (`main.js`) so the shipped code holds no Hebrew character at all and `scan-hebrew-in-arabic.py`
+  reports 0 (15.11.26). Keep any Hebrew range in shipped code as `\u` escapes.
+- The checked-answer label is `متابعة` (Hebrew `שנמשיך?`); `_test/statement-flow.js` expects it.
+- Arabic-only layout: the bottom-bar hint pill is placed 16px after the primary pill by a small
+  observer at the end of `main.js` (Arabic labels are longer); `.scq-popup-title` is right-aligned.
+- **No Hebrew on an Arabic page** (guide §10.2): no Hebrew in markup, attributes, hidden feedback,
+  reported strings or metadata learner fields (`informationToBot` may stay Hebrew). Check with
+  `Tools/kata-rounds/scan-hebrew-in-arabic.py` on a package in `../deployments/<date>/`.
+- Translation sources: `translations/` (XLF exports and sweep reports). Never shipped.
 
-- The companion character chosen on the first screen persists across the unit.
-  Character asset naming: `character1`, `character1-watching-video`, etc. The code
-  must map the chosen character to its state variants on later screens.
-- Question screens: respect attempts count, hint (רמז) visibility rules, and feedback
-  states exactly as written in that slide's הנחיות הפקה.
+---
 
-## QA before delivery
+## Inherited from the Hebrew twin (build recipe, producer decisions, reporting, assets)
 
-Self-check every screen state, RTL, buttons, media loading, no missing assets, no
-broken screens, faithful to spec/Figma. Then run the `lomda-qa-publish` skill.
-
+Everything below is the Hebrew unit's CLAUDE.md as of the fork. It applies unchanged to behaviour;
+quoted Hebrew screen text is the source the Arabic was translated from. Slugs read as the Arabic
+ones above. `spec/`, `media/`, `index_dev.html` and the `units/` single-folder build exist only on
+the Hebrew side.
 ---
 
 ## Build recipe for this unit (registered 20.08.26 from the producer round)

@@ -1,0 +1,75 @@
+{
+  "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-07/",
+  "title": "السؤال الأكبر",
+  "learningUnitId": "methodica-ar-math-percent-04",
+  "componentPurpose": "practice",
+  "isAssessment": true,
+  "recommendedAfterFail": [],
+  "isRequired": true,
+  "relativeDifficulty": 5,
+  "masteryLevel": null,
+  "order": 6,
+  "depthLevel": "core-curriculum-basic",
+  "cognitiveLevels": [
+    "interpretation-and-reasoning"
+  ],
+  "languages": [
+    "Arabic"
+  ],
+  "skills": [],
+  "estimatedTimeInMinutes": 6,
+  "createdAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "subContent": [
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-07/methodica-ar-math-percent-04-07-001/",
+      "title": "تحديث الإصدار ووقت البطارية (3 بنود)",
+      "informationToBot": "מטרת הפריט: שאלת השיא (מועד ב'): הקטנה באחוזים והגדלה שמחזירה למצב המקורי, ובדיקת טענה על השינוי בכמויות לעומת השינוי באחוזים. מה התלמיד אמור להבין/לתרגל: שהקטנה ב-20% והגדלה ב-20% אינן מבטלות זו את זו: כדי לחזור לשלם המקורי יש להגדיל ב-25%; ושהשינוי בכמות (שעות) שווה בשני הכיוונים (2 שעות) גם כשהאחוזים שונים. כיווני חשיבה ואסטרטגיות: חישוב 80% מ-10 שעות (8); מעבר ל-100% חדש (8 שעות) וחישוב 10/8 = 125%; השוואת ההפרשים בשעות (10 - 8 = 2 לעומת 8 → 10). טעויות נפוצות: חישוב הגדלה של 20% כדי לחזור למצב המקורי; בסעיף ג הנחה שהשינוי בשעות שונה כי האחוזים שונים. מידע נוסף: מסך מעבר (יש להצליח ב-2 סעיפים לפחות מתוך 3), מסך סיפור ושלושה סעיפי בחירה. לכל סעיף רמז זמין, עד שני ניסיונות, ובסיום מוצג משוב מנומק. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-07/methodica-ar-math-percent-04-07-001/q1",
+          "questionType": "choice",
+          "questionText": "قام عمر بتحديث إصدار على هاتفه المحمول وانخفضت مدة عمل البطارية بنسبة 20%. أعلنت الشركة أنها ستصدر تحديثاً إضافياً سيعيد وقت البطارية بالضبط إلى المستوى الذي كان عليه قبل التحديث. أ. لنفترض أنه في النسخة الأولية، كانت بطارية الهاتف تكفي لمدة 10 ساعات من الاستخدام المتواصل. لكم ساعة استخدام ستكفي البطارية بعد تحديث الإصدار؟",
+          "answers": [
+            "12 ساعة",
+            "ساعتان",
+            "8 ساعات",
+            "9.8 ساعات"
+          ],
+          "correctAnswers": [
+            "8 ساعات"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-07/methodica-ar-math-percent-04-07-001/q2",
+          "questionType": "choice",
+          "questionText": "ب. بأي نسبة يجب إطالة (زيادة) وقت البطارية في النسخة الحالية (الأقصر)، لإعادة وقت الاستخدام بدقة إلى الحالة التي كانت عليها قبل التحديث؟",
+          "answers": [
+            "بنسبة 15%",
+            "ب- 20%",
+            "ب- 25%",
+            "ب- 30%"
+          ],
+          "correctAnswers": [
+            "ب- 25%"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-07/methodica-ar-math-percent-04-07-001/q3",
+          "questionType": "choice",
+          "questionText": "ج. تحقق عمر من الهاتف بعد أن أعادت شركة التكنولوجيا الحالة إلى وضعها السابق واكتشف أن وقت بطاريته أصبح الآن 10 ساعات مرة أخرى. ادّعى عمر: «بما أن الوقت زاد من 8 ساعات عائدًا إلى 10 ساعات، فإن التغيّر في الوقت (في مجموع الساعات) يساوي بالضبط التغيّر الذي حدث عندما قصر الوقت». هل ادّعاء عمر بخصوص التغيّر في عدد الساعات صحيح؟",
+          "answers": [
+            "صحيحة",
+            "غير صحيحة",
+            "لا يمكن تحديده"
+          ],
+          "correctAnswers": [
+            "صحيحة"
+          ]
+        }
+      ]
+    }
+  ]
+}

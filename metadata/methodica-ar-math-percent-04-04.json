@@ -1,7 +1,7 @@
 {
-  "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-04/",
-  "title": "משימה בחצר",
-  "learningUnitId": "methodica-math-percent-04",
+  "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-04/",
+  "title": "مهمّة في الفناء",
+  "learningUnitId": "methodica-ar-math-percent-04",
   "componentPurpose": "practice",
   "isAssessment": false,
   "recommendedAfterFail": [],
@@ -14,16 +14,16 @@
     "process-thinking"
   ],
   "languages": [
-    "Hebrew"
+    "Arabic"
   ],
   "skills": [],
   "estimatedTimeInMinutes": 1,
-  "createdAt": "2026-09-30T00:00:00.000Z",
-  "updatedAt": "2026-09-30T00:00:00.000Z",
+  "createdAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "subContent": [
     {
-      "id": "https://lomdot.education.gov.il/metodica/720active/math/percent/04/methodica-math-percent-04-04/methodica-math-percent-04-04-001/",
-      "title": "ספסלי הישיבה בחצר בית הספר",
+      "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-04/methodica-ar-math-percent-04-04-001/",
+      "title": "مقاعد الجلوس في ساحة المدرسة",
       "informationToBot": "מטרת הפריט: משימת שטח שמיישמת הגדלה באחוזים על נתון אמיתי שנאסף בחצר בית הספר. מה התלמיד אמור להבין/לתרגל: ספירת כמות אמיתית, חישוב 25% ממנה עם עיגול כלפי מעלה לספסל שלם, וחישוב הכמות החדשה. כיווני חשיבה ואסטרטגיות: ספירה בחצר; חישוב 25% מהכמות (חלוקה ב-4) ועיגול כלפי מעלה; הוספת התוספת לכמות המקורית. טעויות נפוצות: שכחת העיגול כלפי מעלה; חישוב הכמות החדשה במקום התוספת בסעיף ב; ספירה לא מדויקת. מידע נוסף: משימה פתוחה שאין לה מפתח תשובות: שלושה סעיפים (א: ספירה בחצר, ב: כמה להוסיף, ג: הכמות החדשה), לכל סעיף תיבה חופשית, והכפתור \"צדקתי?\" נפתח כשכל התיבות מולאו, בלי בדיקת נכונות. צילום מסך: לא צורף.",
       "contentType": "project-or-inquiry-task",
       "mediaFormat": "text",

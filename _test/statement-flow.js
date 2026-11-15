@@ -33,6 +33,24 @@ COMPONENTS.forEach(c => {
   b.close();
 });
 
+/* ── 1b. B-2 (monday 13454123722, 13.11.26): Back never closes an item ──
+   03 s36 (item 001): one wrong attempt, Back to s35 → no completed for 001; return, right, forward
+   → exactly one, success:true. The old xapiOnScreen closed 001 on the Back with the failed result. */
+{
+  const b = walk('03', [adv, ACT.scq('s36', false)]);
+  const n0 = b.stmts().length;
+  b.exec('goBack();');
+  const back = b.stmts().slice(n0);
+  R.eq('back', '03 B-2: wrong at s36, Back → nothing but the earlier item re-opened', back.filter(s => s.verb === 'completed').map(label), []);
+  b.exec(go(36) + ACT.scq('s36', true) + adv);
+  const done = b.stmts().filter(s => s.verb === 'completed' && label(s) === 'completed 03-001');
+  R.eq('back', '03 B-2: return, right, forward → exactly one completed 03-001', done.length, 1);
+  R.ok('back', '03 B-2: that completed is success:true', done[0] && done[0].result && done[0].result.success === true, JSON.stringify(done[0] && done[0].result));
+  R.eq('back', '03 B-2: on s37 after the forward move', b.val('currentScreen'), 37);
+  R.eq('back', '03 B-2: no console.error', b.errors, []);
+  b.close();
+}
+
 /* ── 2. component 03: the promised gate (decision 08.10) ── */
 {
   const fail = walk('03', [adv, ACT.scq('s36', false), ACT.scq('s36', false), adv,
@@ -109,10 +127,13 @@ COMPONENTS.forEach(c => {
   for (let n = 10; n <= 20; n++) steps.push(go(n) + `(function(){var c=GUIDED.filter(function(x){return x.screen===${n}})[0]; if(c.opts) gPick('s${n}', ${n === 16} ? 1 - c.correct : c.correct);})();`);
   steps.push(go(21), go(22), ACT.scq('s22', true), go(23), ACT.viq('s23', true), go(24), ACT.viq('s24', true), go(25), ACT.viq('s25', true), go(26));
   const b = walk('01', steps);
-  R.eq('guided', '01-004 reports exactly q1, q2, q4, q5, q7 (q3/q6/q8 are worked steps — decision 08.10)',
-    tail(b).filter(l => /^answered.* 004\//.test(l)).map(l => l.split('/')[1]), ['q1', 'q2', 'q4', 'q5', 'q7']);
-  R.ok('guided', 'one-tap answers are always answered.last', tail(b).filter(l => / 004\//.test(l)).every(l => l.startsWith('answered.last')));
-  R.eq('score', '01: 13 of 16 reported questions', b.stmts().pop().result, { success: true, score: { scaled: 13 / 16 } });
+  /* 2026-11-14: 01-004 is a guided walk-through — it reports nothing and enters no score (unit owner's
+     rule of 10.11, GUIDED-ITEMS-REPORT.md group A). Before: q1, q2, q4, q5, q7 were reported and the
+     score was 13 of 16; the s16 wrong pick no longer counts. */
+  R.eq('guided', '01-004 (guided) reports no answered at all',
+    tail(b).filter(l => /^answered.* 004\//.test(l)).length, 0);
+  R.ok('guided', 'the guided picks are still kept (gState)', b.val("gState.s10 && gState.s10.answered === true && gState.s16 && gState.s16.answered === true") === true);
+  R.eq('score', '01: 9 of 11 reported questions (the guided steps are out)', b.stmts().pop().result, { success: true, score: { scaled: 9 / 11 } });
   R.ok('nav', '01 ends without navigating', b.w.location.pathname.indexOf('-01/') > 0 && b.val("document.getElementById('s25-check').disabled") === true);
   b.close();
 }
@@ -186,7 +207,7 @@ COMPONENTS.forEach(c => {
     "viqInputs('s37').forEach(function(el,i){el.value=String(VIQ.s37.answers[i]+5)}); viqOnInput('s37'); viqCheck('s37');"]);
   const n = a.stmts().length;
   const doc = a.json('__state()');
-  R.ok('resume', 'the document is v6, this component\'s, with a payload', doc && doc.v === 6 && doc.component === 'methodica-math-percent-04-03' && !!doc.payload, JSON.stringify(doc && { v: doc.v, c: doc.component }));
+  R.ok('resume', 'the document is v6, this component\'s, with a payload', doc && doc.v === 6 && doc.component === 'methodica-ar-math-percent-04-03' && !!doc.payload, JSON.stringify(doc && { v: doc.v, c: doc.component }));
   R.ok('resume', 'the payload carries no engine configuration (no correctId / answers / body)',
     !/correctId|"answers"|"body"/.test(JSON.stringify(doc.payload)));
   const b = boot('03', { store: a.store() });
@@ -197,10 +218,10 @@ COMPONENTS.forEach(c => {
     b.val("viqInputs('s37').every(function(e){return e.classList.contains('error')}) && document.getElementById('s37-check').disabled"));
   R.eq('resume', 'the reload re-sends no answer — only initialized', b.stmts().slice(n).map(s => s.verb).sort(), ['initialized', 'initialized']);
   b.exec(go(36));
-  R.ok('resume', 'an answered screen repaints: correct mark, locked, verdict, שנמשיך?',
+  R.ok('resume', 'an answered screen repaints: correct mark, locked, verdict, متابعة (Hebrew: שנמשיך?)',
     b.val(`(function(){var o=document.querySelector('#s36 .scq-opt[data-id="'+SCQ.s36.correctId+'"]');
       return o.classList.contains('correct') && o.disabled && !document.getElementById('s36-popup').classList.contains('hidden')
-        && document.getElementById('s36-check').textContent.trim()==='שנמשיך?';})()`));
+        && document.getElementById('s36-check').textContent.trim()==='متابعة';})()`));
   R.ok('resume', 'XAPI_Q_RESULTS restored (score survives the reload)', b.val("XAPI_Q_RESULTS['001/q1'] === true"));
   b.exec(go(37));
   b.exec("viqInputs('s37').forEach(function(el,i){el.value=String(VIQ.s37.answers[i])}); viqOnInput('s37'); viqCheck('s37');" + adv);

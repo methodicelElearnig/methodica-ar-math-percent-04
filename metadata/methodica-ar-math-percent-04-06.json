@@ -1,0 +1,84 @@
+{
+  "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/",
+  "title": "السؤال الأكبر",
+  "learningUnitId": "methodica-ar-math-percent-04",
+  "componentPurpose": "practice",
+  "isAssessment": true,
+  "recommendedAfterFail": [],
+  "isRequired": true,
+  "relativeDifficulty": 5,
+  "masteryLevel": null,
+  "order": 6,
+  "depthLevel": "core-curriculum-basic",
+  "cognitiveLevels": [
+    "interpretation-and-reasoning"
+  ],
+  "languages": [
+    "Arabic"
+  ],
+  "skills": [],
+  "estimatedTimeInMinutes": 8,
+  "createdAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "subContent": [
+    {
+      "id": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/methodica-ar-math-percent-04-06-001/",
+      "title": "عرض في الكافتيريا (4 بنود)",
+      "informationToBot": "מטרת הפריט: שאלת השיא: חישוב מחיר מקורי ממחיר לאחר הנחה, בדיקת טענה שגויה, וחישוב אחוז הגדלה הנדרש כדי לחזור למחיר המקורי. מה התלמיד אמור להבין/לתרגל: שהמחיר לאחר הנחה של 25% מייצג 75% מהמחיר המקורי; שאחוז הגדלה מחושב מתוך הכמות החדשה כשלם; ושאחוז הגדלה הנדרש כדי לבטל הנחה אינו שווה לאחוז ההנחה. כיווני חשיבה ואסטרטגיות: בחירת טבלת הפרופורציה שבה 15 ש\"ח מתאים ל-75%; פתרון 75/100 = 15/x (x = 20); בדיקת הטענה של נויה (15 + 3.75 = 18.75 ≠ 20); חישוב 20/15 = 133⅓% ולכן הגדלה של 33⅓%. טעויות נפוצות: הצבת 125% או 25% בטבלה; חישוב 25% מהמחיר המוזל והוספתו (הדרך של נויה); מענה של 25% בסעיף ד כי מתבלבלים בין שלם מקורי לשלם חדש. מידע נוסף: מסך מעבר (יש להצליח ב-3 סעיפים לפחות מתוך 4) ואחריו גלילה אחת עם ארבעה סעיפים: א בחירה בטבלה, ב הקלדה, ג בחירה, ד בחירה. לכל סעיף משוב משלו. צילום מסך: לא צורף.",
+      "contentType": "practice",
+      "mediaFormat": "interactive-content",
+      "questions": [
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/methodica-ar-math-percent-04-06-001/q1",
+          "questionType": "choice",
+          "questionText": "من المعروف أن سعر الساندويتش في الكافتيريا بعد تطبيق خصم العرض (25%) كان بالضبط 15 ش.ج. أ. أي من جداول النسبة التالية تمثل الطريقة الصحيحة للعثور على السعر الأصلي (بالشواقل) للساندويتش قبل الخصم؟",
+          "answers": [
+            "جدول أ: السعر (بـ ش.ج): x ↔ النسبة المئوية: 125%؛ السعر (بـ ش.ج): 15 ↔ النسبة المئوية: 100%",
+            "جدول ب: السعر (بـ ش.ج): x ↔ النسبة المئوية: 75%؛ السعر (بـ ش.ج): 15 ↔ النسبة المئوية: 100%",
+            "جدول ج: السعر (بـ ش.ج): 15 ↔ النسبة المئوية: 75%؛ السعر (بـ ش.ج): x ↔ النسبة المئوية: 100%",
+            "جدول د: السعر (بـ ش.ج): 15 ↔ النسبة المئوية: 25%؛ السعر (بـ ش.ج): x ↔ النسبة المئوية: 100%"
+          ],
+          "correctAnswers": [
+            "جدول ج: السعر (بـ ش.ج): 15 ↔ النسبة المئوية: 75%؛ السعر (بـ ش.ج): x ↔ النسبة المئوية: 100%"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/methodica-ar-math-percent-04-06-001/q2",
+          "questionType": "numeric",
+          "questionText": "ب. ما السعر الأصلي للساندويتش (بالشواقل) قبل الخصم؟",
+          "answers": [],
+          "correctAnswers": [
+            20
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/methodica-ar-math-percent-04-06-001/q3",
+          "questionType": "choice",
+          "questionText": "ج. ياسمين، طالبة في الصف الثامن، ادّعت: «إذا حسبنا 25% من السعر بعد الخصم (15 شاقلًا) وأضفنا هذا المبلغ إلى 15 شاقلًا، فسنحصل بالضبط على السعر الأصلي للساندويتش». هل ادّعاء ياسمين صحيح؟",
+          "answers": [
+            "نعم",
+            "لا",
+            "لا يمكن التحديد"
+          ],
+          "correctAnswers": [
+            "لا"
+          ]
+        },
+        {
+          "questionId": "https://lomdot.education.gov.il/metodica/720/ar/math/percent/04/methodica-ar-math-percent-04-06/methodica-ar-math-percent-04-06-001/q4",
+          "questionType": "choice",
+          "questionText": "د. في اليوم الأخير من العرض، تقرّر إلغاء الخصم بنسبة 25% وإرجاع الساندويتش إلى سعره الأصلي (قبل العرض). بأي نسبة مئوية يجب زيادة السعر بعد الخصم (15 شاقلًا) حتى يعود الساندويتش إلى سعره الأصلي بالضبط؟",
+          "answers": [
+            "بنسبة 25%",
+            "بنسبة 50%",
+            "بنسبة 20.5%",
+            "بنسبة 33⅓%"
+          ],
+          "correctAnswers": [
+            "بنسبة 33⅓%"
+          ]
+        }
+      ]
+    }
+  ]
+}

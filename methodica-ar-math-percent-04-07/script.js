@@ -1,6 +1,6 @@
 'use strict';
 /* ═══════════════════════════════════════════════════════════════════
-   methodica-math-percent-04-07 — component 07 of 07 · deck slides 85-90
+   methodica-ar-math-percent-04-07 — component 07 of 07 · deck slides 85-90
    שאלת שיא מועד ב
 
    CONFIGURATION ONLY. Every behaviour is shared in ../unit-js/main.js —
@@ -14,15 +14,15 @@ window.PART_CONFIG = {
   /* slugs, not URLs — main.js builds '../<slug>/index.html' (a FILE: the MOE CDN serves a folder URL
      as 200 with 0 bytes). Used only under DEV_NAV: the platform owns routing (guide §8.12). */
   next: null,
-  prev: 'methodica-math-percent-04-06'
+  prev: 'methodica-ar-math-percent-04-06'
 };
 
 /* ═══════════════════ xAPI (720) — this component's configuration ═══════════════════
    Data only; ../unit-js/ reads it at CALL time. Design record: docs-and-tools/XAPI-MAP.md.
-   XAPI_COMP_ID must equal metadata/methodica-math-percent-04-07.json "id" byte-for-byte, trailing slash included. */
-var XAPI_COMP_SLUG     = 'methodica-math-percent-04-07';
+   XAPI_COMP_ID must equal metadata/methodica-ar-math-percent-04-07.json "id" byte-for-byte, trailing slash included. */
+var XAPI_COMP_SLUG     = 'methodica-ar-math-percent-04-07';
 var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG + '/';
-var XAPI_METADATA_FILE = '../metadata/methodica-math-percent-04-07.json';
+var XAPI_METADATA_FILE = '../metadata/methodica-ar-math-percent-04-07.json';
 
 /* screen -> [item suffix, page-within-item]; null = no catalogue item (transition / narrative).
    ⚠️ GLOBAL screen numbers, THIS component's [60..64] only — exactly one key per screen; a

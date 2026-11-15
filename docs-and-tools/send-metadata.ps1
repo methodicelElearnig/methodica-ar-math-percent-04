@@ -1,7 +1,8 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-    Send the metadata/ folder (1 unit + 7 components + 25 items, methodica-math-percent-04) to the Kata
+    Send the metadata/ folder (7 Arabic components + their items, methodica-ar-math-percent-04, as DRAFT
+    components inside the existing Hebrew unit methodica-math-percent-04 — the unit is never written) to the Kata
     (Katalog) catalog API at https://kata.cet.ac.il/api/v1.
 
 .DESCRIPTION
@@ -56,6 +57,9 @@ param(
     [string] $ApiKey,
     [string] $BaseUrl,
     [string] $MetadataDir,
+    # Arabic twin (15.11.26, from methodica-ar-math-ratio-02): the Hebrew unit the Arabic components
+    # join. Defaults below to 'methodica-math-percent-04'; -ParentUnitKey '' upserts *_unit.json instead.
+    [string] $ParentUnitKey,
     # Populate item hostedContentRef and NOTHING else — 26 single-field PATCHes.
     # ⚠️ ONE-WAY. Probed 2026-09-11: PATCHing hostedContentRef back to null returns
     # HTTP 200 and is silently ignored, and '' is a 422. There is no supported clear.
@@ -98,6 +102,17 @@ if ($Preflight) { $LogFile = Join-Path $PSScriptRoot 'preflight-metadata.log' } 
 if ($Status -or $Publish) { $LogFile = Join-Path $PSScriptRoot 'publish-metadata.log' }
 
 # ── (2) PER-UNIT — usually fine as-is ───────────────────────────────────────
+# PARENT UNIT — the Arabic components join the EXISTING Hebrew unit; there is no Arabic unit
+# in KATA. KATA binds a learning objective to exactly one unit (a separate Arabic unit got
+# 409 "objective already bound to a unit (strict 1:1)"), and the KATA team's instruction
+# (2026-09-25) is to add the Arabic components to the existing unit. Read Arabic components
+# through the Hebrew key: GET /content-units/methodica-ar-… is a 404 (KATA-API.md).
+#
+# When set, the unit is READ-ONLY: one GET confirms it exists, *_unit.json is not read, and
+# no POST/PATCH ever goes to the unit — a PATCH here would overwrite the Hebrew unit's title,
+# sectors and audience with this repo's values. Components are created under this key.
+# -ParentUnitKey '' restores the original behaviour (upsert this repo's own *_unit.json).
+if (-not $PSBoundParameters.ContainsKey('ParentUnitKey')) { $ParentUnitKey = 'methodica-math-percent-04' }
 # Where the CONTENT is served from, for hostedContentRef — the field Kata launches the
 # component from. It must resolve.
 #
@@ -111,10 +126,14 @@ if ($Status -or $Publish) { $LogFile = Join-Path $PSScriptRoot 'publish-metadata
 # one, for every component of this unit.
 #
 # Take this from the unit's own DEPLOY.md deploy target. No trailing slash.
-$ContentBaseUrl = 'https://lomdot.education.gov.il/metodica/720/math/percent/04'   # methodica-math-percent-04 (2026-10-08) — the family convention (percent-01/02/06/08, ratio-*, proportion-*); the package must be uploaded here
+# Arabic twin: served under /720/ar/ (the Hebrew twin is served from /720/math/percent/04).
+$ContentBaseUrl = 'https://lomdot.education.gov.il/metodica/720/ar/math/percent/04'   # methodica-ar-math-percent-04 (2026-11-15) — as ar percent-08 / ar ratio-02; the package must be uploaded here
 # Title language key: wraps a string title into the API object, e.g.
 #   "מדידת מסה" -> { "Hebrew": "מדידת מסה" }. Change only for non-Hebrew content.
-$TitleLangKey = 'Hebrew'
+# Arabic twin — the same word the component metadata uses in `languages`, as every ar twin sends.
+# ⚠️ KATA-API.md (19.10) asks for the `he` / `ar` keys on UNIT titles; in parent-unit mode no unit
+# title is sent, so this key only wraps component/item titles. Open question, flagged 15.11.26.
+$TitleLangKey = 'Arabic'
 # ⚠️ NO LONGER SENT (2026-09-09). v2.5 §2.6 renamed the v2.4 component field
 # `manufacture` to the unit field `manufacturer` and retyped it as the ministry's
 # supplier number. It is moot either way, because KATA derives the value itself
@@ -618,6 +637,11 @@ function New-ItemBody {
 # Fresh log per run.
 if ($Preflight -and $DryRun) { throw '-Preflight and -DryRun are exclusive: the preflight is the read-only NETWORK check.' }
 if (@($Preflight, $Status, $Publish, $DryRun | Where-Object { $_ }).Count -gt 1) { throw '-Preflight, -Status, -Publish and -DryRun are mutually exclusive.' }
+# Arabic twin: -Publish is refused. Arabic components are published only after MOE approves the
+# Arabic version in writing — publishing them inside the Hebrew unit approves them automatically
+# (KATA-API.md "Arabic components in a Hebrew unit", guide §4.6). Lift this only with that approval
+# recorded in DEPLOY.md, as a separate, reviewed change.
+if ($Publish) { throw '-Publish is disabled in this Arabic twin: Arabic components stay draft until MOE approves the Arabic version (KATA-API.md).' }
 $modeLabel = if ($Preflight) { 'PREFLIGHT (read-only GETs)' } elseif ($Status) { 'STATUS (read-only GETs)' } elseif ($Publish) { 'PUBLISH (LIVE, one-way)' } elseif ($DryRun) { 'DRY-RUN (no network)' } else { 'LIVE' }
 Set-Content -Path $LogFile -Value ("=== send-metadata {0} ===" -f $modeLabel) -Encoding UTF8
 
@@ -638,10 +662,14 @@ Write-Log ("Mode         : {0}" -f $modeLabel)
 
 # 0) Preflight — READ-ONLY: GET the unit and each component, report, write nothing, exit.
 if ($Preflight) {
-    $pUnitFile = Get-ChildItem -Path $MetadataDir -Filter '*_unit.json' | Select-Object -First 1
-    if (-not $pUnitFile) { Write-Log "No *_unit.json found in $MetadataDir" 'ERROR'; exit 1 }
-    $pUnit = Get-Content -Raw -Path $pUnitFile.FullName -Encoding UTF8 | ConvertFrom-Json
-    $checks = @(@{ Label = 'unit ' + (Get-Slug $pUnit.id); Path = '/api/v1/content-units/' + (Get-Slug $pUnit.id) })
+    if ($ParentUnitKey) {
+        $pUnitKey = $ParentUnitKey   # the Hebrew parent: EXISTS is expected (200), not a reason to stop
+    } else {
+        $pUnitFile = Get-ChildItem -Path $MetadataDir -Filter '*_unit.json' | Select-Object -First 1
+        if (-not $pUnitFile) { Write-Log "No *_unit.json found in $MetadataDir" 'ERROR'; exit 1 }
+        $pUnitKey = Get-Slug ((Get-Content -Raw -Path $pUnitFile.FullName -Encoding UTF8 | ConvertFrom-Json).id)
+    }
+    $checks = @(@{ Label = 'unit ' + $pUnitKey; Path = '/api/v1/content-units/' + $pUnitKey })
     $pComps = Get-ChildItem -Path $MetadataDir -Filter '*.json' | Where-Object { $_.Name -notlike '*_unit.json' } |
         ForEach-Object { Get-Content -Raw -Path $_.FullName -Encoding UTF8 | ConvertFrom-Json } | Sort-Object { [int] $_.order }
     foreach ($c in $pComps) { $checks += @{ Label = 'component ' + (Get-Slug $c.id); Path = '/api/v1/component?componentKey=' + (Enc $c.id) } }
@@ -703,16 +731,26 @@ if ($Status -or $Publish) {
     exit ($(if ($bad) { 1 } else { 0 }))
 }
 
-# 1) Unit
+# 1) Unit — either the existing Hebrew parent unit (read-only) or this repo's own unit (upserted)
+$unitOk = $true
+if ($ParentUnitKey) {
+    $unitKey = $ParentUnitKey
+    Write-Log ("Parent unit  : {0} (read-only, not modified)" -f $unitKey)
+    $r = Invoke-Kata 'GET' "/api/v1/content-units/$unitKey" $null
+    $unitOk = $DryRun -or ($r.Code -eq '200')
+    if (-not $unitOk) {
+        Write-Log ("Parent unit {0} not found or not readable (HTTP {1}) — nothing sent." -f $unitKey, $r.Code) 'ERROR'
+    }
+} else {
 $unitFile = Get-ChildItem -Path $MetadataDir -Filter '*_unit.json' | Select-Object -First 1
 if (-not $unitFile) { Write-Log "No *_unit.json found in $MetadataDir" 'ERROR'; exit 1 }
 $unit = Get-Content -Raw -Path $unitFile.FullName -Encoding UTF8 | ConvertFrom-Json
 $unitKey = Get-Slug $unit.id
+}
 
 # In -ItemHostedRefOnly the unit is not touched at all — the whole point of that mode
 # is that exactly one field on 26 items changes and nothing else in the catalogue moves.
-$unitOk = $true
-if (-not $ItemHostedRefOnly) {
+if (-not $ItemHostedRefOnly -and -not $ParentUnitKey) {
     $unitBody  = New-UnitBody $unit
     $unitPatch = Remove-Key $unitBody 'uniqueKey'
     $unitOk = Send-Entity -Label "unit $unitKey" `

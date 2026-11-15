@@ -22,7 +22,7 @@ catch (e) {
 }
 
 const BASE = path.join(__dirname, '..');
-const UNIT = 'methodica-math-percent-04';
+const UNIT = 'methodica-ar-math-percent-04';
 const COMPONENTS = ['01', '02', '03', '04', '05', '06', '07'];
 const PART_DIR = c => UNIT + '-' + c;
 const readJSON = p => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^﻿/, ''));

@@ -60,7 +60,7 @@ $UnitDirs = @{
 
 # Inside a component folder: these files, plus everything under assets/.
 $ComponentFiles = @('index.html', 'script.js', 'styles.css')
-$ComponentGlob  = 'methodica-math-*-[0-9][0-9]'
+$ComponentGlob  = 'methodica-ar-math-percent-04-[0-9][0-9]'   # Arabic twin (15.11.26): the Hebrew 'methodica-math-*' glob matches no ar folder
 
 # ── Hygiene: if any of these turn up INSIDE a package, it is unsafe to upload ──
 $SecretPatterns = @('*key*', '*.ps1', '*.log', 'index_dev.html', 'README.md', '.git*', '_*')

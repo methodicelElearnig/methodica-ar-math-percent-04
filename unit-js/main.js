@@ -1,7 +1,7 @@
 "use strict";
 
 /* =====================================================================
-   unit-js/main.js — methodica-math-percent-04, shared by all 7 components
+   unit-js/main.js — methodica-ar-math-percent-04, shared by all 7 components
    The approved engine (lineage: percent-02 part-01 → ratio-01-01) plus this
    unit's entire screen logic (screens 0-64, global numbering). Each
    component's script.js holds config only (PART_CONFIG + xAPI seams).
@@ -57,7 +57,7 @@ function freezeVideoOnEnd(vid) {
    choice is saved so later parts can resolve their own character
    assets, but Screen 01's initial state always shows no selection,
    even on reload (approved percent-02 producer instruction). */
-const CHARACTER_STORAGE_KEY = "methodica_math_percent_04_selectedCharacter";
+const CHARACTER_STORAGE_KEY = "methodica_ar_math_percent_04_selectedCharacter";
 
 /* ─── Companion character asset map ─────────────────────────
    Logical IDs only — never hardcode a character file on a screen.
@@ -166,6 +166,11 @@ function goTo(n) {
   if (prev) prev.classList.remove("active");
   currentScreen = n;
   next.classList.add("active");
+  /* A hidden clip carries data-src instead of src, so the page does not download it at load
+     (BOOT-AND-RESUME-HARDENING §2.3 C4, 13.11.26: part 01's s9 / s21 clips). Moved to src on the
+     first entry, before resetScreenState (an enter hook may call load()); its autoplay starts it.
+     <video> only. */
+  next.querySelectorAll("video[data-src]").forEach((v) => { v.setAttribute("src", v.getAttribute("data-src")); v.removeAttribute("data-src"); });
   /* xAPI item scope — after the screen is active and currentScreen is set, before anything
      can navigate away. Swallowed on purpose: reporting must never stop a learner. */
   try { xapiOnScreen(n); } catch (e) {}
@@ -1473,7 +1478,7 @@ function buildGuidedScreens() {
           ${
             cfg.video
               ? `<video class="g-char g-char--video" src="../unit-assets/video/${cfg.video}" autoplay loop muted playsinline preload="auto" aria-label="الشخصية المرافقة"></video>`
-              : `<img class="g-char" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
+              : `<img loading="lazy" class="g-char" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
           }
           ${opts}
         </div>
@@ -1502,7 +1507,7 @@ function buildGuidedScreens() {
               <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
               <span class="rs-bubble-text">${cfg.bubble}</span>
             </div>
-            <img src="../unit-assets/img/character-thinking.png" alt="الشخصية المرافقة">
+            <img loading="lazy" src="../unit-assets/img/character-thinking.png" alt="الشخصية المرافقة">
           </div>`
             : ""
         }
@@ -2187,7 +2192,7 @@ const TAG_ANSWERS = (rows) =>
   `<span class="tag-row tag-row--fb">${rows
     .map(
       (r) =>
-        `<span class="tag-cell"><img class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش.ج">` +
+        `<span class="tag-cell"><img loading="lazy" class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش.ج">` +
         `<span class="tag-answer tag-answer--done">${r.answer} ش.ج</span></span>`,
     )
     .join("")}</span>`;
@@ -3393,9 +3398,9 @@ function letterize(html) {
   if (!html) return html;
   /* <strong>ب. whole phrase bold</strong> — keep the phrase bold, only the
      letter changes color (eating the opening tag unbolded s39's question) */
-  const m = html.match(/^<strong>([א-תء-ي])\.\s*(?!<\/strong>)/);
+  const m = html.match(/^<strong>([\u05D0-\u05EA\u0621-\u064A])\.\s*(?!<\/strong>)/);
   if (m) return '<strong class="q-letter">' + m[1] + '.</strong> <strong>' + html.slice(m[0].length);
-  return html.replace(/^(?:<strong>)?([א-תء-ي])\.(?:<\/strong>)?\s*/, '<strong class="q-letter">$1.</strong> ');
+  return html.replace(/^(?:<strong>)?([\u05D0-\u05EA\u0621-\u064A])\.(?:<\/strong>)?\s*/, '<strong class="q-letter">$1.</strong> ');
 }
 function prPopupBlock(sid) {
   /* the onpointerdown hook is what makes it draggable — CSS cursor alone is a lie
@@ -3450,7 +3455,7 @@ function prBody(cfg, sid) {
       ${cfg.rows
         .map(
           (r, i) => `<div class="tag-cell">
-        <img class="tag-art" src="../unit-assets/img/${r.img}" alt="تسمية السعر: ${r.was} شاقل قبل الخصم، حقل السعر الجديد">
+        <img loading="lazy" class="tag-art" src="../unit-assets/img/${r.img}" alt="تسمية السعر: ${r.was} شاقل قبل الخصم، حقل السعر الجديد">
         <span class="tag-answer"><input id="${sid}-in-${i}" class="viq-input-box" type="number" inputmode="numeric" aria-label="السعر الجديد لـ ${r.was} شاقل" oninput="viqOnInput('${sid}')"><span class="viq-unit">ش.ج</span></span>
       </div>`,
         )
@@ -3507,7 +3512,7 @@ function buildPracticeScreens() {
             ${
               sec2.bubble
                 ? `<div class="scrollset-widget">
-                <img src="../unit-assets/img/${sec2.char || "character-thinking.png"}" alt="الشخصية المرافقة">
+                <img loading="lazy" src="../unit-assets/img/${sec2.char || "character-thinking.png"}" alt="الشخصية المرافقة">
                 <div class="rs-bubble rs-bubble--beside g-widget-bubble">
                   <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
                   <span class="rs-bubble-text">${sec2.bubble}</span>
@@ -3599,7 +3604,7 @@ function buildPracticeScreens() {
           <div class="transition-char transition-char--video">${
             cfg.video
               ? `<video src="../unit-assets/video/${cfg.video}" autoplay loop muted playsinline preload="auto" aria-label="الشخصية المرافقة"></video>`
-              : `<img src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
+              : `<img loading="lazy" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
           }</div>
         </div>
         <button class="btn-continue" id="${sid}-continue" onclick="advanceScreen()"><span class="nav-label" data-label="${cfg.cta}"><span>${cfg.cta}</span></span></button>
@@ -3616,7 +3621,7 @@ function buildPracticeScreens() {
         ? `<div class="g-widget"><div class="rs-bubble rs-bubble--beside g-widget-bubble">
              <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
              <span class="rs-bubble-text">${cfg.bubble}</span></div>
-             <img src="../unit-assets/img/${cfg.char || "character-thinking.png"}" alt="الشخصية المرافقة"></div>`
+             <img loading="lazy" src="../unit-assets/img/${cfg.char || "character-thinking.png"}" alt="الشخصية المرافقة"></div>`
         : "";
       const isStory = cfg.kind === "story";
       if (isStory) sec.classList.add("pr-story");
@@ -4145,14 +4150,17 @@ function applyExecutionState(st, screenOverride) {
 
    Keys are logical answers: the engine sid (s3, s59q2) or, where one screen carries one
    catalogue question PER FIELD, '<sid>r<field index>' (s33, s41).
-   ⚠️ 01-004 q3/q6/q8 are deliberately absent — worked steps the learner only reads.
+   ⚠️ 01-004, the guided walk-through "נפתור יחד" (s10-s20), reports nothing since 2026-11-14:
+   unit owner's rule of 10.11 (QA/2026-11-10-guided-items/GUIDED-ITEMS-REPORT.md, group A; as
+   ratio-05 a572ab3 and ratio-04 f46ec27). Kata declares no question on it, so s10, s11, s15, s16
+   and s18 (were q1, q2, q4, q5, q7) are out of this map: gPick keeps and saves the pick
+   (flushResumeSave), xapiReport finds no key and sends nothing, and the pick enters no score.
    ═══════════════════════════════════════════════════════════════════ */
 var XAPI_QMAP = {
   /* 01 */
   s0: [0, "q1"],
   s2: [2, "q1"], s3: [3, "q2"], s4: [4, "q3"],
   s6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"],
-  s10: [10, "q1"], s11: [11, "q2"], s15: [15, "q4"], s16: [16, "q5"], s18: [18, "q7"],
   s22: [22, "q1"], s23: [23, "q2"],
   s24: [24, "q1"], s25: [25, "q2"],
   /* 02 */
@@ -4282,13 +4290,13 @@ function partResult() {
    ⚠️ Exactly RESULT_KEYS in ../unit-js/40-resume.js (listed there so ?resetState clears their
    localStorage mirrors too). If they drift, a reset document sits beside a stale cache. */
 var UNIT_SCORE_KEYS = {
-  "methodica-math-percent-04-01": "percent04_c01_scaled",
-  "methodica-math-percent-04-02": "percent04_c02_scaled",
-  "methodica-math-percent-04-03": "percent04_c03_scaled",
-  "methodica-math-percent-04-04": "percent04_c04_scaled",
-  "methodica-math-percent-04-05": "percent04_c05_scaled",
-  "methodica-math-percent-04-06": "percent04_c06_scaled",
-  "methodica-math-percent-04-07": "percent04_c07_scaled",
+  "methodica-ar-math-percent-04-01": "percent04_c01_scaled",
+  "methodica-ar-math-percent-04-02": "percent04_c02_scaled",
+  "methodica-ar-math-percent-04-03": "percent04_c03_scaled",
+  "methodica-ar-math-percent-04-04": "percent04_c04_scaled",
+  "methodica-ar-math-percent-04-05": "percent04_c05_scaled",
+  "methodica-ar-math-percent-04-06": "percent04_c06_scaled",
+  "methodica-ar-math-percent-04-07": "percent04_c07_scaled",
 };
 
 function recordPartResult(res) {
@@ -4413,6 +4421,7 @@ function partBoot() {
   var HINT_GAP = 16, EDGE = 24, FALLBACK_LEFT = 180, queued = false;
   function fit() {
     queued = false;
+    if (typeof document === "undefined" || !document || !document.querySelectorAll) return; /* page torn down */
     document.querySelectorAll(".scq-hint").forEach(function (hint) {
       var primary = hint.parentElement && hint.parentElement.querySelector(".btn-continue");
       var w = primary ? primary.offsetWidth : 0;

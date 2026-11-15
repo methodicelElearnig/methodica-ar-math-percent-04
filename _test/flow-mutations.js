@@ -40,26 +40,27 @@ const MUTATIONS = {
     edit(M, 'var c = _optEl(sid, q.correctId); if (c) c.classList.add("correct");', ''),
   'engine configuration leaks into the document': () =>
     edit(M, 'scq: ["selected", "attempts", "done", "lastWrong", "result"],', 'scq: ["selected", "attempts", "done", "lastWrong", "result", "correctId"],'),
-  'a worked step reported as a question (01-004 q8)': () =>
-    edit(M, 's18: [18, "q7"],', 's18: [18, "q7"], s19: [19, "q8"],') ||
-    edit(M, "  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);", "  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]); if (sid === 's18') xapiReport('s19', true, true, '170');"),
+  /* since 2026-11-14 the whole guided walk-through (01-004) reports nothing: the mutation puts one of
+     its pick steps back into the map, which the [guided] check must catch */
+  'a guided step reported as a question (01-004 q1)': () =>
+    edit(M, 's6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"],', 's6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"], s10: [10, "q1"],'),
   'answered.last on every attempt (isLast idiom broken)': () =>
     edit(M, 'xapiReport(sid, isCorrect, isCorrect || q.attempts >= 2,', 'xapiReport(sid, isCorrect, true,'),
   'repaint missing from goTo': () =>
     edit(M, '  repaintScreen(n);\n  try { restoreEndedButton(n); } catch (e) {}', '  try { restoreEndedButton(n); } catch (e) {}'),
   'a screen missing from a component map (silently never reports)': () =>
-    edit('methodica-math-percent-04-05/script.js', "  56: ['005', 1],\n", ''),
+    edit('methodica-ar-math-percent-04-05/script.js', "  56: ['005', 1],\n", ''),
   'component id without its trailing slash': () =>
-    edit('methodica-math-percent-04-02/script.js', "var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG + '/';", 'var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG;'),
+    edit('methodica-ar-math-percent-04-02/script.js', "var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG + '/';", 'var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG;'),
   'script.js after main.js': () => {
-    const f = 'methodica-math-percent-04-06/index.html', s = fs.readFileSync(path.join(TMP, f), 'utf8');
+    const f = 'methodica-ar-math-percent-04-06/index.html', s = fs.readFileSync(path.join(TMP, f), 'utf8');
     const tagS = (s.match(/<script src="script\.js\?v=\d+"><\/script>/) || [])[0];
     const tagM = (s.match(/<script src="\.\.\/unit-js\/main\.js\?v=\d+"><\/script>/) || [])[0];
     edit(f, tagS, '');
     edit(f, tagM, tagM + tagS);
   },
   'peak 06 promises 3 of 4 but scores 2 of 4 a pass': () =>
-    edit('methodica-math-percent-04-06/script.js', "n: 4, need: 3 }", "n: 4, need: 2 }"),
+    edit('methodica-ar-math-percent-04-06/script.js', "n: 4, need: 3 }", "n: 4, need: 2 }"),
   'flush placed before the commitment (D-13)': () => {
     edit(M, '  /* one tap, one attempt — always the final answer */\n  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);',
             '  try { flushResumeSave(); } catch (e) {}\n  /* one tap, one attempt — always the final answer */\n  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);');
