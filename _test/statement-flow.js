@@ -33,6 +33,24 @@ COMPONENTS.forEach(c => {
   b.close();
 });
 
+/* ── 1b. B-2 (monday 13454123722, 13.11.26): Back never closes an item ──
+   03 s36 (item 001): one wrong attempt, Back to s35 → no completed for 001; return, right, forward
+   → exactly one, success:true. The old xapiOnScreen closed 001 on the Back with the failed result. */
+{
+  const b = walk('03', [adv, ACT.scq('s36', false)]);
+  const n0 = b.stmts().length;
+  b.exec('goBack();');
+  const back = b.stmts().slice(n0);
+  R.eq('back', '03 B-2: wrong at s36, Back → nothing but the earlier item re-opened', back.filter(s => s.verb === 'completed').map(label), []);
+  b.exec(go(36) + ACT.scq('s36', true) + adv);
+  const done = b.stmts().filter(s => s.verb === 'completed' && label(s) === 'completed 03-001');
+  R.eq('back', '03 B-2: return, right, forward → exactly one completed 03-001', done.length, 1);
+  R.ok('back', '03 B-2: that completed is success:true', done[0] && done[0].result && done[0].result.success === true, JSON.stringify(done[0] && done[0].result));
+  R.eq('back', '03 B-2: on s37 after the forward move', b.val('currentScreen'), 37);
+  R.eq('back', '03 B-2: no console.error', b.errors, []);
+  b.close();
+}
+
 /* ── 2. component 03: the promised gate (decision 08.10) ── */
 {
   const fail = walk('03', [adv, ACT.scq('s36', false), ACT.scq('s36', false), adv,
