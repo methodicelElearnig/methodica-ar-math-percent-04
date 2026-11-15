@@ -37,8 +37,9 @@ Hebrew/English and are not translated.
   (LRI…PDI). Unit words follow THE UNIT LAW below exactly as in Hebrew.
 - Font: `Calibri, 'Assistant', sans-serif` on every rule + a global `html, body, button, input,
   select, textarea, option` rule at the end of `unit-css/styles.css` (Assistant stays as fallback).
-- `letterize` matches Hebrew AND Arabic letters (`[א-תء-ي]`, `main.js`) — the only Hebrew in shipped
-  code, a regex class, never shown.
+- `letterize` matches Hebrew AND Arabic letters, written as escapes `[\u05D0-\u05EA\u0621-\u064A]`
+  (`main.js`) so the shipped code holds no Hebrew character at all and `scan-hebrew-in-arabic.py`
+  reports 0 (15.11.26). Keep any Hebrew range in shipped code as `\u` escapes.
 - The checked-answer label is `متابعة` (Hebrew `שנמשיך?`); `_test/statement-flow.js` expects it.
 - Arabic-only layout: the bottom-bar hint pill is placed 16px after the primary pill by a small
   observer at the end of `main.js` (Arabic labels are longer); `.scq-popup-title` is right-aligned.

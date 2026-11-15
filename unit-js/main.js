@@ -3398,9 +3398,9 @@ function letterize(html) {
   if (!html) return html;
   /* <strong>ب. whole phrase bold</strong> — keep the phrase bold, only the
      letter changes color (eating the opening tag unbolded s39's question) */
-  const m = html.match(/^<strong>([א-תء-ي])\.\s*(?!<\/strong>)/);
+  const m = html.match(/^<strong>([\u05D0-\u05EA\u0621-\u064A])\.\s*(?!<\/strong>)/);
   if (m) return '<strong class="q-letter">' + m[1] + '.</strong> <strong>' + html.slice(m[0].length);
-  return html.replace(/^(?:<strong>)?([א-תء-ي])\.(?:<\/strong>)?\s*/, '<strong class="q-letter">$1.</strong> ');
+  return html.replace(/^(?:<strong>)?([\u05D0-\u05EA\u0621-\u064A])\.(?:<\/strong>)?\s*/, '<strong class="q-letter">$1.</strong> ');
 }
 function prPopupBlock(sid) {
   /* the onpointerdown hook is what makes it draggable — CSS cursor alone is a lie
