@@ -1,3 +1,23 @@
 # Never commit a live key or a run log (guide §4.6, §11.1)
 docs-and-tools/kata-api-key.txt
+kata-api-key.txt
 *.log
+
+# Output of retrieve-metadata.ps1 — derived from the catalog, re-runnable on demand
+metadata-from/
+
+# Claude Code session files (local only)
+.claude/
+
+# Node (tests install jsdom OUTSIDE OneDrive — see _test/README.md)
+node_modules/
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
