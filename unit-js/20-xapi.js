@@ -30,6 +30,9 @@ function xapiAnswerText(el){
     var num = fr[j].querySelector('.frac-num'), den = fr[j].querySelector('.frac-den');
     if (num && den) fr[j].textContent = ' ' + num.textContent.trim() + '/' + den.textContent.trim() + ' ';
   }
+  /* A <br> is a line break on screen, a space in the text (it glued two words otherwise). */
+  var br = c.querySelectorAll('br');
+  for (var k = 0; k < br.length; k++) { br[k].replaceWith(' '); }
   return c.textContent.replace(/\s+/g, ' ').trim();
 }
 
@@ -209,45 +212,254 @@ function xapiFinishItems(){
    an invariant from Documentation/reporting-and-resume/ADDING-REPORTING-AND-RESUME.md §2: a reporting failure must not be able to
    corrupt the score. It is now enforced in one place rather than relied on at 25 call sites. */
 
-/* ── Answer-text builders, for question types that are not single choice ──
-   result.response should carry what the learner actually answered. For single choice that is
-   xapiAnswerText(optEl); drag and field questions need to describe a state rather than one
-   element. All three are deliberately generic so they can move between units unchanged. */
+/* ═══════════════════ result.response — built from the metadata (guide §6.3c) ═══════════════════
+   MOE's runbook (§3, 08.11.26) compares every 'answered' result.response with the question's
+   correctXapiResponsesPattern in Kata, character by character. The call site therefore passes a
+   SPEC, never a finished string — {choices}, {pairs}, {steps}/{values}, {value}, {text} — and the
+   metadata's questionType decides how it is written. The strings emitted are the METADATA's, so a
+   screen that words an option differently (a glued tooltip, a <br>, dash spacing) cannot leak.
+   Ported 15.11.26 from methodica-math-percent-08 (3175b5b, itself percent-05's layer). Own
+   additions: _xapiLoose (rule 1's dash/period tolerance, lookup only) and the fill-in sentence
+   (Kata writes this unit's two multi-field fill-ins as "label: value, label: value"). It replaces
+   xapiZoneAnswer / xapiFieldsAnswer / xapiMultiAnswer, which joined with ", " / " | " and sent
+   element ids (runbook classes B, C, D). */
 
-/* A drag board: for each zone, the items the learner dropped in it.
-   'ton: locomotive | kg: giant turtle | gram: apple, grain of salt'
-   ⚠️ Unused in this unit — it has no drag-and-drop question at all. Kept so this file stays
-   identical across units; delete it only if the whole family stops using zone markup. */
-function xapiZoneAnswer(prefix, zoneIds){
+/* The metadata question object for (item suffix, qKey) — or null. Same matching as xapiQ. */
+function _xapiFindQuestion(suffix, qKey) {
   try {
-    return zoneIds.map(function(z){
-      var el = document.getElementById(prefix + '-zone-' + z);
-      var items = el ? el.querySelectorAll('[class*="drag-item"], [class*="placed-card"]') : [];
-      var names = [];
-      for (var i = 0; i < items.length; i++) names.push(xapiAnswerText(items[i]));
-      return z + ': ' + (names.join(', ') || '—');
-    }).join(' | ');
-  } catch (e) { return ''; }
+    var sc = (window.METADATA && window.METADATA.subContent) || [];
+    for (var i = 0; i < sc.length; i++) {
+      if (_xapiTrim(sc[i].id).slice(-(suffix.length + 1)) !== '-' + suffix) continue;
+      var qs = sc[i].questions || [];
+      for (var j = 0; j < qs.length; j++) {
+        var v = _xapiTrim(qs[j].questionId);
+        if (v === qKey || v.slice(-(qKey.length + 1)) === '/' + qKey) return qs[j];
+      }
+      var n = parseInt(String(qKey).replace(/\D/g, ''), 10);
+      return (n >= 1 && n <= qs.length) ? qs[n - 1] : null;
+    }
+  } catch (e) {}
+  return null;
 }
 
-/* A group of inputs or dropdowns. `values` is optional — without it .value is read from the DOM.
-   's18-input-1=1400 | s18-input-2=900' */
-function xapiFieldsAnswer(ids, values){
-  try {
-    return ids.map(function(id){
-      var v = values ? values[id] : (document.getElementById(id) || {}).value;
-      return id + '=' + (v == null || v === '' ? '—' : v);
-    }).join(' | ');
-  } catch (e) { return ''; }
+/* performance steps as [{name, correctAnswer}]. Two metadata shapes: an explicit steps[], or the
+   Kata shape (answers null, correctAnswers [{stepId, response}]). No performance question in this
+   unit today; kept so the layer stays the family's copy. */
+function _xapiSteps(q) {
+  if (q.steps) return q.steps;
+  var ca = q.correctAnswers || [];
+  if (!ca.length || !ca.every(function (c) { return c && c.stepId != null; })) return null;
+  return ca.map(function (c) { return { name: c.stepId, correctAnswer: c.response }; });
 }
 
-/* Multiple choice: the labels of the selected options, via the screen's own lookup function. */
-function xapiMultiAnswer(ids, optElFn){
+/* {questionId, parentId, questionType, answers, correctAnswers, steps, pattern} — one lookup. */
+function xapiQMeta(suffix, qKey) {
+  var ids = xapiQ(suffix, qKey), q = _xapiFindQuestion(suffix, qKey) || {};
+  return { questionId: ids.questionId, parentId: ids.parentId,
+           questionType: q.questionType || null,
+           answers: q.answers == null ? null : q.answers,
+           correctAnswers: q.correctAnswers || null,
+           steps: _xapiSteps(q),
+           pattern: Array.isArray(q.correctXapiResponsesPattern) ? q.correctXapiResponsesPattern : null };
+}
+
+var XAPI_SEP_LIST = '[,]', XAPI_SEP_PAIR = '[.]';
+var _XAPI_DELIMS = /\[,\]|\[\.\]|\[:\]/g;
+
+/* Bidi marks (LRM / RLM / ALM / embeddings / isolates) and ZWSP are invisible layout hints; the
+   metadata never carries them. Escaped, so the source holds no invisible character. The Arabic
+   twin needs this; the Hebrew screens carry none, and stripping them is harmless here. */
+var _XAPI_BIDI = /[\u200B\u200E\u200F\u202A-\u202E\u2066-\u2069\u061C]/g;
+function _xapiNorm(s) {
+  s = String(s == null ? '' : s);
+  if (s.normalize) s = s.normalize('NFC');
+  return s.replace(_XAPI_BIDI, '').replace(/[\u05F3\u2019\u02BC]/g, "'").replace(/[\u05F4\u201C\u201D]/g, '"')
+          .replace(/\s+/g, ' ').trim();
+}
+/* Lookup only (guide §6.3c rule 1): dash spacing and dash kind, and a closing full stop, do not
+   decide which option was picked. The emitted string is still the metadata's. */
+function _xapiLoose(s) {
+  return _xapiNorm(s).replace(/\s*[-\u2010-\u2015\u2212]\s*/g, '-').replace(/\s*\.$/, '');
+}
+/* learner-typed text: the delimiters cannot be escaped in xAPI, so they are blanked */
+function _xapiFree(s) { return _xapiNorm(s).replace(_XAPI_DELIMS, ' ').replace(/\s+/g, ' ').trim(); }
+/* a typed number: spaces and thousands commas out */
+function _xapiNumText(s) { return _xapiNorm(s).replace(/[\s,\u00A0]/g, ''); }
+
+/* Resolve one UI value to the metadata entry it names. pool = array of metadata strings.
+   value: a string (matched by _xapiNorm, then _xapiLoose) or a number (index into the pool).
+   Returns {text, idx} — text is the METADATA string, byte for byte, when found. */
+function _xapiPick(value, pool, item, qKey, where) {
+  pool = pool || [];
+  if (typeof value === 'number') {
+    if (pool[value] != null) return { text: String(pool[value]), idx: value };
+    console.warn('[xAPI] response: index ' + value + ' outside metadata ' + where, item, qKey);
+    return { text: '', idx: 1e9 };
+  }
+  var n = _xapiNorm(value), i;
+  for (i = 0; i < pool.length; i++) if (_xapiNorm(pool[i]) === n) return { text: String(pool[i]), idx: i };
+  var l = _xapiLoose(value), hit = -1;
+  for (i = 0; i < pool.length; i++) if (_xapiLoose(pool[i]) === l) { if (hit >= 0) { hit = -2; break; } hit = i; }
+  if (hit >= 0) return { text: String(pool[hit]), idx: hit };
+  if (n !== '') console.warn('[xAPI] response: "' + n + '" not in metadata ' + where, item, qKey);
+  return { text: _xapiFree(n), idx: 1e9 };
+}
+
+/* choice: selected → [text | index]; emitted in answers order, whatever the click order */
+function xapiChoiceResponse(item, qKey, selected) {
+  var m = xapiQMeta(item, qKey), pool = Array.isArray(m.answers) ? m.answers : [];
+  var picks = (selected || []).map(function (v) { return _xapiPick(v, pool, item, qKey, 'answers'); });
+  picks.sort(function (a, b) { return a.idx - b.idx; });
+  var texts = picks.map(function (p) { return p.text; }).filter(function (t) { return t !== ''; });
+  return { response: texts.join(XAPI_SEP_LIST), readable: texts.join(', ') };
+}
+
+/* matching: pairs → [{source, target}] or [[source, target]] (strings or indexes). Only the pairs
+   the learner PLACED are emitted: the pairs that are in correctAnswers first, in correctAnswers
+   order (the order Kata builds correctXapiResponsesPattern in), then the wrong pairs in
+   answers.source, answers.target order. This unit's three matching questions (01-002 q1,
+   01-003 q1, 02-005 q1) are dropdowns with ONE source: main.js dqSpec passes
+   { source: 0, target: <the picked option> }. */
+function xapiMatchingResponse(item, qKey, pairs) {
+  var m = xapiQMeta(item, qKey);
+  var src = (m.answers && m.answers.source) || [], tgt = (m.answers && m.answers.target) || [];
+  var placed = [];
+  (pairs || []).forEach(function (p) {
+    if (Array.isArray(p)) p = { source: p[0], target: p[1] };
+    var s = _xapiPick(p.source, src, item, qKey, 'answers.source');
+    var t = _xapiPick(p.target, tgt, item, qKey, 'answers.target');
+    if (s.idx === 1e9 && t.idx === 1e9) {
+      var s2 = _xapiPick(p.target, src, item, qKey, 'answers.source'), t2 = _xapiPick(p.source, tgt, item, qKey, 'answers.target');
+      if (s2.idx !== 1e9 && t2.idx !== 1e9) { console.warn('[xAPI] matching pair reversed — swapped', item, qKey); s = s2; t = t2; }
+    }
+    if (s.text !== '') placed.push({ s: s, t: t });
+  });
+  var ca = Array.isArray(m.correctAnswers) ? m.correctAnswers : [], claimed = {};
+  placed.forEach(function (p) {
+    p.rank = 1e9;
+    for (var j = 0; j < ca.length; j++) {
+      if (claimed[j] || !ca[j] || String(ca[j].source) !== p.s.text || String(ca[j].target) !== p.t.text) continue;
+      claimed[j] = true; p.rank = j; break;
+    }
+  });
+  placed.sort(function (a, b) { return (a.rank - b.rank) || (a.s.idx - b.s.idx) || (a.t.idx - b.t.idx); });
+  var out = [], readable = [];
+  placed.forEach(function (p) { out.push(p.s.text + XAPI_SEP_PAIR + p.t.text); readable.push((p.s.text || '—') + ' → ' + (p.t.text || '—')); });
+  return { response: out.join(XAPI_SEP_LIST), readable: readable.join(' | ') };
+}
+
+/* One step's value: the metadata's correct answer when the learner's value equals it (normalised
+   text, or the same number), else the learner's own text. */
+function _xapiStepValue(v, correct) {
+  var fv = _xapiFree(v);
+  if (correct == null) return fv;
+  var c = String(correct);
+  if (_xapiNorm(c) === fv) return c;
+  var a = _xapiNumText(fv);
+  if (a !== '' && !isNaN(Number(a)) && Number(a) === Number(_xapiNumText(c))) return c;
+  return fv;
+}
+
+/* performance: values → { <step name>: text } or [text, …] in steps order */
+function xapiPerformanceResponse(item, qKey, values) {
+  var m = xapiQMeta(item, qKey), steps = m.steps || [];
+  if (!steps.length) console.warn('[xAPI] performance: no steps[] / correctAnswers[].stepId in metadata', item, qKey);
+  var out = [], readable = [];
+  steps.forEach(function (st, i) {
+    var name = String(st.name == null ? i + 1 : st.name);
+    var v = values == null ? '' : (Array.isArray(values) ? values[i] : (values[name] != null ? values[name] : values[i]));
+    var sv = _xapiStepValue(v, st.correctAnswer);
+    out.push(name + XAPI_SEP_PAIR + sv); readable.push(name + ': ' + (sv || '—'));
+  });
+  return { response: out.join(XAPI_SEP_LIST), readable: readable.join(' | ') };
+}
+
+/* Kata's sentence form of a multi-field fill-in — "label: value<sep>label: value" — split into
+   {sep, fields: [{label, value}]}, or null when the pattern is not that shape for `count` fields.
+   <sep> is ", " in Hebrew Kata and the Arabic comma U+060C + space in Arabic Kata (the twin's
+   03-002 q1 / 05-003 q2). A label holds no separator; a value holds none either (Kata writes
+   1,000 without a space). Written as a char code so the source holds no Arabic character. */
+var _XAPI_SENTENCE_SEPS = [', ', String.fromCharCode(0x060C) + ' '];
+function _xapiFillInSentence(pattern, count) {
+  if (pattern == null || count < 2) return null;
+  for (var s = 0; s < _XAPI_SENTENCE_SEPS.length; s++) {
+    var sep = _XAPI_SENTENCE_SEPS[s], parts = String(pattern).split(sep), out = [];
+    if (parts.length !== count) continue;
+    for (var i = 0; i < parts.length; i++) {
+      var k = parts[i].lastIndexOf(': ');
+      if (k <= 0) { out = null; break; }
+      out.push({ label: parts[i].slice(0, k), value: parts[i].slice(k + 2) });
+    }
+    if (out) return { sep: sep, fields: out };
+  }
+  return null;
+}
+
+/* fill-in: one value → the value; several → Kata's own sentence when its pattern is one (the
+   labels and the separator are the pattern's, each value the learner's, written as Kata writes
+   it when equal), else the values joined with [,]. 03-002 q1 (s37, the three tags) and 05-003 q2
+   (s53) are such sentences in Kata, e.g. "<label 1>: 500, <label 2>: 200" (guide §6.3c: where
+   Kata's sentence can be sent exactly, send it). */
+function xapiFillInResponse(item, qKey, values) {
+  var vs = Array.isArray(values) ? values : [values];
+  var m = xapiQMeta(item, qKey), sent = _xapiFillInSentence(m.pattern && m.pattern[0], vs.length);
+  if (sent) {
+    var parts = sent.fields.map(function (f, i) { return f.label + ': ' + _xapiStepValue(vs[i], f.value); });
+    return { response: parts.join(sent.sep), readable: parts.join(sent.sep) };
+  }
+  var fv = vs.map(_xapiFree);
+  return { response: fv.join(XAPI_SEP_LIST), readable: fv.join(' | ') };
+}
+/* numeric: '1,584' → '1584', ' 81 ' → '81'; anything that is not a number goes as typed */
+function xapiNumericResponse(item, qKey, value) {
+  var t = _xapiNumText(value), n = Number(t);
+  var s = (t === '' || isNaN(n)) ? _xapiFree(value) : String(n);
+  return { response: s, readable: s };
+}
+function xapiTrueFalseResponse(item, qKey, value) {
+  var s = (value === true || value === 'true') ? 'true' : 'false';
+  return { response: s, readable: s };
+}
+function xapiSequencingResponse(item, qKey, ordered) {
+  var m = xapiQMeta(item, qKey), pool = Array.isArray(m.answers) ? m.answers : [];
+  var texts = (ordered || []).map(function (v) { return _xapiPick(v, pool, item, qKey, 'answers').text; });
+  return { response: texts.join(XAPI_SEP_LIST), readable: texts.join(' > ') };
+}
+function xapiOtherResponse(item, qKey, text) {
+  var s = _xapiFree(text);
+  return { response: s, readable: s };
+}
+function _xapiNoShape(item, qKey, want) {
+  console.warn('[xAPI] response: metadata type needs "' + want + '" but the call site passed none', item, qKey);
+  return [];
+}
+
+/* Dispatcher. spec = string | { type?, choices | pairs | steps | values | value | order | text }.
+   The METADATA type governs (Kata reads the metadata); spec.type is only a cross-check. A call
+   site may hand over several shapes at once (main.js dqSpec passes choices AND pairs) — the type
+   in Kata picks the one that is used. */
+function xapiResponse(item, qKey, spec) {
+  var m = xapiQMeta(item, qKey), type = m.questionType;
+  if (typeof spec === 'string' || typeof spec === 'number' || spec == null) spec = { text: spec == null ? '' : String(spec) };
+  if (spec.type && type && spec.type !== type)
+    console.warn('[xAPI] response: call site says "' + spec.type + '", metadata says "' + type + '"', item, qKey);
+  if (!type) { type = spec.type || 'other'; console.warn('[xAPI] response: no questionType in metadata, using "' + type + '"', item, qKey); }
+  var one = spec.value != null ? spec.value : (spec.values && spec.values.length === 1 ? spec.values[0] : spec.text);
   try {
-    return (ids || []).map(function(id){
-      return xapiAnswerText(optElFn(id)) || String(id);
-    }).join(', ');
-  } catch (e) { return ''; }
+    switch (type) {
+      case 'choice':      return xapiChoiceResponse(item, qKey, spec.choices != null ? spec.choices : [spec.text]);
+      case 'matching':    return xapiMatchingResponse(item, qKey, spec.pairs || _xapiNoShape(item, qKey, 'pairs'));
+      case 'performance': return xapiPerformanceResponse(item, qKey, spec.steps != null ? spec.steps : spec.values);
+      case 'fill-in':     return xapiFillInResponse(item, qKey, spec.values != null ? spec.values : one);
+      case 'numeric':     return xapiNumericResponse(item, qKey, one);
+      case 'true-false':  return xapiTrueFalseResponse(item, qKey, one);
+      case 'sequencing':  return xapiSequencingResponse(item, qKey, spec.order || spec.choices);
+      default:            return xapiOtherResponse(item, qKey, spec.text != null ? spec.text : JSON.stringify(spec));
+    }
+  } catch (e) {
+    console.error('[xAPI] response formatting failed', item, qKey, e);
+    return { response: _xapiFree(spec.text), readable: _xapiFree(spec.text) };
+  }
 }
 
 /* Report one graded answer.
@@ -256,15 +468,18 @@ function xapiMultiAnswer(ids, optElFn){
      correct   whether the answer is correct
      isLast    whether this is the final answer to the question (correct, or attempts exhausted).
                Only 'answered.last' enters the component score denominator.
-     answer    the learner's answer text, as they see it */
+     answer    a spec for xapiResponse ({choices} | {pairs} | {values} | {value} …), or a plain
+               string for a single-value type. main.js builds it (scqSpec / dqSpec / mcqSpec …). */
 function xapiAnswered(item, qKey, correct, isLast, answer){
   XAPI_Q_RESULTS[item + '/' + qKey] = !!correct;
   if (!window.XAPI_USING_G || typeof sendStatement720 !== 'function') return;
   try {
+    var r = xapiResponse(item, qKey, answer);
     sendStatement720(isLast ? 'answered.last' : 'answered', 'question',
       { success: !!correct,
         score: { scaled: correct ? 1 : 0 },
-        extensions: { student_answer: [answer == null ? '' : String(answer)] } },
+        response: r.response,
+        extensions: { student_answer: [r.readable] } },   /* fallback for library letters < k */
       xapiQ(item, qKey));
   } catch (e) { console.error('[xAPI] answered ' + item + '/' + qKey, e); }
 }

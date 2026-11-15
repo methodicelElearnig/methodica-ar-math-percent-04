@@ -129,3 +129,20 @@ reload the button is re-disabled only when the gate blocks **and** the ledger ho
 > learner actually answers: q1, q2, q4, q5, q7).
 >
 > **methodica-ar-math-percent-04-07.json** has `"order": 6`, the same as component 06. Probably 7.
+
+## `result.response` — Kata's string, from the metadata (15.11.26, guide §6.3c; ported from Hebrew PR #5)
+
+MOE compares `result.response` with the question's `correctXapiResponsesPattern` in Kata, character
+by character. `metadata/` carries Arabic Kata's patterns (synced 15.11.26); `20-xapi.js` `xapiResponse`
+writes the string by the metadata's `questionType`, and `main.js` only says what the learner did:
+
+| engine | spec (`main.js`) | written as |
+|---|---|---|
+| SCQ, s0, scrollset choice | `scqSpec` → `{choices: [option text]}` | `answers[i]` — the metadata's string |
+| s59q1 (four tables, `optHtml`) | `scqSpec` → `{choices: [position]}` | `answers[i]` — the tables are in Kata's order, א'–ד' |
+| MCQ (s44, s52) | `scqSpec` → `{choices: [...]}` | picks in **answers** order, joined `[,]` |
+| DQ | `dqSpec` → `{choices, pairs: [{source: 0, target}]}` | `matching` (s2, s6, s34): `source[.]target`; `choice`: the option |
+| VIQ one field / per field (s33, s41) | `{value}` | `numeric`: the number, no spaces or thousands comma |
+| VIQ several fields, one question (s37, s53) | `{values}` | `fill-in`: Kata's sentence, `label: value` joined with the Arabic comma + space, as Arabic Kata writes it |
+
+Tested by `_test/responses.js` (every question, exact strings) and `_test/responses-mutations.js`.
