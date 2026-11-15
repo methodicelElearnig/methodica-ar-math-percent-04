@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   unit-css/styles.css  —  methodica-math-percent-04, ONE stylesheet for all 7 components
+   unit-css/styles.css  —  methodica-ar-math-percent-04, ONE stylesheet for all 7 components
    (was 7 byte-identical <component>/styles.css copies; merged 08.10.26).
    Engine lineage: ratio-01-01 ← approved methodica-math-percent-02-01 engine.
    Canvas: 1280 × 710 px   (720 reference engine)
@@ -1730,7 +1730,7 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .click-hint { display: none !important; }
 }
-/* methodica-math-percent-04 — unit-specific styles on top of the vendored
+/* methodica-ar-math-percent-04 — unit-specific styles on top of the vendored
    engine stylesheet (css/style.css, from ratio-01-01 / percent-02). */
 
 /* ── S0/S1 — hook photos beside the bubble ── */

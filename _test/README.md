@@ -1,4 +1,4 @@
-# `_test/` — methodica-math-percent-04
+# `_test/` — methodica-ar-math-percent-04
 
 **Never deployed.** `docs-and-tools/package-allowlist.ps1` excludes this folder, including the
 library stub. The stub shares its basename with the real CDN library on purpose.
@@ -42,7 +42,7 @@ jsdom does no layout, so every scroll-to-end latch reads as reached. It also nev
 or media. For those, serve the **parent** folder so the unit loads from a subpath. Then walk:
 
 ```
-http://localhost:<port>/methodica-math-percent-04/methodica-math-percent-04-0N/index.html?xapiLib=../_test/xapi-720-k.js
+http://localhost:<port>/methodica-ar-math-percent-04/methodica-ar-math-percent-04-0N/index.html?xapiLib=../_test/xapi-720-k.js
 ```
 
 Check with `__stmts()`, `__state()` and `__dupes()` in the console. Reload mid-question; it must

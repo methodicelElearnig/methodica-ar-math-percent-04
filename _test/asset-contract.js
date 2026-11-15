@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* ══════════════ The asset contract — methodica-math-percent-04 ══════════════
+/* ══════════════ The asset contract — methodica-ar-math-percent-04 ══════════════
    Run:  node _test/asset-contract.js          (no dependencies)
    Exit: 0 = all pass, 1 = any failure.
 
@@ -27,7 +27,7 @@
 const fs = require('fs'), path = require('path');
 
 const BASE = path.resolve(__dirname, '..');
-const UNIT = 'methodica-math-percent-04';
+const UNIT = 'methodica-ar-math-percent-04';
 const COMPONENTS = ['01', '02', '03', '04', '05', '06', '07'];
 const PART_DIR = c => UNIT + '-' + c;
 

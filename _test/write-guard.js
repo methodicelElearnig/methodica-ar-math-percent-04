@@ -1,4 +1,4 @@
-/* ═══════════════════ write-guard + leave save — methodica-math-percent-04 ═══════════════════
+/* ═══════════════════ write-guard + leave save — methodica-ar-math-percent-04 ═══════════════════
    NOT DEPLOYED. Dev tooling only.
 
    No write before the restore, and the leave save through xapi-720-l.js

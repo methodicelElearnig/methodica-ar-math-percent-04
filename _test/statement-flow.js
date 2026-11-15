@@ -207,7 +207,7 @@ COMPONENTS.forEach(c => {
     "viqInputs('s37').forEach(function(el,i){el.value=String(VIQ.s37.answers[i]+5)}); viqOnInput('s37'); viqCheck('s37');"]);
   const n = a.stmts().length;
   const doc = a.json('__state()');
-  R.ok('resume', 'the document is v6, this component\'s, with a payload', doc && doc.v === 6 && doc.component === 'methodica-math-percent-04-03' && !!doc.payload, JSON.stringify(doc && { v: doc.v, c: doc.component }));
+  R.ok('resume', 'the document is v6, this component\'s, with a payload', doc && doc.v === 6 && doc.component === 'methodica-ar-math-percent-04-03' && !!doc.payload, JSON.stringify(doc && { v: doc.v, c: doc.component }));
   R.ok('resume', 'the payload carries no engine configuration (no correctId / answers / body)',
     !/correctId|"answers"|"body"/.test(JSON.stringify(doc.payload)));
   const b = boot('03', { store: a.store() });
@@ -218,10 +218,10 @@ COMPONENTS.forEach(c => {
     b.val("viqInputs('s37').every(function(e){return e.classList.contains('error')}) && document.getElementById('s37-check').disabled"));
   R.eq('resume', 'the reload re-sends no answer — only initialized', b.stmts().slice(n).map(s => s.verb).sort(), ['initialized', 'initialized']);
   b.exec(go(36));
-  R.ok('resume', 'an answered screen repaints: correct mark, locked, verdict, שנמשיך?',
+  R.ok('resume', 'an answered screen repaints: correct mark, locked, verdict, متابعة (Hebrew: שנמשיך?)',
     b.val(`(function(){var o=document.querySelector('#s36 .scq-opt[data-id="'+SCQ.s36.correctId+'"]');
       return o.classList.contains('correct') && o.disabled && !document.getElementById('s36-popup').classList.contains('hidden')
-        && document.getElementById('s36-check').textContent.trim()==='שנמשיך?';})()`));
+        && document.getElementById('s36-check').textContent.trim()==='متابعة';})()`));
   R.ok('resume', 'XAPI_Q_RESULTS restored (score survives the reload)', b.val("XAPI_Q_RESULTS['001/q1'] === true"));
   b.exec(go(37));
   b.exec("viqInputs('s37').forEach(function(el,i){el.value=String(VIQ.s37.answers[i])}); viqOnInput('s37'); viqCheck('s37');" + adv);

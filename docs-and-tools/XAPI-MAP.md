@@ -1,4 +1,4 @@
-# xAPI map — methodica-math-percent-04
+# xAPI map — methodica-ar-math-percent-04
 
 Screen → catalogue item → catalogue question, for all seven components, derived 08.10.26 from
 `metadata/*.json` (team update of 30.09) against the built screens. This is the design record behind
@@ -122,10 +122,10 @@ reload the button is re-disabled only when the gate blocks **and** the ledger ho
 
 ## Note for the metadata team (not sent — for the unit owner to forward)
 
-> **methodica-math-percent-04-01, item 004 (נפתור יחד: הנחה על בקבוק מיץ).** Questions q3, q6 and
+> **methodica-ar-math-percent-04-01, item 004 (נפתור יחד: הנחה על בקבוק מיץ).** Questions q3, q6 and
 > q8 (`numeric`, answers 3 / 17 / 170) are worked steps the lomda *displays*; the learner never
 > enters a value. The lomda therefore never reports them, and they stay "not answered" in every
 > attempt. Please remove them from the item (or reclassify the item's questions to the five the
 > learner actually answers: q1, q2, q4, q5, q7).
 >
-> **methodica-math-percent-04-07.json** has `"order": 6`, the same as component 06. Probably 7.
+> **methodica-ar-math-percent-04-07.json** has `"order": 6`, the same as component 06. Probably 7.

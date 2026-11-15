@@ -1,4 +1,4 @@
-/* ═══════════════════ jsdom boot harness (write-guard only) — methodica-math-percent-04 ═══════════════════
+/* ═══════════════════ jsdom boot harness (write-guard only) — methodica-ar-math-percent-04 ═══════════════════
    NOT DEPLOYED. Dev tooling only. Required by verify-report.js and statement-flow.js.
 
    boot(part, opts) loads the part's REAL index.html and executes every local <script src> in
@@ -21,7 +21,7 @@ const path = require('path');
 const { JSDOM } = require('jsdom');
 
 const BASE = process.env.LOMDA_BASE || path.join(__dirname, '..');
-const UNIT = 'methodica-math-percent-04';
+const UNIT = 'methodica-ar-math-percent-04';
 const PARTS = ['01', '02', '03', '04', '05', '06', '07'];
 const PART_DIR = c => UNIT + '-' + c;
 const readMeta = c => JSON.parse(fs.readFileSync(path.join(BASE, 'metadata', PART_DIR(c) + '.json'), 'utf8').replace(/^﻿/, ''));

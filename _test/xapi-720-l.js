@@ -246,14 +246,14 @@
       sessionStorage.removeItem(LOG_KEY);
       sessionStorage.removeItem(FAIL_KEY);
       sessionStorage.removeItem(LEAVE_KEY);
-      sessionStorage.removeItem('lomda_nav_edges::methodica-math-percent-04');
+      sessionStorage.removeItem('lomda_nav_edges::methodica-ar-math-percent-04');
     } catch (e) {}
     /* v4: הדמות ותוצאות המועד עברו למסמך ה-state, ו-localStorage הוא קאש
        בלבד. מנקים גם אותו — אחרת __reset() משאיר את הדמות ואת שערי המועד
        מהריצה הקודמת בחיים בחלון שלפני קריאת המסמך, וזה בדיוק סוג המצב
        שהעוזר הזה קיים כדי לחסל. אותו ניקוי כמו ב-initResumeResetHatch. */
     try {
-      localStorage.removeItem('methodica_math_percent_04_selectedCharacter');
+      localStorage.removeItem('methodica_ar_math_percent_04_selectedCharacter');
       ['percent04_c01_scaled', 'percent04_c02_scaled', 'percent04_c03_scaled',
        'percent04_c04_scaled', 'percent04_c05_scaled', 'percent04_c06_scaled',
        'percent04_c07_scaled']

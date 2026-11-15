@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>النسب المئوية — الهدف 4.4 · المكوّن 04</title>
+    <title>النسب المئوية — الهدف 4.4 · المكون 05</title>
     <!-- The shared xAPI library is fetched by unit-js/50-loader.js from the end of the body, after the parser
      has queued every image; preloading it from the head puts it FIRST in the queue (2026-11-03,
      BOOT-AND-RESUME-HARDENING §2.3). The href must equal what 50-loader.js builds (no ?v=, no
@@ -11,7 +11,7 @@
 <link rel="preload" as="script" fetchpriority="high" href="https://lomdot.education.gov.il/metodica/720active/common/xapiwrapper.min.js">
 <link rel="preload" as="script" fetchpriority="high" href="https://lomdot.education.gov.il/metodica/720active/common/xapi-720-l.js">
 <link rel="preconnect" href="https://kata.cet.ac.il">
-    <link rel="stylesheet" href="../unit-css/styles.css?v=6" />
+    <link rel="stylesheet" href="../unit-css/styles.css?v=7" />
   </head>
   <!-- data-subject-theme activates the Math token override block in
      css/style.css. :root holds the Science defaults; this one attribute
@@ -217,7 +217,7 @@
               تلميح
             </h2>
             <div class="scq-hint-body">
-              <p>ابدأوا من <span dir="ltr">100%</span> (الكمية الأصلية)، وأضيفوا <span dir="ltr">15%</span> من الزيادة. أي نسبة مئوية تحصلون عليها؟</p>
+              <p>ابدأوا من <span dir="ltr">100%</span> (الكمية الأصلية)، وأضيفوا <span dir="ltr">15%</span> من الزيادة. كم نسبة مئوية تحصلون عليها؟</p>
             </div>
           </div>
           <button class="scq-hint-close" type="button" onclick="closeHint('s2')">
@@ -263,7 +263,7 @@
               تلميح
             </h2>
             <div class="scq-hint-body">
-              <p>ابدأوا من <span dir="ltr">100%</span> (الكمية الأصلية)، وأضيفوا زيادة <span dir="ltr">20%</span>. كم نسبة مئوية تحصلون عليها؟</p>
+              <p>ابدأوا من <span dir="ltr">100%</span> (الكمية الأصلية)، وأضيفوا زيادة الـ <span dir="ltr">20%</span>. كم نسبة مئوية تحصلون عليها؟</p>
             </div>
           </div>
           <button class="scq-hint-close" type="button" onclick="closeHint('s3')">
@@ -309,7 +309,7 @@
               تلميح
             </h2>
             <div class="scq-hint-body">
-              <p>احسبوا كم يساوي <span dir="ltr">10%</span> من كل واحدة من الكميات. نسبة الزيادة متساوية (<span dir="ltr">10%</span>)، هل كمية الزيادة متساوية أيضاً؟</p>
+              <p>احسبوا كم تساوي <span dir="ltr">10%</span> من كل واحدة من الكميات. نسبة الزيادة متساوية (<span dir="ltr">10%</span>)، هل كمية الزيادة متساوية أيضاً؟</p>
             </div>
           </div>
           <button class="scq-hint-close" type="button" onclick="closeHint('s4')">
@@ -528,12 +528,12 @@
     </div>
     <!-- 720 platform layer (guide §3.1). Order is load-bearing: script.js before main.js,
              main.js before 90-boot.js, 90-boot.js LAST. ?v= identical in all 7 components. -->
-    <script src="../unit-js/10-identity.js?v=2"></script>
+    <script src="../unit-js/10-identity.js?v=3"></script>
     <script src="../unit-js/20-xapi.js?v=2"></script>
-    <script src="../unit-js/40-resume.js?v=3"></script>
+    <script src="../unit-js/40-resume.js?v=4"></script>
     <script src="../unit-js/50-loader.js?v=2"></script>
-    <script src="script.js?v=4"></script>
-    <script src="../unit-js/main.js?v=7"></script>
+    <script src="script.js?v=5"></script>
+    <script src="../unit-js/main.js?v=8"></script>
     <script src="../unit-js/90-boot.js?v=1"></script>
   </body>
 </html>

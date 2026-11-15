@@ -142,7 +142,7 @@ function emptyUnitState() {
    per-component record; until 2026-09-16 the terminal component also averaged them into a unit
    'completed', which no longer exists. They are listed here so ?resetState clears their
    localStorage mirrors too — otherwise a reset document sits beside a stale cache. */
-var UI_CHARACTER_KEY = 'methodica_math_percent_04_selectedCharacter';
+var UI_CHARACTER_KEY = 'methodica_ar_math_percent_04_selectedCharacter';
 var RESULT_KEYS      = ['percent04_c01_scaled', 'percent04_c02_scaled', 'percent04_c03_scaled',
                         'percent04_c04_scaled', 'percent04_c05_scaled', 'percent04_c06_scaled',
                         'percent04_c07_scaled'];
@@ -499,7 +499,7 @@ function sendCompletedOnce(ledger, key, objectType, result, opts) {
 
    ⚠️ NAV_EDGE_KEY must carry the unit slug. Two units sharing this key share a ledger and
    silently suppress each other's reports. */
-var NAV_EDGE_KEY = 'lomda_nav_edges::methodica-math-percent-04';
+var NAV_EDGE_KEY = 'lomda_nav_edges::methodica-ar-math-percent-04';
 
 function _readEdges() {
   try {

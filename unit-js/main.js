@@ -1,7 +1,7 @@
 "use strict";
 
 /* =====================================================================
-   unit-js/main.js — methodica-math-percent-04, shared by all 7 components
+   unit-js/main.js — methodica-ar-math-percent-04, shared by all 7 components
    The approved engine (lineage: percent-02 part-01 → ratio-01-01) plus this
    unit's entire screen logic (screens 0-64, global numbering). Each
    component's script.js holds config only (PART_CONFIG + xAPI seams).
@@ -57,7 +57,7 @@ function freezeVideoOnEnd(vid) {
    choice is saved so later parts can resolve their own character
    assets, but Screen 01's initial state always shows no selection,
    even on reload (approved percent-02 producer instruction). */
-const CHARACTER_STORAGE_KEY = "methodica_math_percent_04_selectedCharacter";
+const CHARACTER_STORAGE_KEY = "methodica_ar_math_percent_04_selectedCharacter";
 
 /* ─── Companion character asset map ─────────────────────────
    Logical IDs only — never hardcode a character file on a screen.
@@ -4290,13 +4290,13 @@ function partResult() {
    ⚠️ Exactly RESULT_KEYS in ../unit-js/40-resume.js (listed there so ?resetState clears their
    localStorage mirrors too). If they drift, a reset document sits beside a stale cache. */
 var UNIT_SCORE_KEYS = {
-  "methodica-math-percent-04-01": "percent04_c01_scaled",
-  "methodica-math-percent-04-02": "percent04_c02_scaled",
-  "methodica-math-percent-04-03": "percent04_c03_scaled",
-  "methodica-math-percent-04-04": "percent04_c04_scaled",
-  "methodica-math-percent-04-05": "percent04_c05_scaled",
-  "methodica-math-percent-04-06": "percent04_c06_scaled",
-  "methodica-math-percent-04-07": "percent04_c07_scaled",
+  "methodica-ar-math-percent-04-01": "percent04_c01_scaled",
+  "methodica-ar-math-percent-04-02": "percent04_c02_scaled",
+  "methodica-ar-math-percent-04-03": "percent04_c03_scaled",
+  "methodica-ar-math-percent-04-04": "percent04_c04_scaled",
+  "methodica-ar-math-percent-04-05": "percent04_c05_scaled",
+  "methodica-ar-math-percent-04-06": "percent04_c06_scaled",
+  "methodica-ar-math-percent-04-07": "percent04_c07_scaled",
 };
 
 function recordPartResult(res) {
@@ -4421,6 +4421,7 @@ function partBoot() {
   var HINT_GAP = 16, EDGE = 24, FALLBACK_LEFT = 180, queued = false;
   function fit() {
     queued = false;
+    if (typeof document === "undefined" || !document || !document.querySelectorAll) return; /* page torn down */
     document.querySelectorAll(".scq-hint").forEach(function (hint) {
       var primary = hint.parentElement && hint.parentElement.querySelector(".btn-continue");
       var w = primary ? primary.offsetWidth : 0;

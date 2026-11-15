@@ -64,7 +64,7 @@ COMPONENTS.forEach(c => {
   /* ── 4. routing edges are slugs of real folders ── */
   ['next', 'prev'].forEach(k => {
     const v = cfg.part[k];
-    if (v) R.ok('routing', c + ': PART_CONFIG.' + k + ' is a sibling component slug', fs.existsSync(path.join(BASE, v)) && /^methodica-math-percent-04-0\d$/.test(v), v);
+    if (v) R.ok('routing', c + ': PART_CONFIG.' + k + ' is a sibling component slug', fs.existsSync(path.join(BASE, v)) && /^methodica-ar-math-percent-04-0\d$/.test(v), v);
   });
   b.close();
 });
@@ -96,7 +96,7 @@ const resume = read('unit-js/40-resume.js');
 R.eq('keys', 'UI_CHARACTER_KEY = main.js CHARACTER_STORAGE_KEY',
   (resume.match(/var UI_CHARACTER_KEY = '([^']+)'/) || [])[1], (main.match(/CHARACTER_STORAGE_KEY = "([^"]+)"/) || [])[1]);
 const resultKeys = JSON.parse(((resume.match(/var RESULT_KEYS\s*=\s*(\[[\s\S]*?\]);/) || [])[1] || '[]').replace(/'/g, '"'));
-const scoreKeys = [...main.matchAll(/"methodica-math-percent-04-0\d": "(percent04_c0\d_scaled)"/g)].map(m => m[1]);
+const scoreKeys = [...main.matchAll(/"methodica-ar-math-percent-04-0\d": "(percent04_c0\d_scaled)"/g)].map(m => m[1]);
 R.eq('keys', 'RESULT_KEYS = UNIT_SCORE_KEYS values', resultKeys, scoreKeys);
 R.ok('keys', 'NAV_EDGE_KEY carries the unit slug', resume.includes("var NAV_EDGE_KEY = 'lomda_nav_edges::" + UNIT + "'"));
 const stub = read('_test/xapi-720-k.js');

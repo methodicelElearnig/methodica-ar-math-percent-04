@@ -49,18 +49,18 @@ const MUTATIONS = {
   'repaint missing from goTo': () =>
     edit(M, '  repaintScreen(n);\n  try { restoreEndedButton(n); } catch (e) {}', '  try { restoreEndedButton(n); } catch (e) {}'),
   'a screen missing from a component map (silently never reports)': () =>
-    edit('methodica-math-percent-04-05/script.js', "  56: ['005', 1],\n", ''),
+    edit('methodica-ar-math-percent-04-05/script.js', "  56: ['005', 1],\n", ''),
   'component id without its trailing slash': () =>
-    edit('methodica-math-percent-04-02/script.js', "var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG + '/';", 'var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG;'),
+    edit('methodica-ar-math-percent-04-02/script.js', "var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG + '/';", 'var XAPI_COMP_ID       = XAPI_ID_PREFIX + XAPI_COMP_SLUG;'),
   'script.js after main.js': () => {
-    const f = 'methodica-math-percent-04-06/index.html', s = fs.readFileSync(path.join(TMP, f), 'utf8');
+    const f = 'methodica-ar-math-percent-04-06/index.html', s = fs.readFileSync(path.join(TMP, f), 'utf8');
     const tagS = (s.match(/<script src="script\.js\?v=\d+"><\/script>/) || [])[0];
     const tagM = (s.match(/<script src="\.\.\/unit-js\/main\.js\?v=\d+"><\/script>/) || [])[0];
     edit(f, tagS, '');
     edit(f, tagM, tagM + tagS);
   },
   'peak 06 promises 3 of 4 but scores 2 of 4 a pass': () =>
-    edit('methodica-math-percent-04-06/script.js', "n: 4, need: 3 }", "n: 4, need: 2 }"),
+    edit('methodica-ar-math-percent-04-06/script.js', "n: 4, need: 3 }", "n: 4, need: 2 }"),
   'flush placed before the commitment (D-13)': () => {
     edit(M, '  /* one tap, one attempt — always the final answer */\n  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);',
             '  try { flushResumeSave(); } catch (e) {}\n  /* one tap, one attempt — always the final answer */\n  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);');

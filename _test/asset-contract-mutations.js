@@ -12,7 +12,9 @@ function fresh() {
 }
 function edit(rel, from, to) {
   const f = path.join(TMP, rel), s = fs.readFileSync(f, 'utf8');
-  if (!s.includes(from)) throw new Error('mutation anchor missing: ' + rel + ' :: ' + from);
+  // A RegExp anchor survives ?v= bumps (the literal 'main.js?v=2' / 'script.js?v=1' anchors went stale
+  // after the 11.2026 bumps and threw before any mutation ran — same in the Hebrew twin, 15.11.26).
+  if (from instanceof RegExp ? !from.test(s) : !s.includes(from)) throw new Error('mutation anchor missing: ' + rel + ' :: ' + from);
   fs.writeFileSync(f, s.replace(from, to));
 }
 const run = () => spawnSync(process.execPath, [path.join(TMP, '_test', 'asset-contract.js')], { encoding: 'utf8' });
@@ -27,15 +29,15 @@ const MUTATIONS = {
   'dead weight re-declared': () =>
     edit('unit-css/styles.css', 'font-weight: 800;', 'font-weight: 300;'),
   '?v= drift in one component': () =>
-    edit('methodica-math-percent-04-04/index.html', 'main.js?v=2', 'main.js?v=3'),
+    edit('methodica-ar-math-percent-04-04/index.html', /main\.js\?v=\d+/, 'main.js?v=999'),
   'unversioned script.js': () =>
-    edit('methodica-math-percent-04-06/index.html', 'src="script.js?v=1"', 'src="script.js"'),
+    edit('methodica-ar-math-percent-04-06/index.html', /src="script\.js\?v=\d+"/, 'src="script.js"'),
   'runtime-built clip missing': () =>
     fs.rmSync(path.join(TMP, 'unit-assets/video/character-cube.mp4')),
   'per-component copy grows back': () =>
-    fs.writeFileSync(path.join(TMP, 'methodica-math-percent-04-03/styles.css'), '/* stale */'),
+    fs.writeFileSync(path.join(TMP, 'methodica-ar-math-percent-04-03/styles.css'), '/* stale */'),
   'markup names a missing image': () =>
-    edit('methodica-math-percent-04-01/index.html', '../unit-assets/img/hook-sivan.jpg', '../unit-assets/img/hook-sivan.png'),
+    edit('methodica-ar-math-percent-04-01/index.html', '../unit-assets/img/hook-sivan.jpg', '../unit-assets/img/hook-sivan.png'),
 };
 
 fresh();
