@@ -552,8 +552,7 @@ function scqCheck(sid) {
   q.attempts++;
   const isCorrect = q.selected === q.correctId;
   /* xAPI: after the guards, verdict final. isLast = correct || attempts exhausted (guide idiom). */
-  xapiReport(sid, isCorrect, isCorrect || q.attempts >= 2,
-    xapiAnswerText(document.querySelector("#" + sid + ' .scq-opt[data-id="' + q.selected + '"]')));
+  xapiReport(sid, isCorrect, isCorrect || q.attempts >= 2, scqSpec(sid, [q.selected]));
   const mark = (id, cls) => {
     const o = document.querySelector("#" + sid + ' .scq-opt[data-id="' + id + '"]');
     if (o) {
@@ -821,8 +820,7 @@ function s0Check() {
   s0State.answered = true;
   const wasCorrect = s0State.picked === S0Q_CORRECT;
   /* one attempt — always the final answer */
-  xapiReport("s0", wasCorrect, true,
-    xapiAnswerText(document.querySelector('#s0 .scq-opt[data-id="' + s0State.picked + '"]')));
+  xapiReport("s0", wasCorrect, true, scqSpec("s0", [s0State.picked]));
   document.querySelectorAll("#s0 .scq-opt").forEach((o) => {
     o.disabled = true;
     if (o.dataset.id === S0Q_CORRECT) o.classList.add("correct");
@@ -1045,7 +1043,7 @@ function dqCheck(sid) {
   if (sel.value === q.lastWrong) return;
   q.attempts++;
   const ok = sel.value === q.correctId;
-  xapiReport(sid, ok, ok || q.attempts >= 2, sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].text : sel.value);
+  xapiReport(sid, ok, ok || q.attempts >= 2, dqSpec(sel));
   const finish = () => {
     q.done = true;
     sel.disabled = true;
@@ -1874,8 +1872,7 @@ function mcqCheck2(sid) {
   if (!q.selected.size) return;
   q.attempts++;
   const ok = mcqSnap(q.selected) === mcqSnap(q.correctIds);
-  xapiReport(sid, ok, ok || q.attempts >= 2,
-    xapiMultiAnswer([...q.selected].sort(), (id) => document.querySelector("#" + sid + ' .scq-opt[data-id="' + id + '"]')));
+  xapiReport(sid, ok, ok || q.attempts >= 2, scqSpec(sid, [...q.selected]));
   const reveal = () => {
     document.querySelectorAll("#" + sid + " .scq-opt").forEach((o) => {
       o.classList.remove("selected");
@@ -4206,14 +4203,49 @@ function xapiReport(key, correct, isLast, answer) {
   try { xapiAnswered(k.item, k.qKey, correct, isLast, answer); } catch (e) {}
 }
 
+/* ── result.response specs (guide §6.3c) ──
+   A call site hands 20-xapi.js xapiResponse WHAT the learner did, never a finished string; the
+   metadata's questionType decides how it is written, and the strings sent are Kata's. These read
+   the page only for the picked option's own text, which _xapiPick maps onto the metadata's
+   answers (whitespace, geresh, dash spacing and a closing full stop tolerated; the emitted
+   string is always the metadata's). */
+
+/* SCQ / MCQ / s0 / the scrollset's choice questions: the picked options' texts. Several picks
+   (MCQ) go in any order — xapiChoiceResponse writes them in the metadata's answers order.
+   A rich option (optHtml: s59q1's four proportion tables) has no text Kata could hold — Kata
+   describes each table ("טבלה ג': מחיר (בש"ח): 15 ↔ אחוז: 75%; …") — so it goes by POSITION
+   (guide §6.3c rule 1): the screen shows the tables in Kata's order, א' to ד', and
+   _test/responses.js pins the correct one to the pattern. */
+function scqSpec(sid, ids) {
+  var opts = [].slice.call(document.querySelectorAll("#" + sid + " .scq-opt"));
+  return {
+    choices: (ids || []).map(function (id) {
+      var el = document.querySelector("#" + sid + ' .scq-opt[data-id="' + id + '"]');
+      if (el && el.classList.contains("scq-opt--rich")) return opts.indexOf(el);
+      return xapiAnswerText(el) || String(id);
+    }),
+  };
+}
+
+/* A dropdown: the picked option's text. Kata has three of them as `matching` with ONE source
+   (01-002 q1, 01-003 q1, 02-005 q1 → "source[.]target"), the rest as `choice`; both shapes go,
+   and the type in the metadata picks. */
+function dqSpec(sel) {
+  var o = sel && sel.options[sel.selectedIndex];
+  var text = o ? o.text : (sel ? sel.value : "");
+  return { choices: [text], pairs: [{ source: 0, target: text }], value: text };
+}
+
 /* A value-input screen. Per field when the screen carries one catalogue question per field
    (XAPI_QMAP has '<sid>r0'): per-row correctness, a SHARED isLast — the engine's attempts are
-   per screen. Otherwise one question, all-or-nothing, as the screen grades it. */
+   per screen. Otherwise one question, all-or-nothing, as the screen grades it: a one-field
+   screen is `numeric` in Kata (the value), the two multi-field ones (s37, s53) `fill-in` with
+   Kata's "label: value, …" sentence (20-xapi.js xapiFillInResponse). Never " | " or ids. */
 function xapiReportFields(sid, vals, oks, isLast) {
   if (XAPI_QMAP[sid + "r0"]) {
-    vals.forEach(function (v, i) { xapiReport(sid + "r" + i, oks[i], isLast, v); });
+    vals.forEach(function (v, i) { xapiReport(sid + "r" + i, oks[i], isLast, { value: v }); });
   } else {
-    xapiReport(sid, oks.every(Boolean), isLast, vals.join(" | "));
+    xapiReport(sid, oks.every(Boolean), isLast, { values: vals });
   }
 }
 
