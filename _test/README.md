@@ -20,6 +20,9 @@ node _test\statement-flow.js         &rem behaviour  — ~110 assertions
 node _test\flow-mutations.js         &rem 13 planted defects, every one must be CAUGHT
 node _test\asset-contract.js         &rem assets only, no jsdom needed
 node _test\asset-contract-mutations.js
+node _test\write-guard.js
+node _test\responses.js              &rem result.response = Kata's pattern, every reported question
+node _test\responses-mutations.js    &rem the 93c9780 response layer must FAIL responses.js
 ```
 
 All of them exit 0 on success.
@@ -30,6 +33,8 @@ All of them exit 0 on success.
 |---|---|
 | `verify-report.js` | Ids are byte-equal to `metadata/`. Each `SCREEN_TO_SUBCONTENT` covers exactly its component's screens. Every catalogue item has a screen, and every declared question is reported or **waived** (01-004 q3/q6/q8, decision 08.10). No question is reported twice. Script-tag order is correct, the library letter is inside the gate regex, and no identifier is declared in two layers. Storage keys agree (`UI_CHARACTER_KEY` = `CHARACTER_STORAGE_KEY`, `RESULT_KEYS` = `UNIT_SCORE_KEYS`). The flush follows the last commitment in every check function (D-13). The off-platform regression gate holds. Flags appear on every screen. The asset contract passes. |
 | `statement-flow.js` | Fresh load. The component-03 gate: fail flow, exact sequence, result, stays put, idempotent, dead button after reload (rule 12); pass flow, with 005/006 outside the denominator. Stations need all parts correct. s33/s41 report per field. The DQ retry gate (D-14). Guided steps report exactly q1/q2/q4/q5/q7. The task sends success with no score. Assessments use the declared denominator. Hints are sent once. Resume: no configuration in the document, the pending attempt is restored, no re-report, no duplicate `completed`. Repaint parity, live vs reloaded, screen by screen. Painters never throw (3 states × 7 components × every screen). |
+| `responses.js` | `result.response` (guide §6.3c, MOE runbook §3, 15.11.26). Every reported question answered correctly through its real engine sends exactly its `correctXapiResponsesPattern` from `metadata/` (which equals Kata): choice, multi-select clicked in reverse (`[,]`, answers order), the three one-source matching dropdowns (`source[.]target`), numeric, and the two multi-field fill-ins as Kata's `label: value, …` sentence. Every option of a choice/dropdown screen resolves to a metadata answer (s59q1's tables by position). Typed variants, no ` \| `/`=`/ids, the retired `xapiZoneAnswer`/`xapiFieldsAnswer`/`xapiMultiAnswer` absent. |
+| `responses-mutations.js` | Runs `responses.js` on a copy with `93c9780`'s `20-xapi.js`, `main.js`, or both: each must fail (44 `[resp]` failures with the old `20-xapi.js`). |
 | `asset-contract.js` | Unit-level asset layout. Paths are case-exact; Windows hides wrong case, the CDN does not. `?v=` is on every code reference and identical across components. |
 | `write-guard.js` | No write before the restore + the leave save (BOOT-AND-RESUME-HARDENING-2026-11-03.md §2.6, §2.10; 13.11.26, ported from proportion-01 on `jsdom-harness.js`, its jsdom boot retargeted): drain as read, `markSent` in memory before stage B, a failed read closes every write; the source shape of `40-resume.js` / `50-loader.js` (landing = `PART_CONFIG.start`); every part's inline `__resumeInFlight` (11000 ceiling), preloads equal to the loader's URL, preconnect, lazy images off the landing screen, no hidden autoplay clip with an inline `src`; the leave save on `-l` and `-k`. 49 of its 90 checks fail on the 2026-10-08b package. |
 | `xapi-720-l.js` | The `-k` stub plus `saveState720OnLeave` (`__leaveWrites()`). The other suites still load `xapi-720-k.js`. |
