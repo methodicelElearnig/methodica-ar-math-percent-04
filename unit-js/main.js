@@ -166,6 +166,11 @@ function goTo(n) {
   if (prev) prev.classList.remove("active");
   currentScreen = n;
   next.classList.add("active");
+  /* A hidden clip carries data-src instead of src, so the page does not download it at load
+     (BOOT-AND-RESUME-HARDENING §2.3 C4, 13.11.26: part 01's s9 / s21 clips). Moved to src on the
+     first entry, before resetScreenState (an enter hook may call load()); its autoplay starts it.
+     <video> only. */
+  next.querySelectorAll("video[data-src]").forEach((v) => { v.setAttribute("src", v.getAttribute("data-src")); v.removeAttribute("data-src"); });
   /* xAPI item scope — after the screen is active and currentScreen is set, before anything
      can navigate away. Swallowed on purpose: reporting must never stop a learner. */
   try { xapiOnScreen(n); } catch (e) {}
@@ -1473,7 +1478,7 @@ function buildGuidedScreens() {
           ${
             cfg.video
               ? `<video class="g-char g-char--video" src="../unit-assets/video/${cfg.video}" autoplay loop muted playsinline preload="auto" aria-label="الشخصية المرافقة"></video>`
-              : `<img class="g-char" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
+              : `<img loading="lazy" class="g-char" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
           }
           ${opts}
         </div>
@@ -1502,7 +1507,7 @@ function buildGuidedScreens() {
               <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
               <span class="rs-bubble-text">${cfg.bubble}</span>
             </div>
-            <img src="../unit-assets/img/character-thinking.png" alt="الشخصية المرافقة">
+            <img loading="lazy" src="../unit-assets/img/character-thinking.png" alt="الشخصية المرافقة">
           </div>`
             : ""
         }
@@ -2187,7 +2192,7 @@ const TAG_ANSWERS = (rows) =>
   `<span class="tag-row tag-row--fb">${rows
     .map(
       (r) =>
-        `<span class="tag-cell"><img class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش.ج">` +
+        `<span class="tag-cell"><img loading="lazy" class="tag-art" src="../unit-assets/img/${r.img}" alt="تصنيف ${r.was} ش.ج">` +
         `<span class="tag-answer tag-answer--done">${r.answer} ش.ج</span></span>`,
     )
     .join("")}</span>`;
@@ -3450,7 +3455,7 @@ function prBody(cfg, sid) {
       ${cfg.rows
         .map(
           (r, i) => `<div class="tag-cell">
-        <img class="tag-art" src="../unit-assets/img/${r.img}" alt="تسمية السعر: ${r.was} شاقل قبل الخصم، حقل السعر الجديد">
+        <img loading="lazy" class="tag-art" src="../unit-assets/img/${r.img}" alt="تسمية السعر: ${r.was} شاقل قبل الخصم، حقل السعر الجديد">
         <span class="tag-answer"><input id="${sid}-in-${i}" class="viq-input-box" type="number" inputmode="numeric" aria-label="السعر الجديد لـ ${r.was} شاقل" oninput="viqOnInput('${sid}')"><span class="viq-unit">ش.ج</span></span>
       </div>`,
         )
@@ -3507,7 +3512,7 @@ function buildPracticeScreens() {
             ${
               sec2.bubble
                 ? `<div class="scrollset-widget">
-                <img src="../unit-assets/img/${sec2.char || "character-thinking.png"}" alt="الشخصية المرافقة">
+                <img loading="lazy" src="../unit-assets/img/${sec2.char || "character-thinking.png"}" alt="الشخصية المرافقة">
                 <div class="rs-bubble rs-bubble--beside g-widget-bubble">
                   <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
                   <span class="rs-bubble-text">${sec2.bubble}</span>
@@ -3599,7 +3604,7 @@ function buildPracticeScreens() {
           <div class="transition-char transition-char--video">${
             cfg.video
               ? `<video src="../unit-assets/video/${cfg.video}" autoplay loop muted playsinline preload="auto" aria-label="الشخصية المرافقة"></video>`
-              : `<img src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
+              : `<img loading="lazy" src="../unit-assets/img/character-happy.png" alt="الشخصية المرافقة">`
           }</div>
         </div>
         <button class="btn-continue" id="${sid}-continue" onclick="advanceScreen()"><span class="nav-label" data-label="${cfg.cta}"><span>${cfg.cta}</span></span></button>
@@ -3616,7 +3621,7 @@ function buildPracticeScreens() {
         ? `<div class="g-widget"><div class="rs-bubble rs-bubble--beside g-widget-bubble">
              <svg class="rs-bubble-shape" viewBox="0 0 241 137" preserveAspectRatio="none" aria-hidden="true"><use href="#bubble-tail-right"/></svg>
              <span class="rs-bubble-text">${cfg.bubble}</span></div>
-             <img src="../unit-assets/img/${cfg.char || "character-thinking.png"}" alt="الشخصية المرافقة"></div>`
+             <img loading="lazy" src="../unit-assets/img/${cfg.char || "character-thinking.png"}" alt="الشخصية المرافقة"></div>`
         : "";
       const isStory = cfg.kind === "story";
       if (isStory) sec.classList.add("pr-story");

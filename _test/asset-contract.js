@@ -138,6 +138,9 @@ function checkAssetContract() {
     const code = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css)(?:\?[^"]*)?)"/g)].map(m => m[1]);
     ok('version', c + ': links ../unit-css/styles.css', code.some(u => u.split('?')[0] === '../unit-css/styles.css'));
     for (const u of code) {
+      /* the CDN library preloads (13.11.26, BOOT-AND-RESUME-HARDENING §2.3 C2) must equal the loader's
+         URL byte for byte — no ?v= — or the browser fetches the library twice */
+      if (/^https:\/\//.test(u)) { ok('version', c + ': ' + u + ' (CDN preload) carries no ?v=', !/\?/.test(u), u); continue; }
       const [file, q] = u.split('?');
       ok('version', c + ': ' + file + ' carries ?v=', /^v=\d+$/.test(q || ''), u);
       if (file === 'script.js') continue;                // per-part file: own version line

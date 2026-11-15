@@ -79,7 +79,7 @@ COMPONENTS.forEach(c => {
 });
 const loader = read('unit-js/50-loader.js');
 const lib = (loader.match(/RESUME_ENABLED \? '(xapi-720-[a-z])\.js'/) || [])[1];
-R.eq('layer', 'the loader names xapi-720-k with resume on', lib, 'xapi-720-k');
+R.eq('layer', 'the loader names xapi-720-l with resume on (the leave save, 13.11.26)', lib, 'xapi-720-l');
 R.ok('layer', 'the library letter is inside the XAPI_USING_G regex', new RegExp((loader.match(/XAPI_USING_G = \/(.+?)\/\.test/) || [])[1] || 'x^').test(lib + '.js'));
 R.ok('layer', 'main.js declares no SCREEN_TO_SUBCONTENT (it would overwrite script.js\'s)', !/^\s*(var|let|const)\s+SCREEN_TO_SUBCONTENT\b/m.test(main));
 R.ok('layer', 'main.js declares no shortId (10-identity.js owns it)', !/^function shortId\b/m.test(main));
