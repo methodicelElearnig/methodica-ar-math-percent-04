@@ -40,6 +40,29 @@
           ],
           "correctAnswers": [
             "8 ساعات"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "12 ساعة",
+                "description": "12 ساعة"
+              },
+              {
+                "id": "ساعتان",
+                "description": "ساعتان"
+              },
+              {
+                "id": "8 ساعات",
+                "description": "8 ساعات"
+              },
+              {
+                "id": "9.8 ساعات",
+                "description": "9.8 ساعات"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "8 ساعات"
           ]
         },
         {
@@ -54,6 +77,29 @@
           ],
           "correctAnswers": [
             "ب- 25%"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "بنسبة 15%",
+                "description": "بنسبة 15%"
+              },
+              {
+                "id": "ب- 20%",
+                "description": "ب- 20%"
+              },
+              {
+                "id": "ب- 25%",
+                "description": "ب- 25%"
+              },
+              {
+                "id": "ب- 30%",
+                "description": "ب- 30%"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "ب- 25%"
           ]
         },
         {
@@ -66,6 +112,25 @@
             "لا يمكن تحديده"
           ],
           "correctAnswers": [
+            "صحيحة"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "صحيحة",
+                "description": "صحيحة"
+              },
+              {
+                "id": "غير صحيحة",
+                "description": "غير صحيحة"
+              },
+              {
+                "id": "لا يمكن تحديده",
+                "description": "لا يمكن تحديده"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
             "صحيحة"
           ]
         }

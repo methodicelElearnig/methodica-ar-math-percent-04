@@ -35,6 +35,10 @@
           "answers": [],
           "correctAnswers": [
             800
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "800"
           ]
         },
         {
@@ -44,6 +48,10 @@
           "answers": [],
           "correctAnswers": [
             750
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "750"
           ]
         },
         {
@@ -56,6 +64,25 @@
             "6.25%"
           ],
           "correctAnswers": [
+            "6.25%"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "12%",
+                "description": "12%"
+              },
+              {
+                "id": "15%",
+                "description": "15%"
+              },
+              {
+                "id": "6.25%",
+                "description": "6.25%"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
             "6.25%"
           ]
         }
@@ -75,6 +102,10 @@
           "answers": [],
           "correctAnswers": [
             21
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "21"
           ]
         }
       ]
@@ -98,6 +129,25 @@
           "correctAnswers": [
             "من الممكن أن تعطي نسب خصم مختلفة على أسعار مختلفة نفس مبالغ الخصم بالشاقل.",
             "قد يكون هذا صحيحًا، فإذا كان السعر الأصلي للآلة الحاسبة أعلى من سعر اليوميّة وكانت هناك خصومات أعلى عليها، فإن مبلغ الخصم قد يكون متساويًا فيهما."
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "من الممكن أن تعطي نسب خصم مختلفة على أسعار مختلفة نفس مبالغ الخصم بالشاقل.",
+                "description": "من الممكن أن تعطي نسب خصم مختلفة على أسعار مختلفة نفس مبالغ الخصم بالشاقل."
+              },
+              {
+                "id": "قد يكون صحيحاً أنه إذا كان السعر الأصلي للمنتجين متساوياً، فإن مجموع الخصم سيكون متساوياً.",
+                "description": "قد يكون صحيحاً أنه إذا كان السعر الأصلي للمنتجين متساوياً، فإن مجموع الخصم سيكون متساوياً."
+              },
+              {
+                "id": "قد يكون هذا صحيحًا، فإذا كان السعر الأصلي للآلة الحاسبة أعلى من سعر اليوميّة وكانت هناك خصومات أعلى عليها، فإن مبلغ الخصم قد يكون متساويًا فيهما.",
+                "description": "قد يكون هذا صحيحًا، فإذا كان السعر الأصلي للآلة الحاسبة أعلى من سعر اليوميّة وكانت هناك خصومات أعلى عليها، فإن مبلغ الخصم قد يكون متساويًا فيهما."
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "من الممكن أن تعطي نسب خصم مختلفة على أسعار مختلفة نفس مبالغ الخصم بالشاقل.[,]قد يكون هذا صحيحًا، فإذا كان السعر الأصلي للآلة الحاسبة أعلى من سعر اليوميّة وكانت هناك خصومات أعلى عليها، فإن مبلغ الخصم قد يكون متساويًا فيهما."
           ]
         },
         {
@@ -106,6 +156,10 @@
           "questionText": "ب. إذا كان السعر الذي دفعه طارق على كل منتج هو 170 ₪، كم كان سعر كل منتج قبل الخصم؟ (بالشواقل)",
           "answers": [],
           "correctAnswers": [
+            "سعر الآلة الحاسبة الأصلي: 500، اليوميات ارتفعت: 200"
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
             "سعر الآلة الحاسبة الأصلي: 500، اليوميات ارتفعت: 200"
           ]
         }
@@ -130,6 +184,29 @@
           ],
           "correctAnswers": [
             "171 كغ"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "171 كغ",
+                "description": "171 كغ"
+              },
+              {
+                "id": "243 كغ",
+                "description": "243 كغ"
+              },
+              {
+                "id": "279 كغ",
+                "description": "279 كغ"
+              },
+              {
+                "id": "388 كغ",
+                "description": "388 كغ"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "171 كغ"
           ]
         },
         {
@@ -139,6 +216,10 @@
           "answers": [],
           "correctAnswers": [
             200
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "200"
           ]
         }
       ]
@@ -161,6 +242,29 @@
             "30%"
           ],
           "correctAnswers": [
+            "17.6%"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "17.6%",
+                "description": "17.6%"
+              },
+              {
+                "id": "20%",
+                "description": "20%"
+              },
+              {
+                "id": "20.6%",
+                "description": "20.6%"
+              },
+              {
+                "id": "30%",
+                "description": "30%"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
             "17.6%"
           ]
         }

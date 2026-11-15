@@ -40,6 +40,29 @@
           ],
           "correctAnswers": [
             "1,000 كوكب"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "500 كوكب",
+                "description": "500 كوكب"
+              },
+              {
+                "id": "750 كوكب",
+                "description": "750 كوكب"
+              },
+              {
+                "id": "1,000 كوكب",
+                "description": "1,000 كوكب"
+              },
+              {
+                "id": "لا يمكن معرفة العدد الأصلي بدون معطيات إضافية",
+                "description": "لا يمكن معرفة العدد الأصلي بدون معطيات إضافية"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "1,000 كوكب"
           ]
         }
       ]
@@ -58,6 +81,10 @@
           "answers": [],
           "correctAnswers": [
             81
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "81"
           ]
         },
         {
@@ -72,6 +99,29 @@
           ],
           "correctAnswers": [
             "27 ش.ج"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "20 ش.ج",
+                "description": "20 ش.ج"
+              },
+              {
+                "id": "25 ش.ج",
+                "description": "25 ش.ج"
+              },
+              {
+                "id": "27 ش.ج",
+                "description": "27 ش.ج"
+              },
+              {
+                "id": "30 ش.ج",
+                "description": "30 ش.ج"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "27 ش.ج"
           ]
         },
         {
@@ -85,6 +135,29 @@
             "30%"
           ],
           "correctAnswers": [
+            "25%"
+          ],
+          "xapiInteractionComponents": {
+            "choices": [
+              {
+                "id": "20%",
+                "description": "20%"
+              },
+              {
+                "id": "25%",
+                "description": "25%"
+              },
+              {
+                "id": "27%",
+                "description": "27%"
+              },
+              {
+                "id": "30%",
+                "description": "30%"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
             "25%"
           ]
         }
@@ -104,6 +177,10 @@
           "answers": [],
           "correctAnswers": [
             84
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "84"
           ]
         }
       ]
@@ -122,6 +199,10 @@
           "answers": [],
           "correctAnswers": [
             85
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "85"
           ]
         },
         {
@@ -131,6 +212,10 @@
           "answers": [],
           "correctAnswers": [
             170
+          ],
+          "xapiInteractionComponents": null,
+          "correctXapiResponsesPattern": [
+            "170"
           ]
         }
       ]
@@ -161,6 +246,31 @@
               "source": "كمية الشوكولاتة الداكنة في الكعكة الأكبر (بالغرام)",
               "target": "320"
             }
+          ],
+          "xapiInteractionComponents": {
+            "source": [
+              {
+                "id": "كمية الشوكولاتة الداكنة في الكعكة الأكبر (بالغرام)",
+                "description": "كمية الشوكولاتة الداكنة في الكعكة الأكبر (بالغرام)"
+              }
+            ],
+            "target": [
+              {
+                "id": "260",
+                "description": "260"
+              },
+              {
+                "id": "300",
+                "description": "300"
+              },
+              {
+                "id": "320",
+                "description": "320"
+              }
+            ]
+          },
+          "correctXapiResponsesPattern": [
+            "كمية الشوكولاتة الداكنة في الكعكة الأكبر (بالغرام)[.]320"
           ]
         }
       ]
