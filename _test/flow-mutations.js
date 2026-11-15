@@ -40,9 +40,10 @@ const MUTATIONS = {
     edit(M, 'var c = _optEl(sid, q.correctId); if (c) c.classList.add("correct");', ''),
   'engine configuration leaks into the document': () =>
     edit(M, 'scq: ["selected", "attempts", "done", "lastWrong", "result"],', 'scq: ["selected", "attempts", "done", "lastWrong", "result", "correctId"],'),
-  'a worked step reported as a question (01-004 q8)': () =>
-    edit(M, 's18: [18, "q7"],', 's18: [18, "q7"], s19: [19, "q8"],') ||
-    edit(M, "  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]);", "  xapiReport(sid, idx === cfg.correct, true, cfg.opts[idx]); if (sid === 's18') xapiReport('s19', true, true, '170');"),
+  /* since 2026-11-14 the whole guided walk-through (01-004) reports nothing: the mutation puts one of
+     its pick steps back into the map, which the [guided] check must catch */
+  'a guided step reported as a question (01-004 q1)': () =>
+    edit(M, 's6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"],', 's6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"], s10: [10, "q1"],'),
   'answered.last on every attempt (isLast idiom broken)': () =>
     edit(M, 'xapiReport(sid, isCorrect, isCorrect || q.attempts >= 2,', 'xapiReport(sid, isCorrect, true,'),
   'repaint missing from goTo': () =>

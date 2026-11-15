@@ -127,10 +127,13 @@ COMPONENTS.forEach(c => {
   for (let n = 10; n <= 20; n++) steps.push(go(n) + `(function(){var c=GUIDED.filter(function(x){return x.screen===${n}})[0]; if(c.opts) gPick('s${n}', ${n === 16} ? 1 - c.correct : c.correct);})();`);
   steps.push(go(21), go(22), ACT.scq('s22', true), go(23), ACT.viq('s23', true), go(24), ACT.viq('s24', true), go(25), ACT.viq('s25', true), go(26));
   const b = walk('01', steps);
-  R.eq('guided', '01-004 reports exactly q1, q2, q4, q5, q7 (q3/q6/q8 are worked steps — decision 08.10)',
-    tail(b).filter(l => /^answered.* 004\//.test(l)).map(l => l.split('/')[1]), ['q1', 'q2', 'q4', 'q5', 'q7']);
-  R.ok('guided', 'one-tap answers are always answered.last', tail(b).filter(l => / 004\//.test(l)).every(l => l.startsWith('answered.last')));
-  R.eq('score', '01: 13 of 16 reported questions', b.stmts().pop().result, { success: true, score: { scaled: 13 / 16 } });
+  /* 2026-11-14: 01-004 is a guided walk-through — it reports nothing and enters no score (unit owner's
+     rule of 10.11, GUIDED-ITEMS-REPORT.md group A). Before: q1, q2, q4, q5, q7 were reported and the
+     score was 13 of 16; the s16 wrong pick no longer counts. */
+  R.eq('guided', '01-004 (guided) reports no answered at all',
+    tail(b).filter(l => /^answered.* 004\//.test(l)).length, 0);
+  R.ok('guided', 'the guided picks are still kept (gState)', b.val("gState.s10 && gState.s10.answered === true && gState.s16 && gState.s16.answered === true") === true);
+  R.eq('score', '01: 9 of 11 reported questions (the guided steps are out)', b.stmts().pop().result, { success: true, score: { scaled: 9 / 11 } });
   R.ok('nav', '01 ends without navigating', b.w.location.pathname.indexOf('-01/') > 0 && b.val("document.getElementById('s25-check').disabled") === true);
   b.close();
 }

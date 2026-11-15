@@ -4150,14 +4150,17 @@ function applyExecutionState(st, screenOverride) {
 
    Keys are logical answers: the engine sid (s3, s59q2) or, where one screen carries one
    catalogue question PER FIELD, '<sid>r<field index>' (s33, s41).
-   ⚠️ 01-004 q3/q6/q8 are deliberately absent — worked steps the learner only reads.
+   ⚠️ 01-004, the guided walk-through "נפתור יחד" (s10-s20), reports nothing since 2026-11-14:
+   unit owner's rule of 10.11 (QA/2026-11-10-guided-items/GUIDED-ITEMS-REPORT.md, group A; as
+   ratio-05 a572ab3 and ratio-04 f46ec27). Kata declares no question on it, so s10, s11, s15, s16
+   and s18 (were q1, q2, q4, q5, q7) are out of this map: gPick keeps and saves the pick
+   (flushResumeSave), xapiReport finds no key and sends nothing, and the pick enters no score.
    ═══════════════════════════════════════════════════════════════════ */
 var XAPI_QMAP = {
   /* 01 */
   s0: [0, "q1"],
   s2: [2, "q1"], s3: [3, "q2"], s4: [4, "q3"],
   s6: [6, "q1"], s7: [7, "q2"], s8: [8, "q3"],
-  s10: [10, "q1"], s11: [11, "q2"], s15: [15, "q4"], s16: [16, "q5"], s18: [18, "q7"],
   s22: [22, "q1"], s23: [23, "q2"],
   s24: [24, "q1"], s25: [25, "q2"],
   /* 02 */

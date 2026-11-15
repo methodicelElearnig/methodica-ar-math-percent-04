@@ -60,7 +60,8 @@ var SCREEN_TO_SUBCONTENT = {
 };
 
 /* Items that carry a code-graded question (expectsAnswer on their 'completed'). */
-var XAPI_EVAL_ITEMS = { '001': 1, '002': 1, '003': 1, '004': 1, '005': 1, '006': 1 };
+/* 004, the guided walk-through, is out since 2026-11-14 (unit-js/main.js XAPI_QMAP note): its 'completed' carries no result. */
+var XAPI_EVAL_ITEMS = { '001': 1, '002': 1, '003': 1, '005': 1, '006': 1 };
 
 /* Each graded item's 'completed' carries an explicit result (per-question ratio, main.js
    itemResultFor) — the library's own aggregate is an all-correct AND. */
