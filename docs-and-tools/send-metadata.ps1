@@ -131,8 +131,9 @@ $ContentBaseUrl = 'https://lomdot.education.gov.il/metodica/720/ar/math/percent/
 # Title language key: wraps a string title into the API object, e.g.
 #   "מדידת מסה" -> { "Hebrew": "מדידת מסה" }. Change only for non-Hebrew content.
 # Arabic twin — the same word the component metadata uses in `languages`, as every ar twin sends.
-# ⚠️ KATA-API.md (19.10) asks for the `he` / `ar` keys on UNIT titles; in parent-unit mode no unit
-# title is sent, so this key only wraps component/item titles. Open question, flagged 15.11.26.
+# KATA-API.md (19.10) asks for the `he` / `ar` keys on UNIT titles. In parent-unit mode no unit title
+# is sent and component / item titles go as plain strings, so this key is unused here (checked in the
+# 15.11.26 dry run). The unit's `ar` title belongs to the Hebrew repo's sender ({ he, ar }).
 $TitleLangKey = 'Arabic'
 # ⚠️ NO LONGER SENT (2026-09-09). v2.5 §2.6 renamed the v2.4 component field
 # `manufacture` to the unit field `manufacturer` and retyped it as the ministry's
