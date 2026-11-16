@@ -5,7 +5,11 @@
   "learningObjective": "MOE.MATH.G8.NUM.PCT.PERCENT.CHG",
   "targetSectors": [
     "state-general",
-    "state-religious"
+    "state-religious",
+    "arab-sector",
+    "orthodox",
+    "bedouin-sector",
+    "druze-sector"
   ],
   "targetAudience": "general",
   "manufacturer": "310"
